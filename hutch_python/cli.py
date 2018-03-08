@@ -9,6 +9,7 @@ from pcdsdaq.sim import set_sim_mode as set_daq_sim
 
 from .constants import DIR_MODULE
 from .ipython_log import init_ipython_logger
+from .ipython_status import init_ipython_status
 from .load_conf import load
 from .log_setup import (setup_logging, set_console_level, debug_mode,
                         debug_context, debug_wrapper)
@@ -90,6 +91,7 @@ def hutch_ipython_embed(stack_offset=0):
     # + stack_offset for extra levels between this call and user space
     shell = InteractiveShellEmbed.instance()
     init_ipython_logger(shell)
+    init_ipython_status(shell)
     shell(stack_depth=stack_depth)
 
 
