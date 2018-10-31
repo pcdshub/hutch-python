@@ -1,6 +1,7 @@
 """
 This module provides utilities for grouping objects into namespaces.
 """
+from collections import defaultdict
 from inspect import isfunction
 import logging
 
@@ -131,28 +132,34 @@ def tree_namespace(scope=None):
     namespace: `IterableNamespace`
     """
     logger.debug('Create tree_namespace scope=%s', scope)
-    tree_space = IterableNamespace()
     scope_objs = extract_objs(scope=scope, stack_offset=1)
 
-    for name, obj in scope_objs.items():
-        logger.debug('Add %s to tree namespace', name)
-        upper_space = tree_space
-        keys = name.split('_')[:-1]
+    def nested_defaultdict():
+        return defaultdict(nested_defaultdict)
 
-        if keys:
-            # Add key to existing namespace branch, create new if needed
-            for key in keys:
-                name = strip_prefix(name, key)
-                # Force lowercase
-                key = key.lower()
-                if not hasattr(upper_space, key):
-                    setattr(upper_space, key, IterableNamespace())
-                upper_space = getattr(upper_space, key)
-            if hasattr(upper_space, name):
-                logger.warning(('Tried to add {} to {}, but something was '
-                                'already there. Two devices share the same '
-                                'name!'.format(name, upper_space)))
+    tree_dict = nested_defaultdict()
+
+    # Decide which nodes are objs, which are namespaces
+    for name, obj in scope_objs.items():
+        curr_dict = tree_dict
+        keys = name.split('_')
+        for key in keys:
+            curr_dict = curr_dict[key]
+        curr_dict['_obj'] = obj
+
+    # Unpack tree_dict to make tree_space
+    def unpack_node(node):
+        obj = node.pop('_obj', None)
+        if obj is None:
+            obj = IterableNamespace()
+        for key, value in node.items():
+            if hasattr(obj, key):
+                logger.warning('Issue in tree_namespace, tried to overrwrite'
+                               '%s.%s=%s', obj, key, getattr(obj, key))
             else:
-                setattr(upper_space, name, obj)
+                setattr(obj, key, unpack_node(value))
+        return obj
+
+    tree_space = unpack_node(tree_dict)
     logger.debug('Created tree namespace %s', tree_space)
     return tree_space
