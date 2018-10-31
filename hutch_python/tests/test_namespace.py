@@ -66,9 +66,21 @@ def test_tree_namespace():
     assert xpp.sb2.obj5 == 5
 
 
-def test_conflicting_name():
-    logger.debug('test_conflicting_name')
+def test_same_name():
+    logger.debug('test_same_name')
     # This should be ok, but make sure the warning is covered
     scope = SimpleNamespace(hutch_stand=SimpleNamespace(dev=1),
                             hutch_stand_dev=2)
     tree_namespace(scope=scope)
+
+
+def test_conflicting_name():
+    logger.debug('test_conflicting_name')
+    # There was a bug where names could conflict with eachother
+    scope = SimpleNamespace(daq='daq',
+                            daq_repeat_echo='daq_repeat_echo',
+                            daq_repeat='daq_repeat')
+    ns = tree_namespace(scope=scope)
+    assert ns.daq == 'daq'
+    assert ns.daq.repeat.echo == 'daq_repeat_echo'
+    assert ns.daq.repeat == 'daq_repeat'
