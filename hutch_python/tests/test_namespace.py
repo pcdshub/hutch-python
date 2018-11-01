@@ -77,10 +77,12 @@ def test_same_name():
 def test_conflicting_name():
     logger.debug('test_conflicting_name')
     # There was a bug where names could conflict with eachother
-    scope = SimpleNamespace(daq='daq',
+    scope = SimpleNamespace(daq=Signal(name='daq'),
                             daq_repeat_echo='daq_repeat_echo',
-                            daq_repeat='daq_repeat')
+                            daq_repeat=Signal(name='daq_repeat'),
+                            daq_deep='daq_deep',
+                            daq_deep_deep=Signal(name='daq_deep_deep'))
     ns = tree_namespace(scope=scope)
-    assert ns.daq == 'daq'
+    assert ns.daq.name == 'daq'
     assert ns.daq.repeat.echo == 'daq_repeat_echo'
-    assert ns.daq.repeat == 'daq_repeat'
+    assert ns.daq.repeat.name == 'daq_repeat'

@@ -26,7 +26,7 @@ from .namespace import class_namespace, tree_namespace
 from .qs_load import get_qs_objs
 from .user_load import get_user_objs
 from .utils import (get_current_experiment, safe_load, hutch_banner,
-                    count_ns_leaves)
+                    count_ns_leaves, IterableNamespace)
 
 logger = logging.getLogger(__name__)
 
@@ -305,8 +305,9 @@ def load_conf(conf, hutch_dir=None):
             tree = tree_namespace(scope='hutch_python.db')
             # Prune meta, remove branches with only one object
             for name, space in tree.__dict__.items():
-                if count_ns_leaves(space) > 1:
-                    cache(**{name: space})
+                if isinstance(space, IterableNamespace):
+                    if count_ns_leaves(space) > 1:
+                        cache(**{name: space})
 
         all_objs = copy(cache.objs)
         cache(a=all_objs, all_objects=all_objs)

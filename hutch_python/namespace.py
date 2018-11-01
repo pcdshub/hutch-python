@@ -154,10 +154,19 @@ def tree_namespace(scope=None):
             obj = IterableNamespace()
         for key, value in node.items():
             if hasattr(obj, key):
+                # This means we would be overwriting something important
                 logger.warning('Issue in tree_namespace, tried to overrwrite'
                                '%s.%s=%s', obj, key, getattr(obj, key))
             else:
-                setattr(obj, key, unpack_node(value))
+                sub_node = unpack_node(value)
+                try:
+                    setattr(obj, key, sub_node)
+                except AttributeError:
+                    # This means that the object can't have attributes set
+                    logger.warning('Object %r not a valid node, omitting '
+                                   'from tree', obj)
+                    obj = IterableNamespace()
+                    setattr(obj, key, sub_node)
         return obj
 
     tree_space = unpack_node(tree_dict)
