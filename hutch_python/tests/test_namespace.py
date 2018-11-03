@@ -86,3 +86,11 @@ def test_conflicting_name():
     assert ns.daq.name == 'daq'
     assert ns.daq.repeat.echo == 'daq_repeat_echo'
     assert ns.daq.repeat.name == 'daq_repeat'
+
+
+def test_invalid_names():
+    logger.debug('test_invalid_names')
+    # Do not crash, but cover warnings and verify not in tree
+    scope = SimpleNamespace(cheese_in_wheel=4, why_1=1)
+    ns = tree_namespace(scope=scope)
+    assert len(ns) == 0
