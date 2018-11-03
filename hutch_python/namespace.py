@@ -8,8 +8,7 @@ import logging
 
 from ophyd import Device
 
-from .utils import (IterableNamespace, find_class, strip_prefix,
-                    extract_objs)
+from .utils import IterableNamespace, find_class, extract_objs
 
 logger = logging.getLogger(__name__)
 
