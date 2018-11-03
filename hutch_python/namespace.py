@@ -3,6 +3,7 @@ This module provides utilities for grouping objects into namespaces.
 """
 from collections import defaultdict
 from inspect import isfunction
+from keyword import iskeyword
 import logging
 
 from ophyd import Device
@@ -143,9 +144,24 @@ def tree_namespace(scope=None):
     for name, obj in scope_objs.items():
         curr_dict = tree_dict
         keys = name.split('_')
+        valid_keys = True
         for key in keys:
-            curr_dict = curr_dict[key]
-        curr_dict['_obj'] = obj
+            if iskeyword(key):
+                logger.warning('Issue in tree_namespace, %s in %s is a '
+                               'reserved python keyword, omitting from tree',
+                               key, name)
+                valid_keys = False
+                break
+            if not key.isidentifier():
+                logger.warning('Issue in tree_namespace, %s in %s is an '
+                               'invalid python identifier, omitting from tree',
+                               key, name)
+                valid_keys = False
+                break
+        if valid_keys:
+            for key in keys:
+                curr_dict = curr_dict[key]
+            curr_dict['_obj'] = obj
 
     # Unpack tree_dict to make tree_space
     def unpack_node(node):
