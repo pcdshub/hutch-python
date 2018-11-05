@@ -112,7 +112,7 @@ def class_namespace(cls, scope=None):
     return class_space
 
 
-def tree_namespace(scope=None):
+def tree_namespace(objs=None):
     """
     Create a ``namespace`` that accumulates objects and creates a tree.
 
@@ -122,17 +122,14 @@ def tree_namespace(scope=None):
 
     Parameters
     ----------
-    scope: ``module``, ``namespace``, or ``list`` of these
-        Every object attached to the given modules will be considered for the
-        `tree_namespace`. If ``scope`` is omitted, we'll check all objects
-        loaded by ``hutch-python`` and everything in the caller's global frame.
+    objs: ``dict``
+        The objects to assemble into a tree.
 
     Returns
     -------
     namespace: `IterableNamespace`
     """
-    logger.debug('Create tree_namespace scope=%s', scope)
-    scope_objs = extract_objs(scope=scope, stack_offset=1)
+    logger.debug('Create tree_namespace objs=%s', objs)
 
     def nested_defaultdict():
         return defaultdict(nested_defaultdict)
@@ -140,7 +137,7 @@ def tree_namespace(scope=None):
     tree_dict = nested_defaultdict()
 
     # Decide which nodes are objs, which are namespaces
-    for name, obj in scope_objs.items():
+    for name, obj in objs.items():
         curr_dict = tree_dict
         keys = name.split('_')
         valid_keys = True

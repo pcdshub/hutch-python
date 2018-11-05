@@ -302,7 +302,7 @@ def load_conf(conf, hutch_dir=None):
         default_class_namespace('EpicsMotor', 'motors', cache)
         default_class_namespace('Slits', 'slits', cache)
         if hutch is not None:
-            tree = tree_namespace(scope='hutch_python.db')
+            tree = tree_namespace(objs=cache.group_objs)
             # Prune meta, remove branches with only one object
             for name, space in tree.__dict__.items():
                 if isinstance(space, IterableNamespace):
