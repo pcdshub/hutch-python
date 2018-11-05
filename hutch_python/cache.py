@@ -38,9 +38,24 @@ class LoadCache:
     objs: `IterableNamespace`
         This is a namespace containing all the objects that have been attached
         to the ``LoadCache``.
+
+    all_objs: ``dict``
+        The dictionary corresponding to ``objs``.
+
+    group_objs: ``dict``
+        A subset of ``all_objs`` to be considered for tree grouping
+
+    groups: ``list`` of ``str``
+        Valid group names
     """
+    groups = ['daq', 'det', 'las',
+              'fee', 'amo', 'sxr', 'hx2', 'xpp',
+              'xrt', 'pbt', 'xcs', 'mfx', 'cxi', 'mec']
+
     def __init__(self, module, hutch_dir=None, **objs):
         self.objs = IterableNamespace(**objs)
+        self.all_objs = self.objs.__dict__
+        self.group_objs = {}
         self.hutch_dir = hutch_dir
         self.module = module
         self.spoof_module(module)
@@ -74,7 +89,10 @@ class LoadCache:
             The key will is the namespace-accessible name, and the object
             is the object we are adding.
         """
-        self.objs.__dict__.update(**objs)
+        self.all_objs.update(**objs)
+        for name, obj in objs.items():
+            if name.split('_')[0] in self.groups:
+                self.group_objs[name] = obj
 
     def write_file(self):
         """
@@ -87,7 +105,7 @@ class LoadCache:
             db_path = self.hutch_dir / Path('/'.join(parts))
             text = (header.format(parts[0])
                     + body.format(datetime.datetime.now()))
-            for name, obj in self.objs.__dict__.items():
+            for name, obj in self.all_objs.items():
                 text += '{:<20} {}\n'.format(name, obj.__class__)
             if not db_path.exists():
                 db_path.touch()
