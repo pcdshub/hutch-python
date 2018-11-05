@@ -167,7 +167,7 @@ def tree_namespace(objs=None):
         for key, value in node.items():
             if hasattr(obj, key):
                 # This means we would be overwriting something important
-                logger.warning('Issue in tree_namespace, tried to overrwrite'
+                logger.warning('Issue in tree_namespace, tried to overwrite'
                                '%s.%s=%s', obj, key, getattr(obj, key))
             else:
                 sub_node = unpack_node(value)
