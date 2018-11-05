@@ -148,7 +148,7 @@ def tree_namespace(objs=None):
                                key, name)
                 valid_keys = False
                 break
-            if not key.isidentifier():
+            elif not key.isidentifier():
                 logger.warning('Issue in tree_namespace, %s in %s is an '
                                'invalid python identifier, omitting from tree',
                                key, name)
