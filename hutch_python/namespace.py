@@ -182,5 +182,6 @@ def tree_namespace(objs=None):
         return obj
 
     tree_space = unpack_node(tree_dict)
-    logger.debug('Created tree namespace %s', tree_space)
+    logger.debug('Created tree namespace with groups %s',
+                 tree_space.__dict__.keys())
     return tree_space
