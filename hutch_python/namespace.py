@@ -129,7 +129,7 @@ def tree_namespace(objs=None):
     -------
     namespace: `IterableNamespace`
     """
-    logger.debug('Create tree_namespace objs=%s', objs)
+    logger.debug('Create tree_namespace objs=%s', objs.keys())
 
     def nested_defaultdict():
         return defaultdict(nested_defaultdict)
