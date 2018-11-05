@@ -52,11 +52,11 @@ def test_class_namespace_subdevices():
 
 
 def test_tree_namespace():
-    logger.debug('test_metadata_namespace')
-    scope = SimpleNamespace(mfx_dia_obj1=1, mfx_dia_obj2=2,
-                            mfx_dg2_obj3=3, mfx_obj4=4,
-                            xpp_sb2_obj5=5)
-    namespaces = tree_namespace(scope=scope)
+    logger.debug('test_tree_namespace')
+    objs = dict(mfx_dia_obj1=1, mfx_dia_obj2=2,
+                mfx_dg2_obj3=3, mfx_obj4=4,
+                xpp_sb2_obj5=5)
+    namespaces = tree_namespace(objs)
     mfx = namespaces.mfx
     xpp = namespaces.xpp
     assert mfx.dia.obj1 == 1
@@ -69,20 +69,20 @@ def test_tree_namespace():
 def test_same_name():
     logger.debug('test_same_name')
     # This should be ok, but make sure the warning is covered
-    scope = SimpleNamespace(hutch_stand=SimpleNamespace(dev=1),
-                            hutch_stand_dev=2)
-    tree_namespace(scope=scope)
+    objs = dict(hutch_stand=SimpleNamespace(dev=1),
+                hutch_stand_dev=2)
+    tree_namespace(objs=objs)
 
 
 def test_conflicting_name():
     logger.debug('test_conflicting_name')
     # There was a bug where names could conflict with eachother
-    scope = SimpleNamespace(daq=Signal(name='daq'),
-                            daq_repeat_echo='daq_repeat_echo',
-                            daq_repeat=Signal(name='daq_repeat'),
-                            daq_deep='daq_deep',
-                            daq_deep_deep=Signal(name='daq_deep_deep'))
-    ns = tree_namespace(scope=scope)
+    objs = dict(daq=Signal(name='daq'),
+                daq_repeat_echo='daq_repeat_echo',
+                daq_repeat=Signal(name='daq_repeat'),
+                daq_deep='daq_deep',
+                daq_deep_deep=Signal(name='daq_deep_deep'))
+    ns = tree_namespace(objs=objs)
     assert ns.daq.name == 'daq'
     assert ns.daq.repeat.echo == 'daq_repeat_echo'
     assert ns.daq.repeat.name == 'daq_repeat'
@@ -91,6 +91,6 @@ def test_conflicting_name():
 def test_invalid_names():
     logger.debug('test_invalid_names')
     # Do not crash, but cover warnings and verify not in tree
-    scope = SimpleNamespace(cheese_in_wheel=4, why_1=1)
-    ns = tree_namespace(scope=scope)
+    objs = dict(cheese_in_wheel=4, why_1=1)
+    ns = tree_namespace(objs=objs)
     assert len(ns) == 0

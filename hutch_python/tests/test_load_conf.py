@@ -8,6 +8,7 @@ from pcdsdaq.sim import set_sim_mode
 from pcdsdevices.mv_interface import Presets
 
 import hutch_python.qs_load
+from hutch_python.cache import LoadCache
 from hutch_python.load_conf import load, load_conf
 
 from .conftest import QSBackend, ELog, TST_CAM_CFG
@@ -18,6 +19,8 @@ logger = logging.getLogger(__name__)
 def test_file_load():
     logger.debug('test_file_load')
     set_sim_mode(True)
+    if 'tst' not in LoadCache.groups:
+        LoadCache.groups.append('tst')
     objs = load(os.path.join(os.path.dirname(__file__), 'conf.yaml'))
     should_have = ('x', 'unique_device', 'calc_thing', 'daq', 'tst_beampath',
                    'scan_pvs')
