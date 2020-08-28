@@ -10,6 +10,7 @@ from socket import gethostname
 from types import SimpleNamespace
 
 from bluesky import RunEngine
+from bluesky.callbacks.mpl_plotting import initialize_qt_teleporter
 from bluesky.callbacks.best_effort import BestEffortCallback
 from bluesky.utils import install_kicker
 from elog import HutchELog
@@ -216,7 +217,8 @@ def load_conf(conf, hutch_dir=None):
 
     # Make RunEngine
     RE = RunEngine({})
-    bec = BestEffortCallback()
+    initialize_qt_teleporter()
+    bec = BestEffortCallback(use_teleporter=True)
     RE.subscribe(bec)
     cache(RE=RE)
     try:
