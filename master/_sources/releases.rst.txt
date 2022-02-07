@@ -1,12 +1,25 @@
 Release History
 ###############
 
-v1.13.1 (2022-??-??)
+v1.13.1 (2022-02-07)
 ====================
 
 Fixes and Maintenance
 ---------------------
 - Noisy logger detection is now configured but disabled by default.
+- Noisy logger detection is split between the file and the console.
+- Allow both QtAgg and Qt5Agg as valid matplolib backends for the loaded
+  environment.
+- Include ``daq_type`` and ``daq_host`` in the list of valid keys for the
+  purpose of warning the user about a malformed config. These have been
+  valid, but produce an incorrect warning.
+- Expand the default LCLS2 DAQ timeout from 1 second to 10 seconds to fix
+  an issue where we would time out on expected long operations.
+
+Contributors
+------------
+- klauer
+- zllentz
 
 
 v1.13.0 (2021-11-10)

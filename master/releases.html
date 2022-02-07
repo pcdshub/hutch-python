@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release History &mdash; hutch-python 1.13.0+11.g18063d5 documentation</title>
+  <title>Release History &mdash; hutch-python 1.13.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.13.0+11.g18063d5
+                1.13.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -65,8 +65,9 @@
 <li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#v1-13-1-2022">v1.13.1 (2022-??-??)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v1-13-1-2022-02-07">v1.13.1 (2022-02-07)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fixes-and-maintenance">Fixes and Maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#v1-13-0-2021-11-10">v1.13.0 (2021-11-10)</a><ul>
@@ -278,12 +279,27 @@
 </style>
 <div class="section" id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="v1-13-1-2022">
-<h2>v1.13.1 (2022-??-??)<a class="headerlink" href="#v1-13-1-2022" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v1-13-1-2022-02-07">
+<h2>v1.13.1 (2022-02-07)<a class="headerlink" href="#v1-13-1-2022-02-07" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="fixes-and-maintenance">
 <h3>Fixes and Maintenance<a class="headerlink" href="#fixes-and-maintenance" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Noisy logger detection is now configured but disabled by default.</p></li>
+<li><p>Noisy logger detection is split between the file and the console.</p></li>
+<li><p>Allow both QtAgg and Qt5Agg as valid matplolib backends for the loaded
+environment.</p></li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">daq_type</span></code> and <code class="docutils literal notranslate"><span class="pre">daq_host</span></code> in the list of valid keys for the
+purpose of warning the user about a malformed config. These have been
+valid, but produce an incorrect warning.</p></li>
+<li><p>Expand the default LCLS2 DAQ timeout from 1 second to 10 seconds to fix
+an issue where we would time out on expected long operations.</p></li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>klauer</p></li>
+<li><p>zllentz</p></li>
 </ul>
 </div>
 </div>
