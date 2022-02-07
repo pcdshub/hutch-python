@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiment File &mdash; hutch-python 1.13.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Presets" href="presets.html" />
+    <link rel="prev" title="Beamline File" href="beamline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.13.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Experiment File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#questionnaire">Questionnaire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Experiment File</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/experiment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="experiment-file">
+<h1>Experiment File<a class="headerlink" href="#experiment-file" title="Permalink to this headline">¶</a></h1>
+<p>Each hutch repository has an <code class="docutils literal notranslate"><span class="pre">experiments</span></code> directory for storing
+experiment-specific code. To have the <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> loader automatically
+pick up your experiment’s code, you will need to follow some conventions.</p>
+<p>An experiment name will be something like <code class="docutils literal notranslate"><span class="pre">xppls2516</span></code> which is composed of
+the hutch <code class="docutils literal notranslate"><span class="pre">xpp</span></code>, the proposal <code class="docutils literal notranslate"><span class="pre">ls25</span></code>, and the run <code class="docutils literal notranslate"><span class="pre">16</span></code>. Hutch python is
+looking for a file named <code class="docutils literal notranslate"><span class="pre">experiments/ls2516.py</span></code>, which is simply the
+proposal name and the run concatenated, all lowercase.</p>
+<p>The import rules for this file can be thought of as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">experiments.ls2516</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">user</span>
+</pre></div>
+</div>
+<p>So, you are expected to organize your experiment-specific objects, plans, and
+macros into a cohesive <code class="docutils literal notranslate"><span class="pre">User</span></code> class.</p>
+<p>If your <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file does not include an <code class="docutils literal notranslate"><span class="pre">experiment</span></code> specification,
+the current experiment is picked up automatically. If you want to use an
+experiment other than the current experiment, you can override this as:</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">experiment</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proposal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ls25</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span><span class="w"></span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="yaml_files.html"><span class="doc">Yaml Files</span></a> for more information.</p>
+<p>You can also override for a single session with a command-line argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hutch-python --exp ls2516
+</pre></div>
+</div>
+<div class="section" id="questionnaire">
+<h2>Questionnaire<a class="headerlink" href="#questionnaire" title="Permalink to this headline">¶</a></h2>
+<p>The CDS section of the questionnaire is read by <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>, and objects
+with defined python names are created. Links to the questionnaire for each run
+can be found at <a class="reference external" href="https://pswww.slac.stanford.edu">https://pswww.slac.stanford.edu</a>.</p>
+<p>These questionnaire objects will make it into the main namespace like all the
+other objects, and will also be attached to the <code class="docutils literal notranslate"><span class="pre">User()</span></code> object.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="beamline.html" class="btn btn-neutral float-left" title="Beamline File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="presets.html" class="btn btn-neutral float-right" title="Presets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

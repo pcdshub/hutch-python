@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hutch_python.bug.get_current_environment &mdash; hutch-python 1.13.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hutch_python.bug.get_last_n_commands" href="hutch_python.bug.get_last_n_commands.html" />
+    <link rel="prev" title="bug.py" href="../bug.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.13.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../bug.html">bug.py</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.bug.get_current_environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.get_last_n_commands.html">hutch_python.bug.get_last_n_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.get_text_from_editor.html">hutch_python.bug.get_text_from_editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.report_bug.html">hutch_python.bug.report_bug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.post_to_github.html">hutch_python.bug.post_to_github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../bug.html">bug.py</a> &raquo;</li>
+      <li>hutch_python.bug.get_current_environment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/hutch_python.bug.get_current_environment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="hutch-python-bug-get-current-environment">
+<h1>hutch_python.bug.get_current_environment<a class="headerlink" href="#hutch-python-bug-get-current-environment" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hutch_python.bug.get_current_environment">
+<span class="sig-prename descclassname"><span class="pre">hutch_python.bug.</span></span><span class="sig-name descname"><span class="pre">get_current_environment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.bug.get_current_environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current CONDA environment</p>
+<p>The environment name is gathered by first checking environment variable
+<code class="docutils literal notranslate"><span class="pre">$CONDA_ENVNAME</span></code> that is set by the hutch-python startup scripts. If for
+whatever reason that is not available we check <code class="docutils literal notranslate"><span class="pre">$CONDA_DEFAULT_ENV</span></code> which
+is set by Conda itself. The reason this is not relied on primarily is it
+has a strange name and is entirely undocumented but seems to work
+effectively.</p>
+<p>In addition the hutch-python startup script sets the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> to pick
+up packages in “development” mode. The list of package names installed this
+way is found to help inform how the current Python environment differs from
+the enforced CONDA environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>env</strong> (<em>str</em>) – Name of environment</p></li>
+<li><p><strong>dev_pkgs</strong> (<em>list</em>) – List of packages installed in the development folder</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../bug.html" class="btn btn-neutral float-left" title="bug.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hutch_python.bug.get_last_n_commands.html" class="btn btn-neutral float-right" title="hutch_python.bug.get_last_n_commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
