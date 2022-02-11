@@ -1,6 +1,25 @@
 Release History
 ###############
 
+v1.13.2 (2022-02-11)
+====================
+
+Fixes and Maintenance
+---------------------
+Configure ``IPython`` to disable ``black`` input reformatting,
+for three reasons:
+
+  1. Throws errors in our terminal after the first input
+  2. Conflicts with advice in the ``black`` github issues that assert that
+     ``black`` is not ready to be used as an import.
+  3. I don't think it's a good fit for the scientific computing and expect
+     that it will be annoying in practice.
+
+Contributors
+------------
+- zllentz
+
+
 v1.13.1 (2022-02-07)
 ====================
 
