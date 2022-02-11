@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hutch_python.log_setup.ObjectFilter &mdash; hutch-python 1.13.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hutch_python.log_setup.log_objects" href="hutch_python.log_setup.log_objects.html" />
+    <link rel="prev" title="hutch_python.log_setup.debug_wrapper" href="hutch_python.log_setup.debug_wrapper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.13.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../log_setup.html">log_setup.py</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../log_setup.html#functionality-overview">Functionality overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.setup_logging.html">hutch_python.log_setup.setup_logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.get_session_logfiles.html">hutch_python.log_setup.get_session_logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.get_log_directory.html">hutch_python.log_setup.get_log_directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.get_console_handler.html">hutch_python.log_setup.get_console_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.get_console_level.html">hutch_python.log_setup.get_console_level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.get_console_level_name.html">hutch_python.log_setup.get_console_level_name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.set_console_level.html">hutch_python.log_setup.set_console_level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_mode.html">hutch_python.log_setup.debug_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_context.html">hutch_python.log_setup.debug_context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_wrapper.html">hutch_python.log_setup.debug_wrapper</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.log_setup.ObjectFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.log_objects.html">hutch_python.log_setup.log_objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.log_objects_off.html">hutch_python.log_setup.log_objects_off</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../log_setup.html">log_setup.py</a> &raquo;</li>
+      <li>hutch_python.log_setup.ObjectFilter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/hutch_python.log_setup.ObjectFilter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="hutch-python-log-setup-objectfilter">
+<h1>hutch_python.log_setup.ObjectFilter<a class="headerlink" href="#hutch-python-log-setup-objectfilter" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hutch_python.log_setup.ObjectFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hutch_python.log_setup.</span></span><span class="sig-name descname"><span class="pre">ObjectFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ophyd.ophydobj.OphydObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist_all_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_1s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_10s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_60s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blacklist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_other_messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.log_setup.ObjectFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A logging filter that limits log messages to a specific object or objects.</p>
+<p>To be paired with a logging handler added to the ophyd object logger.</p>
+<p>Additionally has the capability of filtering out noisy loggers based on
+three thresholds: log message rates at 1 second, 10 seconds, and 60
+seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objs</strong> (<em>iterable of OphydObject</em>) – Ophyd objects to filter.</p></li>
+<li><p><strong>level</strong> (<em>str</em><em> or </em><em>int</em>) – Cut-off level for log messages.
+Default is ‘WARNING’. Python log level names or their corresponding
+integers are accepted.</p></li>
+<li><p><strong>whitelist_all_level</strong> (<em>str</em><em> or </em><em>int</em>) – Cut-off level for log messages.
+Default is ‘WARNING’. Python log level names or their corresponding
+integers are accepted.</p></li>
+<li><p><strong>allow_other_messages</strong> (<em>bool</em><em>, </em><em>optional</em>) – Allow messages through the filter that are not specific to ophyd
+objects.  Ophyd object-related messages _must_ pass the filter.</p></li>
+<li><p><strong>noisy_threshold_1s</strong> (<em>int</em><em>, </em><em>optional</em>) – If a single ophyd object logs over <code class="docutils literal notranslate"><span class="pre">noisy_threshold_1s</span></code> log messages
+in one second, consider it a noisy logger and silence it.  May be
+disabled by setting to 0.</p></li>
+<li><p><strong>noisy_threshold_10s</strong> (<em>int</em><em>, </em><em>optional</em>) – If a single ophyd object logs over <code class="docutils literal notranslate"><span class="pre">noisy_threshold_10s</span></code> log messages
+in ten seconds, consider it a noisy logger and silence it.  May be
+disabled by setting to 0.</p></li>
+<li><p><strong>noisy_threshold_60s</strong> (<em>int</em><em>, </em><em>optional</em>) – If a single ophyd object logs over <code class="docutils literal notranslate"><span class="pre">noisy_threshold_60s</span></code> log messages
+in 60 seconds, consider it a noisy logger and silence it.  May be
+disabled by setting to 0.</p></li>
+<li><p><strong>whitelist</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Logger or object names that are not subject to the thresholds above.</p></li>
+<li><p><strong>blacklist</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Logger or object names that should always be filtered out.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hutch_python.log_setup.ObjectFilter.blacklist">
+<span class="sig-name descname"><span class="pre">blacklist</span></span><a class="headerlink" href="#hutch_python.log_setup.ObjectFilter.blacklist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logger names that should always be filtered out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hutch_python.log_setup.ObjectFilter.whitelist">
+<span class="sig-name descname"><span class="pre">whitelist</span></span><a class="headerlink" href="#hutch_python.log_setup.ObjectFilter.whitelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of noisy loggers or object names that are exempt from the noise
+thresholds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hutch_python.log_setup.ObjectFilter.noisy_loggers">
+<span class="sig-name descname"><span class="pre">noisy_loggers</span></span><a class="headerlink" href="#hutch_python.log_setup.ObjectFilter.noisy_loggers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loggers marked as noisy and to be filtered out, unless in the
+whitelist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>set of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hutch_python.log_setup.ObjectFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ophyd.ophydobj.OphydObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist_all_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WARNING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_1s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_10s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noisy_threshold_60s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blacklist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_other_messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.log_setup.ObjectFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a filter.</p>
+<p>Initialize with the name of the logger which, together with its
+children, will have its events allowed through the filter. If no
+name is specified, allow every event.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.__init__" title="hutch_python.log_setup.ObjectFilter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*objects[, level, ...])</p></td>
+<td><p>Initialize a filter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable</span></code>()</p></td>
+<td><p>Disable the filter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code>(record)</p></td>
+<td><p>Determine if the specified record is to be logged.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code>()</p></td>
+<td><p>Stop updating logging rates in the background.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>A description of the current configuration.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">level</span></code></p></td>
+<td><p>The logging level name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">levelno</span></code></p></td>
+<td><p>The logging level number.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_names</span></code></p></td>
+<td><p>The names of all contained objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">objects</span></code></p></td>
+<td><p>The objects to log.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">whitelist_all_level</span></code></p></td>
+<td><p>The logging level at which we whitelist <em>all</em> objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">allow_other_messages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_to_log_count_1s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_to_log_count_10s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_to_log_count_60s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy_threshold_1s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy_threshold_10s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy_threshold_60s</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.whitelist" title="hutch_python.log_setup.ObjectFilter.whitelist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">whitelist</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.noisy_loggers" title="hutch_python.log_setup.ObjectFilter.noisy_loggers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy_loggers</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.blacklist" title="hutch_python.log_setup.ObjectFilter.blacklist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blacklist</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hutch_python.log_setup.debug_wrapper.html" class="btn btn-neutral float-left" title="hutch_python.log_setup.debug_wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hutch_python.log_setup.log_objects.html" class="btn btn-neutral float-right" title="hutch_python.log_setup.log_objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Sequence &mdash; hutch-python 1.13.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Database Objects" href="database.html" />
+    <link rel="prev" title="What to Expect When You are Expecting a New Hutch Python" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.13.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Startup Sequence</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/startup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="startup-sequence">
+<h1>Startup Sequence<a class="headerlink" href="#startup-sequence" title="Permalink to this headline">¶</a></h1>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">xxxpython</span></code> is an alias for calling <code class="docutils literal notranslate"><span class="pre">hutch-python</span> <span class="pre">--cfg</span> <span class="pre">cfg.yml</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">cfg.yml</span></code> file defines what the loader will do. The specifics of this
+file are documented on the <a class="reference internal" href="yaml_files.html"><span class="doc">yaml files</span></a> page.</p>
+<p>Each step of the startup can freely access any objects defined by previous
+steps. In order, the startup sequence is as follows:</p>
+<ul class="simple">
+<li><p>Common Startup</p>
+<ul>
+<li><p>Set up log files, debug state, and sim state</p></li>
+<li><p>Read <code class="docutils literal notranslate"><span class="pre">cfg.yml</span></code></p></li>
+<li><p>Display the <code class="docutils literal notranslate"><span class="pre">xxxpython</span></code> banner</p></li>
+<li><p>Create and set up a <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code> as <code class="docutils literal notranslate"><span class="pre">RE</span></code></p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">plans</span></code> object with default plans and alias to <code class="docutils literal notranslate"><span class="pre">p</span></code></p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">scan_pvs</span></code> object</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="database.html"><span class="doc">Database</span></a> Load</p>
+<ul>
+<li><p>Load the <code class="docutils literal notranslate"><span class="pre">db</span></code> from <code class="docutils literal notranslate"><span class="pre">cfg.yaml</span></code> using <code class="docutils literal notranslate"><span class="pre">happi</span></code></p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">xxx_beampath</span></code> object using <code class="docutils literal notranslate"><span class="pre">lightpath</span></code></p></li>
+<li><p>Create cameras using the camviewer configuration file</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="beamline.html"><span class="doc">Beamline</span></a> Load</p>
+<ul>
+<li><p>Import all objects from the modules under <code class="docutils literal notranslate"><span class="pre">load</span></code> in <code class="docutils literal notranslate"><span class="pre">cfg.yaml</span></code>.
+By convention, this is just <code class="docutils literal notranslate"><span class="pre">xxx.beamline</span></code>, but it can also be extended
+to a list of modules.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="experiment.html"><span class="doc">Experiment</span></a> Load</p>
+<ul>
+<li><p>Automatically select the hutch’s current experiment if one was not
+provided in the <code class="docutils literal notranslate"><span class="pre">cfg.yml</span></code>.</p></li>
+<li><p>Create user objects from the experiment questionnaire
+using <code class="docutils literal notranslate"><span class="pre">happi</span></code> and <code class="docutils literal notranslate"><span class="pre">psdm_qs_cli</span></code>.</p></li>
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">User</span></code> class from experiment file and instantiate <code class="docutils literal notranslate"><span class="pre">User()</span></code>.</p></li>
+<li><p>Attach all questionnaire objects to the <code class="docutils literal notranslate"><span class="pre">User()</span></code> object</p></li>
+<li><p>If there was no experiment file, make a <code class="docutils literal notranslate"><span class="pre">SimpleNamespace()</span></code> object
+instead</p></li>
+<li><p>Set this object to be <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">user</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Groups Load</p>
+<ul>
+<li><p>If any <code class="docutils literal notranslate"><span class="pre">EpicsMotor</span></code> objects were defined previously, group them into a
+<code class="docutils literal notranslate"><span class="pre">motors</span></code> object. Alias this to <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p></li>
+<li><p>If any <code class="docutils literal notranslate"><span class="pre">Slits</span></code> objects were defined previously, group them into a
+<code class="docutils literal notranslate"><span class="pre">slits</span></code> object. Alias this to <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p></li>
+<li><p>Group all loaded objects by metadata, to be found in a tab-accessible way
+e.g. <code class="docutils literal notranslate"><span class="pre">xxx.dg1.name</span></code></p></li>
+<li><p>Group everything into an <code class="docutils literal notranslate"><span class="pre">all_objects</span></code> object. Alias this to <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Finish</p>
+<ul>
+<li><p>Create all <code class="docutils literal notranslate"><span class="pre">_debug</span></code> objects as documented on the <a class="reference internal" href="debug.html"><span class="doc">debug</span></a> page.</p></li>
+<li><p>Enable input, output, and error logger</p></li>
+<li><p>Enter the <code class="docutils literal notranslate"><span class="pre">ipython</span></code> terminal</p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="What to Expect When You are Expecting a New Hutch Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="database.html" class="btn btn-neutral float-right" title="Database Objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hutch Setup &mdash; hutch-python 1.13.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Yaml Files" href="yaml_files.html" />
+    <link rel="prev" title="Environments" href="environment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.13.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hutch Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#steps-to-set-up-a-hutch">Steps to set up a Hutch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-devices-to-the-database">Adding devices to the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-a-hutch-s-launch-scripts">Updating a Hutch’s Launch Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Hutch Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hutch_setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="hutch-setup">
+<h1>Hutch Setup<a class="headerlink" href="#hutch-setup" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> is meant to be run in the context of a specific hutch.
+Hutch repos are stored online at <code class="docutils literal notranslate"><span class="pre">https://github.com/pcdshub/hutchname</span></code>,
+and in our directory tree at <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/hutchname</span></code>.</p>
+<p>If your hutch does not have a repository, you’ve found the correct page.</p>
+<div class="section" id="steps-to-set-up-a-hutch">
+<h2>Steps to set up a Hutch<a class="headerlink" href="#steps-to-set-up-a-hutch" title="Permalink to this headline">¶</a></h2>
+<p>There is a built-in template for starting a new hutch repo.
+Replacing <code class="docutils literal notranslate"><span class="pre">hutchname</span></code> with your hutch’s name:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/reg/g/pcds/pyps/apps/hutch-python</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hutch-python</span> <span class="pre">--create</span> <span class="pre">hutchname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">hutchname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">*</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;ENH:</span> <span class="pre">Add</span> <span class="pre">hutchname</span> <span class="pre">from</span> <span class="pre">template&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">origin</span> <span class="pre">https://github.com/pcdshub/hutchname.git</span></code></p></li>
+<li><p>In a browser, navigate to <a class="reference external" href="https://github.com/pcdshub">https://github.com/pcdshub</a> and log in.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">New</span></code> to make a new repo, name it <code class="docutils literal notranslate"><span class="pre">hutchname</span></code>, do not
+initialize with README, gitignore, or license.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code></p></li>
+<li><p>As the hutch operator account, create a file named <code class="docutils literal notranslate"><span class="pre">.web.cfg</span></code> in the opr’s
+home area. Follow the specification of <a class="reference internal" href="generated/hutch_python.qs_load.get_qs_objs.html#hutch_python.qs_load.get_qs_objs" title="hutch_python.qs_load.get_qs_objs"><code class="xref any py py-func docutils literal notranslate"><span class="pre">get_qs_objs</span></code></a> to ensure we can load
+user objects from the questionnaire. Also include the necessary information
+for reporting issues to GitHub specified in <a class="reference internal" href="generated/hutch_python.bug.post_to_github.html#hutch_python.bug.post_to_github" title="hutch_python.bug.post_to_github"><code class="xref any py py-func docutils literal notranslate"><span class="pre">post_to_github</span></code></a></p></li>
+</ol>
+</div>
+<div class="section" id="adding-devices-to-the-database">
+<h2>Adding devices to the database<a class="headerlink" href="#adding-devices-to-the-database" title="Permalink to this headline">¶</a></h2>
+<p>The default <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file created will point to the main <code class="docutils literal notranslate"><span class="pre">device_config</span></code>
+database located in <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/device_config</span></code>. If
+you would like to make large changes to the database it is best practice to to
+clone this repository from <a class="reference external" href="https://github.com/pcdshub/device_config">https://github.com/pcdshub/device_config</a> and
+make the changes on a non-deployed version. For more information about how to
+modify the database beyond the short example below see
+<a class="reference external" href="https://pcdshub.github.io/happi">https://pcdshub.github.io/happi</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your client</span>
+<span class="kn">import</span> <span class="nn">happi</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">happi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;my/clone/device_config/db.json&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add your devices</span>
+<span class="kn">from</span> <span class="nn">happi.containers</span> <span class="kn">import</span> <span class="n">Slits</span>
+<span class="n">my_slits</span> <span class="o">=</span> <span class="n">Slits</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;my_slits&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;MY:SLITS:01&#39;</span><span class="p">,</span> <span class="n">beamline</span><span class="o">=</span><span class="s1">&#39;TST&#39;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">add_device</span><span class="p">(</span><span class="n">my_slits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-a-hutch-s-launch-scripts">
+<h2>Updating a Hutch’s Launch Scripts<a class="headerlink" href="#updating-a-hutch-s-launch-scripts" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Pick up the latest environment</p></li>
+<li><p>In some arbitrary directory, <code class="docutils literal notranslate"><span class="pre">hutch-python</span> <span class="pre">--create</span> <span class="pre">hutchname</span></code></p></li>
+<li><p>Copy the generated scripts into your <code class="docutils literal notranslate"><span class="pre">hutchname</span></code> checkout</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></p></li>
+<li><p>git add, git commit, git push, make a PR</p></li>
+<li><p>Remove your dummy <code class="docutils literal notranslate"><span class="pre">hutchname</span></code> directory</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="environment.html" class="btn btn-neutral float-left" title="Environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="yaml_files.html" class="btn btn-neutral float-right" title="Yaml Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
