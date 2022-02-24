@@ -16,7 +16,7 @@ from bluesky import RunEngine
 from bluesky.callbacks.best_effort import BestEffortCallback
 from bluesky.callbacks.core import LiveTable
 from bluesky.callbacks.mpl_plotting import initialize_qt_teleporter
-from pcdsdaq.daq import Daq
+from pcdsdaq.daq import Daq, DaqLCLS2
 from pcdsdaq.scan_vars import ScanVars
 from pcdsdaq.sim import set_sim_mode as set_daq_sim
 from pcdsdevices.interface import setup_preset_paths
@@ -341,30 +341,15 @@ def load_conf(conf, hutch_dir=None, args=None):
                 set_daq_sim(True)
             cache(daq=Daq(RE=RE, hutch_name=hutch))
             cache.doc(daq='LCLS1 DAQ interface object.')
-        elif daq_type == 'lcls2':
-            # Warning for users of the --sim flag
-            if args is not None and args.sim:
-                logger.warning('Sim mode not implemented for lcls2 DAQ!')
-                logger.warning('Instantiating live DAQ!')
-            # Optional dependency
-            from psdaq.control.DaqControl import DaqControl # NOQA
-            from psdaq.control.BlueskyScan import BlueskyScan # NOQA
-            daq_control = DaqControl(
-                host=daq_host,
+        elif daq_type.startswith('lcls2'):
+            cache(daq=DaqLCLS2(
                 platform=daq_platform,
+                host=daq_host,
                 timeout=10000,
-            )
-            instr = daq_control.getInstrument()
-            if instr is None:
-                logger.error('Failed to connect to LCLS-II DAQ')
-            start_state = daq_control.getState()
-            if start_state == 'error':
-                logger.error('DAQ is in an error state.')
-            daq_bluesky = BlueskyScan(
-                daq_control,
-                daqState=start_state,
-            )
-            cache(daq=daq_bluesky)
+                RE=RE,
+                hutch_name=hutch,
+                sim=(daq_type == 'lcls2-sim' or (args and args.sim)),
+            ))
             cache.doc(daq='LCLS2 DAQ interface object.')
         elif daq_type == 'nodaq':
             logger.info('Skip daq because daq_type is nodaq.')
