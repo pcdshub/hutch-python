@@ -13,11 +13,27 @@ import IPython
 import matplotlib
 from cookiecutter.main import cookiecutter
 from IPython import start_ipython
+from pcdsutils.profile import profiler_context
 from traitlets.config import Config
 
 from .constants import CONDA_BASE, DIR_MODULE
 from .load_conf import load
 from .log_setup import configure_log_directory, debug_mode, setup_logging
+
+DEFAULT_PROFILE_MODULES = [
+    'archapp',
+    'bluesky',
+    'elog',
+    'happi',
+    'ipython',
+    'lightpath',
+    'matplotlib',
+    'nabs',
+    'pcdscalc',
+    'pcdsdaq',
+    'pcdsdevices',
+    'pcdsutils',
+]
 
 logger = logging.getLogger(__name__)
 opts_cache = {}
@@ -35,6 +51,25 @@ parser.add_argument('--sim', action='store_true', default=False,
                     help='Run with simulated DAQ (lcls1 only)')
 parser.add_argument('--create', action='store', default=False,
                     help='Create a new hutch deployment')
+parser.add_argument('--startup-only', action='store_true', default=False,
+                    help="Don't enter ipython, only check the startup.")
+parser.add_argument(
+    '--profile',
+    nargs='*',
+    help=(
+        'Run the profiler, tracking the functions in the given modules. '
+        'If no arguments are given, run with the default modules of '
+        f'{", ".join(DEFAULT_PROFILE_MODULES)}.'
+    )
+)
+parser.add_argument(
+    '--profile-output',
+    action='store',
+    help=(
+        'File path to store the profile output in. Implies --profile, '
+        'and triggers --profile if needed.'
+    ),
+)
 parser.add_argument('script', nargs='?',
                     help='Run a script instead of running interactively')
 
@@ -100,15 +135,42 @@ def configure_ipython_session():
 
 
 def main():
+    # Parse the user's arguments
+    args = parser.parse_args()
+    do_profile = False
+    module_names = DEFAULT_PROFILE_MODULES
+    filename = None
+    if args.profile is None:
+        # No profile arg
+        do_profile = False
+    elif args.profile:
+        # Profile with given modules
+        do_profile = True
+        module_names = args.profile
+    else:
+        # Profile with default modules
+        do_profile = True
+    if args.profile_output:
+        # Profile to a specific folder
+        do_profile = True
+        filename = args.profile_output
+    if do_profile:
+        with profiler_context(
+            module_names=module_names,
+            filename=filename,
+        ):
+            launch(args)
+    else:
+        launch(args)
+
+
+def launch(args):
     """
     Do the full hutch-python launch sequence.
 
     Parses the user's cli arguments and distributes them as needed to the
     setup functions.
     """
-    # Parse the user's arguments
-    args = parser.parse_args()
-
     # Set up logging first
     if args.cfg is None:
         log_dir = None
@@ -157,6 +219,8 @@ def main():
     objs = load(cfg=args.cfg, args=args)
 
     script = opts_cache.get('script')
+    if args.startup_only:
+        return
     if script is None:
         # Finally start the interactive session
         start_ipython(argv=['--quick'], user_ns=objs,
