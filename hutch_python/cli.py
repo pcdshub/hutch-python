@@ -22,12 +22,9 @@ from .log_setup import configure_log_directory, debug_mode, setup_logging
 
 DEFAULT_PROFILE_MODULES = [
     'archapp',
-    'bluesky',
     'elog',
     'happi',
-    'ipython',
     'lightpath',
-    'matplotlib',
     'nabs',
     'pcdscalc',
     'pcdsdaq',
