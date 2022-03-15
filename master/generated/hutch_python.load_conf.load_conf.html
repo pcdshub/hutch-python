@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.load_conf.load_conf &mdash; hutch-python 1.13.2+2.g5015ab0 documentation</title>
+  <title>hutch_python.load_conf.load_conf &mdash; hutch-python 1.13.2+25.g88ea2d2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="../index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.13.2+2.g5015ab0
+                1.13.2+25.g88ea2d2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -154,8 +154,10 @@ later.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">logs</span></code> namespace that allows the user to configure the
 logging settings.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code>, <code class="docutils literal notranslate"><span class="pre">RE</span></code></p></li>
-<li><p>Import <code class="docutils literal notranslate"><span class="pre">plan_defaults</span></code> and include <code class="docutils literal notranslate"><span class="pre">bp</span></code>, <code class="docutils literal notranslate"><span class="pre">bps</span></code>, and <code class="docutils literal notranslate"><span class="pre">bpp</span></code></p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">daq</span></code> object with <code class="docutils literal notranslate"><span class="pre">RE</span></code> registered.</p></li>
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">plan_defaults</span></code> and include <code class="docutils literal notranslate"><span class="pre">bp</span></code>, <code class="docutils literal notranslate"><span class="pre">bps</span></code>, and <code class="docutils literal notranslate"><span class="pre">bpp</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">re</span></code> namespace of ready-to-run scan functions as a mirror of
+<code class="docutils literal notranslate"><span class="pre">bp</span></code>. Graft all daq-integrated scans onto the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">scan_pvs</span></code> object, and <code class="docutils literal notranslate"><span class="pre">enable</span></code> it.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">hutch</span></code> and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code> keys to create the <code class="docutils literal notranslate"><span class="pre">elog</span></code> object
 and configure it to match the correct experiment.</p></li>
