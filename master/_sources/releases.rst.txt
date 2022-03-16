@@ -1,6 +1,20 @@
 Release History
 ###############
 
+v1.14.0 (2022-??-??)
+====================
+
+Features
+--------
+- Ctrl+C now aborts the current run, returning the RunEngine to a
+  ready / idle state.  The old pause functionality has been moved to
+  Ctrl+\\.
+
+Contributors
+------------
+- tangkong
+
+
 v1.13.2 (2022-02-11)
 ====================
 
