@@ -16,6 +16,7 @@ from IPython import start_ipython
 from traitlets.config import Config
 
 from .constants import CONDA_BASE, DIR_MODULE
+from .env_version import log_env
 from .load_conf import load
 from .log_setup import configure_log_directory, debug_mode, setup_logging
 
@@ -133,6 +134,9 @@ def main():
 
     # Do the first log message, now that logging is ready
     logger.debug('cli starting with args %s', args)
+
+    # Check and display the environment info as appropriate (very early)
+    log_env()
 
     # Options that mean skipping the python environment
     if args.create:
