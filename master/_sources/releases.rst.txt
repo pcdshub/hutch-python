@@ -1,7 +1,7 @@
 Release History
 ###############
 
-v1.14.0 (2022-??-??)
+v1.14.0 (2022-03-31)
 ====================
 
 Features
@@ -9,10 +9,20 @@ Features
 - Ctrl+C now aborts the current run, returning the RunEngine to a
   ready / idle state.  The old pause functionality has been moved to
   Ctrl+\\.
+- Include per-device load times for devices loaded from happi.
+- Load a run-engine wrapped namespace (lowercase ``re``) as a replacement
+  for the proliferation of roll-your-own wrappers, and also add wrapped
+  daq scan functions to the ``daq`` object.
+- Add plan wrappers to all plans to make it clear which are plans and
+  which are functions.
+- Show the environment information at startup so the user knows what
+  version of the software they are running.
 
 Contributors
 ------------
+- klauer
 - tangkong
+- zllentz
 
 
 v1.13.2 (2022-02-11)

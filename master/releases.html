@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release History &mdash; hutch-python 1.13.2+49.g0471a4b documentation</title>
+  <title>Release History &mdash; hutch-python 1.14.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.13.2+49.g0471a4b
+                1.14.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -65,7 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#v1-14-0-2022">v1.14.0 (2022-??-??)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v1-14-0-2022-03-31">v1.14.0 (2022-03-31)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
@@ -289,20 +289,30 @@
 </style>
 <div class="section" id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="v1-14-0-2022">
-<h2>v1.14.0 (2022-??-??)<a class="headerlink" href="#v1-14-0-2022" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v1-14-0-2022-03-31">
+<h2>v1.14.0 (2022-03-31)<a class="headerlink" href="#v1-14-0-2022-03-31" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="features">
 <h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Ctrl+C now aborts the current run, returning the RunEngine to a
 ready / idle state.  The old pause functionality has been moved to
 Ctrl+\.</p></li>
+<li><p>Include per-device load times for devices loaded from happi.</p></li>
+<li><p>Load a run-engine wrapped namespace (lowercase <code class="docutils literal notranslate"><span class="pre">re</span></code>) as a replacement
+for the proliferation of roll-your-own wrappers, and also add wrapped
+daq scan functions to the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object.</p></li>
+<li><p>Add plan wrappers to all plans to make it clear which are plans and
+which are functions.</p></li>
+<li><p>Show the environment information at startup so the user knows what
+version of the software they are running.</p></li>
 </ul>
 </div>
 <div class="section" id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p>klauer</p></li>
 <li><p>tangkong</p></li>
+<li><p>zllentz</p></li>
 </ul>
 </div>
 </div>
