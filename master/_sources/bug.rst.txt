@@ -11,4 +11,3 @@ bug.py
        hutch_python.bug.get_text_from_editor
        hutch_python.bug.report_bug
        hutch_python.bug.post_to_github
-   

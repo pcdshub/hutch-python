@@ -39,4 +39,4 @@ After reporting the issue on the command line, an issue will be created at
 https://github.com/pcdshub/Bug-Reports. This will alert those subscribed to
 this repository via email about the current issue and appropriate action will
 be made by the PCDS staff. This may mean a deeper look at the linked log files
-and/or creating a distilled issue or action item in a different repository. 
+and/or creating a distilled issue or action item in a different repository.
