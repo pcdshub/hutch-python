@@ -1,6 +1,29 @@
 Release History
 ###############
 
+v1.15.0 (2022-05-02)
+====================
+
+Features
+--------
+- Add automatic ELOG post configuration to the run engine.
+- Add a much more helpful startup banner that calls out specific
+  helpful objects in the namespace.
+
+Fixes
+-----
+- Make the dev package identifier very robust.
+
+Maintenance
+-----------
+- Configure and satisfy pre-commit checks.
+- Rework and clean up the post-IPython initialization.
+
+Contributors
+------------
+- tangkong
+
+
 v1.14.0 (2022-03-31)
 ====================
 
