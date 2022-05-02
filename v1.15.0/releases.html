@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release History &mdash; hutch-python 1.15.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bug.py" href="bug.html" />
+    <link rel="prev" title="Debug" href="debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.15.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v1-15-0-2022-05-02">v1.15.0 (2022-05-02)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maintenance">Maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-14-0-2022-03-31">v1.14.0 (2022-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-13-2-2022-02-11">v1.13.2 (2022-02-11)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fixes-and-maintenance">Fixes and Maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-13-1-2022-02-07">v1.13.1 (2022-02-07)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Fixes and Maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-13-0-2021-11-10">v1.13.0 (2021-11-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-12-0-2021-09-28">v1.12.0 (2021-09-28)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-11-2-2021-08-09">v1.11.2 (2021-08-09)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-11-1-2021-07-09">v1.11.1 (2021-07-09)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-11-0-2021-06-04">v1.11.0 (2021-06-04)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-10-1-2021-06-03">v1.10.1 (2021-06-03)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-10-0-2021-04-15">v1.10.0 (2021-04-15)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-9-1-2021-02-10">v1.9.1 (2021-02-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-9-0-2020-12-22">v1.9.0 (2020-12-22)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Bugfixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-8-0-2020-10-23">v1.8.0 (2020-10-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-7-0-2020-10-21">v1.7.0 (2020-10-21)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-6-1-2020-10-07">v1.6.1 (2020-10-07)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-6-0-2020-10-07">v1.6.0 (2020-10-07)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-5-1-2020-10-02">v1.5.1 (2020-10-02)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-5-0-2020-09-18">v1.5.0 (2020-09-18)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-4-0-2020-08-18">v1.4.0 (2020-08-18)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-3-1-2020-07-27">v1.3.1 (2020-07-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-3-0-2020-07-01">v1.3.0 (2020-07-01)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-2-3-2020-05-29">v1.2.3 (2020-05-29)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-2-2-2020-05-21">v1.2.2 (2020-05-21)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-2-1-2020-05-21">v1.2.1 (2020-05-21)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-2-0-2020-05-21">v1.2.0 (2020-05-21)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-1-1-2020-02-05">v1.1.1 (2020-02-05)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-1-0-2020-01-10">v1.1.0 (2020-01-10)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-0-1-2019-03-08">v1.0.1 (2019-03-08)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Fixes and Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-0-0-2018-10-12">v1.0.0 (2018-10-12)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api-breaks">API Breaks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-7-0-2018-08-06">v0.7.0 (2018-08-06)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Bugfixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#misc">Misc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-6-0-2018-05-27">v0.6.0 (2018-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id43">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-5-0-2018-05-08">v0.5.0 (2018-05-08)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id45">Bugfixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-changes">API Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-4-0-2018-04-23">v0.4.0 (2018-04-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id46">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-3-0-2018-04-06">v0.3.0 (2018-04-06)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id48">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">Bugfixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">API Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minor-changes">Minor Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Release History</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/releases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="release-history">
+<h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v1-15-0-2022-05-02">
+<h2>v1.15.0 (2022-05-02)<a class="headerlink" href="#v1-15-0-2022-05-02" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add automatic ELOG post configuration to the run engine.</p></li>
+<li><p>Add a much more helpful startup banner that calls out specific
+helpful objects in the namespace.</p></li>
+</ul>
+</div>
+<div class="section" id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Make the dev package identifier very robust.</p></li>
+</ul>
+</div>
+<div class="section" id="maintenance">
+<h3>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Configure and satisfy pre-commit checks.</p></li>
+<li><p>Rework and clean up the post-IPython initialization.</p></li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>tangkong</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-14-0-2022-03-31">
+<h2>v1.14.0 (2022-03-31)<a class="headerlink" href="#v1-14-0-2022-03-31" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ctrl+C now aborts the current run, returning the RunEngine to a
+ready / idle state.  The old pause functionality has been moved to
+Ctrl+.</p></li>
+<li><p>Include per-device load times for devices loaded from happi.</p></li>
+<li><p>Load a run-engine wrapped namespace (lowercase <code class="docutils literal notranslate"><span class="pre">re</span></code>) as a replacement
+for the proliferation of roll-your-own wrappers, and also add wrapped
+daq scan functions to the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object.</p></li>
+<li><p>Add plan wrappers to all plans to make it clear which are plans and
+which are functions.</p></li>
+<li><p>Show the environment information at startup so the user knows what
+version of the software they are running.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Contributors<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>klauer</p></li>
+<li><p>tangkong</p></li>
+<li><p>zllentz</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-13-2-2022-02-11">
+<h2>v1.13.2 (2022-02-11)<a class="headerlink" href="#v1-13-2-2022-02-11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fixes-and-maintenance">
+<h3>Fixes and Maintenance<a class="headerlink" href="#fixes-and-maintenance" title="Permalink to this headline">¶</a></h3>
+<p>Configure <code class="docutils literal notranslate"><span class="pre">IPython</span></code> to disable <code class="docutils literal notranslate"><span class="pre">black</span></code> input reformatting,
+for three reasons:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Throws errors in our terminal after the first input</p></li>
+<li><p>Conflicts with advice in the <code class="docutils literal notranslate"><span class="pre">black</span></code> github issues that assert that
+<code class="docutils literal notranslate"><span class="pre">black</span></code> is not ready to be used as an import.</p></li>
+<li><p>I don’t think it’s a good fit for the scientific computing and expect
+that it will be annoying in practice.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h3>Contributors<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>zllentz</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-13-1-2022-02-07">
+<h2>v1.13.1 (2022-02-07)<a class="headerlink" href="#v1-13-1-2022-02-07" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Noisy logger detection is now configured but disabled by default.</p></li>
+<li><p>Noisy logger detection is split between the file and the console.</p></li>
+<li><p>Allow both QtAgg and Qt5Agg as valid matplolib backends for the loaded
+environment.</p></li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">daq_type</span></code> and <code class="docutils literal notranslate"><span class="pre">daq_host</span></code> in the list of valid keys for the
+purpose of warning the user about a malformed config. These have been
+valid, but produce an incorrect warning.</p></li>
+<li><p>Expand the default LCLS2 DAQ timeout from 1 second to 10 seconds to fix
+an issue where we would time out on expected long operations.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Contributors<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>klauer</p></li>
+<li><p>zllentz</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-13-0-2021-11-10">
+<h2>v1.13.0 (2021-11-10)<a class="headerlink" href="#v1-13-0-2021-11-10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Features<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Noisy loggers will automatically be filtered based on message rate metrics
+as to not disturb the user.</p></li>
+<li><p>Warnings will be redirected to the logging stream, making them show up
+in the log files.</p></li>
+<li><p>Warnings will only be shown once each per session per warning source,
+rather than after every IPython line, via demoting them to DEBUG level
+in the console, as to not disturb the user.</p></li>
+<li><p>Callback exception log messages will be demoted to DEBUG level in the
+console as to not disturb the user.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add documentation about the log namespace.</p></li>
+<li><p>Fix an issue where certain helpful namespaces inside of helpful namespaces
+in specific situations would not render properly.</p></li>
+<li><p>Fix various issues with the CI and move it to Python 3.9 only.</p></li>
+<li><p>Remove no longer needed inflection dependency</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-12-0-2021-09-28">
+<h2>v1.12.0 (2021-09-28)<a class="headerlink" href="#v1-12-0-2021-09-28" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add functionality for specifying parameters for and automatically
+instantiating the LCLS2 DAQ object (BlueskyScan) via an optional
+psdaq.control dependency and configuration keys.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Restore the CI pypi build to running.</p></li>
+<li><p>Properly setup lightpath, psdm_qs_cli, and elog as optional dependencies.</p></li>
+<li><p>Clean up the documentation about the configuration file.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-11-2-2021-08-09">
+<h2>v1.11.2 (2021-08-09)<a class="headerlink" href="#v1-11-2-2021-08-09" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix order of message logging in the IPython input logger. Previously, the
+In log message wouldn’t happen until after the command had already finished.
+Now, the In message is logged, then any normal log messages are logged, and
+then finally the Out message is logged, all neatly in order.</p></li>
+<li><p>Adjust exception handling output for log files and for centralized logger.</p></li>
+<li><p>Log exceptions in threads</p></li>
+<li><p>Only log to the centralized PCDS logger when on a PCDS host</p></li>
+<li><p>Support stacklevel for centralized logging on Python 3.8+</p></li>
+<li><p>Make elog and lightpath optional dependencies for pip</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-11-1-2021-07-09">
+<h2>v1.11.1 (2021-07-09)<a class="headerlink" href="#v1-11-1-2021-07-09" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issues related to matplotlib setup in headless mode. This means that it
+will no longer crash the session when used without x-forwarding.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-11-0-2021-06-04">
+<h2>v1.11.0 (2021-06-04)<a class="headerlink" href="#v1-11-0-2021-06-04" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>Features<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added ability to opt-in to specific Ophyd Object instance DEBUG logs.  Call
+<code class="docutils literal notranslate"><span class="pre">logs.log_objects(obj1,</span> <span class="pre">obj2)</span></code> to configure it for <code class="docutils literal notranslate"><span class="pre">obj1</span></code> and <code class="docutils literal notranslate"><span class="pre">obj2</span></code>,
+for example, and clear it by way of <code class="docutils literal notranslate"><span class="pre">logs.log_objects_off()</span></code>.</p></li>
+<li><p>Added a new <code class="docutils literal notranslate"><span class="pre">logs</span></code> object in the IPython namespace, offering easy access
+to common log-related tools.</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Refactored logging setup to be more modular and slightly better documented.
+The ophyd logger is no longer “hushed”, but is now filtered through the
+new <code class="docutils literal notranslate"><span class="pre">ObjectFilter</span></code> mechanism.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-10-1-2021-06-03">
+<h2>v1.10.1 (2021-06-03)<a class="headerlink" href="#v1-10-1-2021-06-03" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bugfixes">
+<h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix an issue where ophyd signals were configured to wait “forever” for their
+write timeouts. By default, this is now a 5 second timeout instead of no
+timeout. This unfortunate default resulted in some cases where PVs would
+get “stuck” in a “set_and_wait” that would never end. In ophyd, this default
+is intentionally left to infinite to satisfy the common case where signals
+don’t update to the final value for a long period of time.
+These cases are very uncommon at the LCLS.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-10-0-2021-04-15">
+<h2>v1.10.0 (2021-04-15)<a class="headerlink" href="#v1-10-0-2021-04-15" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>Features<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IterableNamespace</span></code> has been upgraded to be <code class="docutils literal notranslate"><span class="pre">HelpfulNamespace</span></code>, while
+maintaining a backward-compatible import name.  This class supports the
+IPython “pretty repr” and HTML repr hooks to provide user-friendly tables of
+items available in the namespace, as well as direct keyword-access to
+elements of the namespace.</p></li>
+<li><p>All objects loaded in load_conf have been annotated with what they are used
+for in the Python session. These annotations are available when viewing
+the <code class="docutils literal notranslate"><span class="pre">HelpfulNamespace</span></code> pretty and HTML reprs.</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>Bugfixes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix an issue where the get_current_hutch scripts were using a deprecated and
+removed argument structure.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-9-1-2021-02-10">
+<h2>v1.9.1 (2021-02-10)<a class="headerlink" href="#v1-9-1-2021-02-10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>Bugfixes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Display small values in scientific notation during scans, rather than as
+0.000000. Similarly handle very large values.</p></li>
+<li><p>Include the BestEffortCallback that we are using in the hutch’s namespace
+for easy access.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-9-0-2020-12-22">
+<h2>v1.9.0 (2020-12-22)<a class="headerlink" href="#v1-9-0-2020-12-22" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3>Features<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">epicsarch-qs</span></code> script that will handle creating <code class="docutils literal notranslate"><span class="pre">epicsArch</span></code> files
+from the LCLS questionnaire.</p></li>
+<li><p>Include plans from <code class="docutils literal notranslate"><span class="pre">nabs</span></code> in the default namespaces.</p></li>
+<li><p>Include calcs from <code class="docutils literal notranslate"><span class="pre">pcdsdevices</span></code> in the default namespaces.</p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h3>Bugfixes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue where tab completion filters would not work due to <code class="docutils literal notranslate"><span class="pre">IPython</span></code>
+quirks in cases where <code class="docutils literal notranslate"><span class="pre">jedi</span></code> is disabled.</p></li>
+<li><p>Fix issue where devices with negative z would not load from <code class="docutils literal notranslate"><span class="pre">happi</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>Maintenance<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Update the hutch environment templates.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-8-0-2020-10-23">
+<h2>v1.8.0 (2020-10-23)<a class="headerlink" href="#v1-8-0-2020-10-23" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3>Features<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Include the beam_stats and lcls objects in every hutch python session.</p></li>
+<li><p>Enable scan PVs for all consumers (instead of starting as disabled).</p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>Bugfixes<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix load order so that beamline and experiment files happen as late as possible.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-7-0-2020-10-21">
+<h2>v1.7.0 (2020-10-21)<a class="headerlink" href="#v1-7-0-2020-10-21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id22">
+<h3>Features<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Alert and show the user the full traceback when there are issues loading
+user files like beamline and experiment files.</p></li>
+<li><p>Ask the user if it is okay to proceed with the user file loading failure,
+which typically renders the session useless, rather than just
+passing over the issue.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-6-1-2020-10-07">
+<h2>v1.6.1 (2020-10-07)<a class="headerlink" href="#v1-6-1-2020-10-07" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Re-tag of v1.6.0 to trigger the anaconda upload.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-6-0-2020-10-07">
+<h2>v1.6.0 (2020-10-07)<a class="headerlink" href="#v1-6-0-2020-10-07" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id24">
+<h3>Features<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Expand motors group to have all positioners.</p></li>
+<li><p>Add detectors (d) namespace for ami detectors.</p></li>
+<li><p>Time safe_load and report duration.</p></li>
+<li><p>Add a few simulated motors by default in a sim namespace.</p></li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pass hutch name to daq to avoid calling get_hutch_name, which can be slow.</p></li>
+<li><p>Disable tree namespace until issues are resolved.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-5-1-2020-10-02">
+<h2>v1.5.1 (2020-10-02)<a class="headerlink" href="#v1-5-1-2020-10-02" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id26">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Remove jedi tab completion again, again.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-5-0-2020-09-18">
+<h2>v1.5.0 (2020-09-18)<a class="headerlink" href="#v1-5-0-2020-09-18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id27">
+<h3>Features<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Send uncaught exceptions to the centrally configured logstash</p></li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issues related to LivePlot segmentation faults</p></li>
+<li><p>Remove jedi tab completion, again</p></li>
+<li><p>Fix and standardize the CI configuration</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-0-2020-08-18">
+<h2>v1.4.0 (2020-08-18)<a class="headerlink" href="#v1-4-0-2020-08-18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id29">
+<h3>Features<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Load hutch-python with engineering mode disabled to optimize interactive
+use.</p></li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix bad log message handler in test suite</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-1-2020-07-27">
+<h2>v1.3.1 (2020-07-27)<a class="headerlink" href="#v1-3-1-2020-07-27" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id31">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Test suite update for compatibility with lightpath v0.6.5</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-0-2020-07-01">
+<h2>v1.3.0 (2020-07-01)<a class="headerlink" href="#v1-3-0-2020-07-01" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h3>Features<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pack camviewer config into a camviewer namespace for ease of access
+and to avoid name collisions with other data sources.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-3-2020-05-29">
+<h2>v1.2.3 (2020-05-29)<a class="headerlink" href="#v1-2-3-2020-05-29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id33">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue with tests freezing</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-2-2020-05-21">
+<h2>v1.2.2 (2020-05-21)<a class="headerlink" href="#v1-2-2-2020-05-21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue with generated area detectors having the wrong prefix</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-1-2020-05-21">
+<h2>v1.2.1 (2020-05-21)<a class="headerlink" href="#v1-2-1-2020-05-21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id35">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue preventing conda upload on tag</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-0-2020-05-21">
+<h2>v1.2.0 (2020-05-21)<a class="headerlink" href="#v1-2-0-2020-05-21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id36">
+<h3>Features<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Configure the logstash logger using <code class="docutils literal notranslate"><span class="pre">pcdsutils</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Adjust for latest <code class="docutils literal notranslate"><span class="pre">happi</span></code> API</p></li>
+<li><p>Add documentation about logstash logging</p></li>
+<li><p>Hush the noisiest loggers that are spamming the terminal sessions</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-1-2020-02-05">
+<h2>v1.1.1 (2020-02-05)<a class="headerlink" href="#v1-1-1-2020-02-05" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Make tests compatible with <code class="docutils literal notranslate"><span class="pre">ophyd</span></code> <code class="docutils literal notranslate"><span class="pre">v1.1.1</span></code></p></li>
+<li><p>Small adjustments to remove some warnings</p></li>
+<li><p>Small updates to hutch directory generator</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-0-2020-01-10">
+<h2>v1.1.0 (2020-01-10)<a class="headerlink" href="#v1-1-0-2020-01-10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id39">
+<h3>Features<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">archapp</span></code> support. Check out the <code class="docutils literal notranslate"><span class="pre">archive</span></code> object in the hutch
+python namespace for access to the archiver appliance data.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-1-2019-03-08">
+<h2>v1.0.1 (2019-03-08)<a class="headerlink" href="#v1-0-1-2019-03-08" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id40">
+<h3>Fixes and Maintenance<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Clean up code for the <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> launcher</p></li>
+<li><p>Fix issues with the test suite</p></li>
+<li><p>Fix issues with automatically loading ipython profiles</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-0-2018-10-12">
+<h2>v1.0.0 (2018-10-12)<a class="headerlink" href="#v1-0-0-2018-10-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-breaks">
+<h3>API Breaks<a class="headerlink" href="#api-breaks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Swap to the newer <code class="docutils literal notranslate"><span class="pre">psdm_qs_cli</span></code> API for experiment loading that is
+compatible with commissioning experiment names.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-7-0-2018-08-06">
+<h2>v0.7.0 (2018-08-06)<a class="headerlink" href="#v0-7-0-2018-08-06" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id41">
+<h3>Features<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">ScanVars</span></code> class for the legacy scan pvs tie-in.</p></li>
+<li><p>Automatically load all cameras defined in the camviewer config file.</p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">--exp</span></code> arg for forcing the active experiment for the duration
+of a session.</p></li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h3>Bugfixes<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Exclude having a beampath when there are no devices on the path.
+This is because the resulting empty path causes issues in the
+environment. This will most commonly occur when calling
+<code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> with no arguments.</p></li>
+</ul>
+</div>
+<div class="section" id="misc">
+<h3>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix a few typos</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-6-0-2018-05-27">
+<h2>v0.6.0 (2018-05-27)<a class="headerlink" href="#v0-6-0-2018-05-27" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id43">
+<h3>Features<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Provide well-curated namespaces for <code class="docutils literal notranslate"><span class="pre">bluesky</span></code> plans. These are in the
+shell as <code class="docutils literal notranslate"><span class="pre">bp</span></code> (bluesky plans) for normal plans, <code class="docutils literal notranslate"><span class="pre">bps</span></code> (bluesky plan
+stubs) for plans that are not complete on their own, and <code class="docutils literal notranslate"><span class="pre">bpp</span></code>
+(bluesky plan preprocessors) for plans that modify other plans.</p></li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h3>Bugfixes<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Show a correct error message when there is an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> in an
+experiment file. This previously assumed the <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> was from
+a missing experiment file. (#126)</p></li>
+<li><p>Prevent duplicate names in <a class="reference internal" href="namespace.html#hutch_python.namespace.tree_namespace" title="hutch_python.namespace.tree_namespace"><code class="xref any py py-func docutils literal notranslate"><span class="pre">tree_namespace</span></code></a> from breaking the tree.
+Show a relevant warning message. (#128)</p></li>
+<li><p>Do not configure the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> backend for IPython if a user does not
+have a valid <code class="docutils literal notranslate"><span class="pre">$DISPLAY</span></code> environment variable. The most common case of this
+is if X-Forwarding is disabled. (#132)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-5-0-2018-05-08">
+<h2>v0.5.0 (2018-05-08)<a class="headerlink" href="#v0-5-0-2018-05-08" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id45">
+<h3>Bugfixes<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>fix issue where importing hutchname.db could break under certain conditions</p></li>
+<li><p>fix issue where autocompleting a <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> subclass would always
+have an extra mro() method, even though this is a class method not shared
+with instances.</p></li>
+<li><p>add logs folder to the hutch-python directory creator</p></li>
+</ul>
+</div>
+<div class="section" id="api-changes">
+<h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata_namespace</span></code> renamed to <a class="reference internal" href="namespace.html#hutch_python.namespace.tree_namespace" title="hutch_python.namespace.tree_namespace"><code class="xref any py py-func docutils literal notranslate"><span class="pre">tree_namespace</span></code></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-4-0-2018-04-23">
+<h2>v0.4.0 (2018-04-23)<a class="headerlink" href="#v0-4-0-2018-04-23" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id46">
+<h3>Features<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">elog</span></code> object and posting</p></li>
+<li><p>load devices upstream from the hutch along the light path</p></li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h3>Bugfixes<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allow posting bug reports to github from the control room machines through the proxy</p></li>
+<li><p>Optimize the namespaces for faster loads and avoid a critical slowdown bug</p></li>
+<li><p>Make hutch banner as early as possible to avoid errant log messages in front of the banner</p></li>
+<li><p>Make cxi’s banner red, as was intended</p></li>
+<li><p>hutch template automatically picks the latest environment, instead of hard-coding it</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-3-0-2018-04-06">
+<h2>v0.3.0 (2018-04-06)<a class="headerlink" href="#v0-3-0-2018-04-06" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id48">
+<h3>Features<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In-terminal bug reporting</p></li>
+<li><p>Port of the old python presets system</p></li>
+<li><p>Objects from the questionnaire are included in the experiment object</p></li>
+<li><p>Experiment object is always included</p></li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h3>Bugfixes<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>No longer create 1-item metadata objects</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.txt</span></code> is created in all-write mode</p></li>
+</ul>
+</div>
+<div class="section" id="id50">
+<h3>API Changes<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Daq platform map is no longer stored in the module, this now must be configured
+through <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> for nonzero platforms.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qs.cfg</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">web.cfg</span></code>, with backwards compatibility</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="debug.html" class="btn btn-neutral float-left" title="Debug" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bug.html" class="btn btn-neutral float-right" title="bug.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

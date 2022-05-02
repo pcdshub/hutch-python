@@ -1,0 +1,22 @@
+﻿hutch\_python.utils.HelpfulNamespace
+====================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autoclass:: HelpfulNamespace
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~HelpfulNamespace.__init__
+   
+   
+
+   
+   
+   
