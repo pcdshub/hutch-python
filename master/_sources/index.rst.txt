@@ -24,6 +24,7 @@
    beamline
    experiment
    presets
+   object_configuration
    report
    tips
    user_utils

@@ -2,9 +2,9 @@ Yaml Files
 ==========
 
 ``hutch-python`` uses a ``conf.yml`` file for basic configuration. This is a
-standard yaml file with seven valid keys:
-``hutch``, ``db``, ``load``, ``experiment``, ``daq_type``, ``daq_host``,
-and ``daq_platform``.
+standard yaml file with the following valid keys:
+``hutch``, ``db``, ``load``, ``experiment``, ``obj_config``, ``daq_type``,
+``daq_host``, and ``daq_platform``.
 
 
 hutch
@@ -85,6 +85,29 @@ to load an experiment other than the active experiment; handy for debugging.
 
 This key is used to force the questionnaire and experiment file to be from a
 particular experiment.
+
+.. _obj_conf_yaml:
+
+obj_conf
+--------
+
+The ``obj_conf`` key expects a single string, a file path.
+
+.. code-block:: YAML
+
+   obj_config: /cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml
+
+The file path can be either relative to the ``conf.yml`` file or absolute.
+This key is used to customize objects after they have been loaded.
+Currently, this supports modifying:
+
+- attributes visible by tab-completion
+- the ``kind`` of an object
+
+on a class-wide or device-by-device basis.
+
+For more information, see :ref:`object-configuration`.
+
 
 daq_type
 --------

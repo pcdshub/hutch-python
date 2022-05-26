@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presets &mdash; hutch-python 1.15.0+2.g522a3a3 documentation</title>
+  <title>Presets &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reporting Issues" href="report.html" />
+    <link rel="next" title="Object Configuration" href="object_configuration.html" />
     <link rel="prev" title="Experiment File" href="experiment.html" /> 
 </head>
 
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+2.g522a3a3
+                1.15.0+19.g7127985
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,6 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#preset-files">Preset Files</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
@@ -131,14 +133,14 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="presets">
+<section id="presets">
 <h1>Presets<a class="headerlink" href="#presets" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> provides a position presets system through the
 <code class="docutils literal notranslate"><span class="pre">pcdsdevices</span></code> module. See the
 <a class="reference external" href="https://pcdshub.github.io/pcdsdevices/presets.html">presets documentation</a>
 for a full description. On this page we will go through examples
 and show where the presets are stored.</p>
-<div class="section" id="example-usage">
+<section id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
 <p>Creating a permenant preset named <code class="docutils literal notranslate"><span class="pre">tt</span></code> for a motor named <code class="docutils literal notranslate"><span class="pre">reflaser</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">add_hutch</span><span class="p">(</span><span class="s1">&#39;tt&#39;</span><span class="p">,</span> <span class="mf">42.1</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Add timetool in pos&#39;</span><span class="p">)</span>
@@ -190,8 +192,8 @@ at the current position:</p>
 <span class="go">         &#39;23 Apr 2018 10:39:00&#39;: &#39;   40.0000 Fix it again&#39;}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="preset-files">
+</section>
+<section id="preset-files">
 <h2>Preset Files<a class="headerlink" href="#preset-files" title="Permalink to this headline">¶</a></h2>
 <p>The presets are stored in yaml files inside of the hutch python app directory
 e.g. <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/mfx</span></code>, or in your checkout if
@@ -220,15 +222,15 @@ structured in a readable yaml format, like so:</p>
 </pre></div>
 </div>
 <p>You are free to edit these by hand if you maintain the format.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="experiment.html" class="btn btn-neutral float-left" title="Experiment File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="report.html" class="btn btn-neutral float-right" title="Reporting Issues" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="object_configuration.html" class="btn btn-neutral float-right" title="Object Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

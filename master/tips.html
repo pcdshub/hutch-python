@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tips and Tricks &mdash; hutch-python 1.15.0+2.g522a3a3 documentation</title>
+  <title>Tips and Tricks &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+2.g522a3a3
+                1.15.0+19.g7127985
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tips and Tricks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-partial-for-scan-variants">Using Partial for Scan Variants</a></li>
@@ -131,9 +133,9 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="tips-and-tricks">
+<section id="tips-and-tricks">
 <h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="using-partial-for-scan-variants">
+<section id="using-partial-for-scan-variants">
 <h2>Using Partial for Scan Variants<a class="headerlink" href="#using-partial-for-scan-variants" title="Permalink to this headline">¶</a></h2>
 <p>Suppose in an experiment you’re always calling a function with a particular
 argument, or at a hutch you want a specially-named scan for a motor that is
@@ -150,8 +152,8 @@ Python built-in, <code class="docutils literal notranslate"><span class="pre">fu
 <span class="n">RE</span><span class="p">(</span><span class="n">my_scan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="device-console-logging-configuration">
+</section>
+<section id="device-console-logging-configuration">
 <h2>Device Console Logging Configuration<a class="headerlink" href="#device-console-logging-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Hutch Python has some built-in spam prevention, but sometimes you’ll find
 yourself wanting to get rid of specific object’s console logs, typically
@@ -178,8 +180,8 @@ using the <code class="docutils literal notranslate"><span class="pre">logs</spa
 </div>
 <p>In an active Hutch Python session, try <code class="docutils literal notranslate"><span class="pre">logs.filter</span></code> to see the current
 filter status.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

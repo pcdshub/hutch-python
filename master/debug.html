@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Debug &mdash; hutch-python 1.15.0+2.g522a3a3 documentation</title>
+  <title>Debug &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+2.g522a3a3
+                1.15.0+19.g7127985
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
@@ -134,10 +136,10 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="debug">
+<section id="debug">
 <h1>Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h1>
 <p>There are numerous debug features built in to <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.</p>
-<div class="section" id="live-session-logging">
+<section id="live-session-logging">
 <h2>Live Session Logging<a class="headerlink" href="#live-session-logging" title="Permalink to this headline">¶</a></h2>
 <p>The first place to go when something has already gone wrong is to the log
 files. These are stored in a <code class="docutils literal notranslate"><span class="pre">logs</span></code> directory in the same location as the
@@ -153,8 +155,8 @@ that were created by calling that statement.</p>
 set up by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setup</span></code> module. If not in debug mode, only log levels
 <code class="docutils literal notranslate"><span class="pre">INFO</span></code> and above will make it to the terminal. The files are configured to
 rotate and roll over into a second file once they get too large.</p>
-</div>
-<div class="section" id="default-log-filtering-rules">
+</section>
+<section id="default-log-filtering-rules">
 <h2>Default Log Filtering Rules<a class="headerlink" href="#default-log-filtering-rules" title="Permalink to this headline">¶</a></h2>
 <p>The following filtering rules are applied to the console logs:</p>
 <ul class="simple">
@@ -172,8 +174,8 @@ logs.</p></li>
 <li><p>All log messages from ophyd objects at “INFO” level will also be demoted to
 “DEBUG” level to prevent spam.</p></li>
 </ul>
-</div>
-<div class="section" id="pcds-wide-logging">
+</section>
+<section id="pcds-wide-logging">
 <h2>PCDS-wide Logging<a class="headerlink" href="#pcds-wide-logging" title="Permalink to this headline">¶</a></h2>
 <p>A special Python logger for PCDS-wide logging is pre-configured within
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.  This special logger is named <code class="docutils literal notranslate"><span class="pre">'pcds-logging'</span></code>, and hooks
@@ -204,8 +206,8 @@ trace along with module and line information automatically:</p>
 <p>It is not necessary to include information about the host that is running
 Python, module versions, or thread/process names as these are automatically
 included.</p>
-</div>
-<div class="section" id="debug-mode-and-logging-tools">
+</section>
+<section id="debug-mode-and-logging-tools">
 <h2>Debug Mode and Logging Tools<a class="headerlink" href="#debug-mode-and-logging-tools" title="Permalink to this headline">¶</a></h2>
 <p>You can start in debug mode by passing the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option to
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>. Debug mode changes the logging configuration to print
@@ -275,14 +277,14 @@ for hiding non-spammy loggers.</p>
     <span class="n">buggy_function</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="automated-test-logging">
+</section>
+<section id="automated-test-logging">
 <h2>Automated Test Logging<a class="headerlink" href="#automated-test-logging" title="Permalink to this headline">¶</a></h2>
 <p>If you’re running the automated test suite, each test run is stored in a
 module-level <code class="docutils literal notranslate"><span class="pre">logs</span></code> folder. This can be useful for diagnosing why the tests
 are failing.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

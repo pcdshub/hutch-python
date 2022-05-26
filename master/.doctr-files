@@ -50,6 +50,7 @@ master/_sources/load_conf.rst.txt
 master/_sources/load_parts.rst.txt
 master/_sources/log_setup.rst.txt
 master/_sources/namespace.rst.txt
+master/_sources/object_configuration.rst.txt
 master/_sources/other_modules.rst.txt
 master/_sources/presets.rst.txt
 master/_sources/releases.rst.txt
@@ -150,6 +151,7 @@ master/load_conf.html
 master/load_parts.html
 master/log_setup.html
 master/namespace.html
+master/object_configuration.html
 master/objects.inv
 master/other_modules.html
 master/presets.html
