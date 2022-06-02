@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Debug &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
+  <title>Debug &mdash; hutch-python 1.15.0+25.g2215a25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+19.g7127985
+                1.15.0+25.g2215a25
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -137,10 +138,10 @@
 }
 </style>
 <section id="debug">
-<h1>Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h1>
+<h1>Debug<a class="headerlink" href="#debug" title="Permalink to this heading">¶</a></h1>
 <p>There are numerous debug features built in to <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.</p>
 <section id="live-session-logging">
-<h2>Live Session Logging<a class="headerlink" href="#live-session-logging" title="Permalink to this headline">¶</a></h2>
+<h2>Live Session Logging<a class="headerlink" href="#live-session-logging" title="Permalink to this heading">¶</a></h2>
 <p>The first place to go when something has already gone wrong is to the log
 files. These are stored in a <code class="docutils literal notranslate"><span class="pre">logs</span></code> directory in the same location as the
 <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file, and sorted by date and session start time.</p>
@@ -157,7 +158,7 @@ set up by the <code class="xref py py-mod docutils literal notranslate"><span cl
 rotate and roll over into a second file once they get too large.</p>
 </section>
 <section id="default-log-filtering-rules">
-<h2>Default Log Filtering Rules<a class="headerlink" href="#default-log-filtering-rules" title="Permalink to this headline">¶</a></h2>
+<h2>Default Log Filtering Rules<a class="headerlink" href="#default-log-filtering-rules" title="Permalink to this heading">¶</a></h2>
 <p>The following filtering rules are applied to the console logs:</p>
 <ul class="simple">
 <li><p>Loggers and ophyd object logging adapters that send many messages in a short
@@ -176,7 +177,7 @@ logs.</p></li>
 </ul>
 </section>
 <section id="pcds-wide-logging">
-<h2>PCDS-wide Logging<a class="headerlink" href="#pcds-wide-logging" title="Permalink to this headline">¶</a></h2>
+<h2>PCDS-wide Logging<a class="headerlink" href="#pcds-wide-logging" title="Permalink to this heading">¶</a></h2>
 <p>A special Python logger for PCDS-wide logging is pre-configured within
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.  This special logger is named <code class="docutils literal notranslate"><span class="pre">'pcds-logging'</span></code>, and hooks
 in with our managed logstash, ElasticSearch and Grafana stack.</p>
@@ -208,7 +209,7 @@ Python, module versions, or thread/process names as these are automatically
 included.</p>
 </section>
 <section id="debug-mode-and-logging-tools">
-<h2>Debug Mode and Logging Tools<a class="headerlink" href="#debug-mode-and-logging-tools" title="Permalink to this headline">¶</a></h2>
+<h2>Debug Mode and Logging Tools<a class="headerlink" href="#debug-mode-and-logging-tools" title="Permalink to this heading">¶</a></h2>
 <p>You can start in debug mode by passing the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option to
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>. Debug mode changes the logging configuration to print
 log messages of level <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and above to the screen. If that’s a bit much,
@@ -279,7 +280,7 @@ for hiding non-spammy loggers.</p>
 </div>
 </section>
 <section id="automated-test-logging">
-<h2>Automated Test Logging<a class="headerlink" href="#automated-test-logging" title="Permalink to this headline">¶</a></h2>
+<h2>Automated Test Logging<a class="headerlink" href="#automated-test-logging" title="Permalink to this heading">¶</a></h2>
 <p>If you’re running the automated test suite, each test run is stored in a
 module-level <code class="docutils literal notranslate"><span class="pre">logs</span></code> folder. This can be useful for diagnosing why the tests
 are failing.</p>

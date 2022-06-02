@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DAQ &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
+  <title>DAQ &mdash; hutch-python 1.15.0+25.g2215a25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+19.g7127985
+                1.15.0+25.g2215a25
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -135,7 +136,7 @@
 }
 </style>
 <section id="daq">
-<h1>DAQ<a class="headerlink" href="#daq" title="Permalink to this headline">¶</a></h1>
+<h1>DAQ<a class="headerlink" href="#daq" title="Permalink to this heading">¶</a></h1>
 <p>The following objects are provided for interacting with the data acquisition
 system:</p>
 <blockquote>
@@ -155,7 +156,7 @@ two users accidentally writing to the PVs at the same time. Call
 of your standard scan routine.</p>
 </div>
 <section id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">daq.begin</span></code> to start a run. Runs must be ended explicitly or the
 run will remain open. A second call to a begin during an open run will
 resume the run.</p>
@@ -181,7 +182,7 @@ control at a time. Use <code class="docutils literal notranslate"><span class="p
 run manually using <code class="docutils literal notranslate"><span class="pre">daq.end_run</span></code>.</p>
 </section>
 <section id="in-a-scan">
-<h2>In a Scan<a class="headerlink" href="#in-a-scan" title="Permalink to this headline">¶</a></h2>
+<h2>In a Scan<a class="headerlink" href="#in-a-scan" title="Permalink to this heading">¶</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object as your detector to include it in a <code class="docutils literal notranslate"><span class="pre">bluesky</span></code> plan.
 The <code class="docutils literal notranslate"><span class="pre">DAQ</span></code> will then run for the configured duration at every scan step.
 If <code class="docutils literal notranslate"><span class="pre">scan_pvs</span></code> are enabled, these will be written to during the <code class="docutils literal notranslate"><span class="pre">bluesky</span></code>
@@ -191,12 +192,12 @@ plan.</p>
 
 <span class="go"># Scan motor from 0 to 10 in 11 steps, run daq at each point</span>
 <span class="gp">In [7]: </span><span class="n">RE</span><span class="p">(</span><span class="n">scan</span><span class="p">([</span><span class="n">daq</span><span class="p">],</span> <span class="n">motor</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
-<span class="gh">Out[7]: </span><span class="go">(&#39;73f6abb7-8933-440a-b37b-b8f9809d03b9&#39;,)</span>
+<span class="gh">Out[7]: </span><span class="go">(&#39;3fe7185b-b8cc-40c4-a741-113751316158&#39;,)</span>
 </pre></div>
 </div>
 </section>
 <section id="controlling-post-scan-state">
-<h2>Controlling Post-Scan State<a class="headerlink" href="#controlling-post-scan-state" title="Permalink to this headline">¶</a></h2>
+<h2>Controlling Post-Scan State<a class="headerlink" href="#controlling-post-scan-state" title="Permalink to this heading">¶</a></h2>
 <p>The daq will return to the state it was in before the scan was run. If we
 start disconnected, we will revert to disconnected. If we start configured,
 we will stay connected and configured. If we start while already running,

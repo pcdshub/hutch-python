@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yaml Files &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
+  <title>Yaml Files &mdash; hutch-python 1.15.0+25.g2215a25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+19.g7127985
+                1.15.0+25.g2215a25
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -141,13 +142,13 @@
 }
 </style>
 <section id="yaml-files">
-<h1>Yaml Files<a class="headerlink" href="#yaml-files" title="Permalink to this headline">¶</a></h1>
+<h1>Yaml Files<a class="headerlink" href="#yaml-files" title="Permalink to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> uses a <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file for basic configuration. This is a
 standard yaml file with the following valid keys:
 <code class="docutils literal notranslate"><span class="pre">hutch</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>, <code class="docutils literal notranslate"><span class="pre">experiment</span></code>, <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>, <code class="docutils literal notranslate"><span class="pre">daq_type</span></code>,
 <code class="docutils literal notranslate"><span class="pre">daq_host</span></code>, and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code>.</p>
 <section id="hutch">
-<h2>hutch<a class="headerlink" href="#hutch" title="Permalink to this headline">¶</a></h2>
+<h2>hutch<a class="headerlink" href="#hutch" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key expects a single string, the hutch name.</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
 </pre></div>
@@ -162,7 +163,7 @@ standard yaml file with the following valid keys:
 </ul>
 </section>
 <section id="db">
-<h2>db<a class="headerlink" href="#db" title="Permalink to this headline">¶</a></h2>
+<h2>db<a class="headerlink" href="#db" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">db</span></code> key expects a single string, the file path.</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>
 </pre></div>
@@ -176,7 +177,7 @@ In practice, you would only change this string for development purposes.</p>
 </ul>
 </section>
 <section id="load">
-<h2>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
+<h2>load<a class="headerlink" href="#load" title="Permalink to this heading">¶</a></h2>
 <p>The load key expects a string or a list of strings, the modules to load.</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
 </pre></div>
@@ -192,7 +193,7 @@ In practice, you would only change this string for development purposes.</p>
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> for each of these modules.</p>
 </section>
 <section id="experiment">
-<h2>experiment<a class="headerlink" href="#experiment" title="Permalink to this headline">¶</a></h2>
+<h2>experiment<a class="headerlink" href="#experiment" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">experiment</span></code> key expects a dictionary with proposal and run, both
 strings. It is not needed to provide an experiment key unless you would like
 to load an experiment other than the active experiment; handy for debugging.</p>
@@ -205,7 +206,7 @@ to load an experiment other than the active experiment; handy for debugging.</p>
 particular experiment.</p>
 </section>
 <section id="obj-conf">
-<span id="obj-conf-yaml"></span><h2>obj_conf<a class="headerlink" href="#obj-conf" title="Permalink to this headline">¶</a></h2>
+<span id="obj-conf-yaml"></span><h2>obj_conf<a class="headerlink" href="#obj-conf" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">obj_conf</span></code> key expects a single string, a file path.</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span><span class="w"></span>
 </pre></div>
@@ -221,7 +222,7 @@ Currently, this supports modifying:</p>
 <p>For more information, see <a class="reference internal" href="object_configuration.html#object-configuration"><span class="std std-ref">Object Configuration</span></a>.</p>
 </section>
 <section id="daq-type">
-<h2>daq_type<a class="headerlink" href="#daq-type" title="Permalink to this headline">¶</a></h2>
+<h2>daq_type<a class="headerlink" href="#daq-type" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">daq_type</span></code> key is optional. If omitted, the default value is ‘lcls1’
 for backwards compatibility with existing hutch python setups.
 This key expects a string with one of four valid values:
@@ -230,13 +231,13 @@ LCLS1-style daq, a simulated LCLS1-style daq, an LCLS2-style daq,
 or no daq respectively.</p>
 </section>
 <section id="daq-host">
-<h2>daq_host<a class="headerlink" href="#daq-host" title="Permalink to this headline">¶</a></h2>
+<h2>daq_host<a class="headerlink" href="#daq-host" title="Permalink to this heading">¶</a></h2>
 <p>The daq collection host as a string. This is a required key
 when using the lcls2 daq_type, and is ignored with any other daq_type.
 It will be used in the creation of the lcls2 daq object.</p>
 </section>
 <section id="daq-platform">
-<h2>daq_platform<a class="headerlink" href="#daq-platform" title="Permalink to this headline">¶</a></h2>
+<h2>daq_platform<a class="headerlink" href="#daq-platform" title="Permalink to this heading">¶</a></h2>
 <p>A dictionary description of which daq platform to use. This is used to
 determine whether to use the primary or secondary elog in hutches with
 two daqs, and is used to set up the lcls2 daq_type. If omitted entirely,
@@ -248,7 +249,7 @@ alternate platforms for. Alternate platforms will post to the
 secondary elog.</p>
 </section>
 <section id="full-file-example">
-<h2>Full File Example<a class="headerlink" href="#full-file-example" title="Permalink to this headline">¶</a></h2>
+<h2>Full File Example<a class="headerlink" href="#full-file-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
 
 <span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>

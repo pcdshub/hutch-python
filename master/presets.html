@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presets &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
+  <title>Presets &mdash; hutch-python 1.15.0+25.g2215a25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+19.g7127985
+                1.15.0+25.g2215a25
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -134,14 +135,14 @@
 }
 </style>
 <section id="presets">
-<h1>Presets<a class="headerlink" href="#presets" title="Permalink to this headline">¶</a></h1>
+<h1>Presets<a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> provides a position presets system through the
 <code class="docutils literal notranslate"><span class="pre">pcdsdevices</span></code> module. See the
 <a class="reference external" href="https://pcdshub.github.io/pcdsdevices/presets.html">presets documentation</a>
 for a full description. On this page we will go through examples
 and show where the presets are stored.</p>
 <section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h2>
 <p>Creating a permenant preset named <code class="docutils literal notranslate"><span class="pre">tt</span></code> for a motor named <code class="docutils literal notranslate"><span class="pre">reflaser</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">add_hutch</span><span class="p">(</span><span class="s1">&#39;tt&#39;</span><span class="p">,</span> <span class="mf">42.1</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Add timetool in pos&#39;</span><span class="p">)</span>
 </pre></div>
@@ -194,7 +195,7 @@ at the current position:</p>
 </div>
 </section>
 <section id="preset-files">
-<h2>Preset Files<a class="headerlink" href="#preset-files" title="Permalink to this headline">¶</a></h2>
+<h2>Preset Files<a class="headerlink" href="#preset-files" title="Permalink to this heading">¶</a></h2>
 <p>The presets are stored in yaml files inside of the hutch python app directory
 e.g. <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/mfx</span></code>, or in your checkout if
 doing development. Inside this directory we have a <code class="docutils literal notranslate"><span class="pre">presets</span></code> directory.

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hutch Setup &mdash; hutch-python 1.15.0+19.g7127985 documentation</title>
+  <title>Hutch Setup &mdash; hutch-python 1.15.0+25.g2215a25 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.15.0+19.g7127985
+                1.15.0+25.g2215a25
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -135,13 +136,13 @@
 }
 </style>
 <section id="hutch-setup">
-<h1>Hutch Setup<a class="headerlink" href="#hutch-setup" title="Permalink to this headline">¶</a></h1>
+<h1>Hutch Setup<a class="headerlink" href="#hutch-setup" title="Permalink to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> is meant to be run in the context of a specific hutch.
 Hutch repos are stored online at <code class="docutils literal notranslate"><span class="pre">https://github.com/pcdshub/hutchname</span></code>,
 and in our directory tree at <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/hutchname</span></code>.</p>
 <p>If your hutch does not have a repository, you’ve found the correct page.</p>
 <section id="steps-to-set-up-a-hutch">
-<h2>Steps to set up a Hutch<a class="headerlink" href="#steps-to-set-up-a-hutch" title="Permalink to this headline">¶</a></h2>
+<h2>Steps to set up a Hutch<a class="headerlink" href="#steps-to-set-up-a-hutch" title="Permalink to this heading">¶</a></h2>
 <p>There is a built-in template for starting a new hutch repo.
 Replacing <code class="docutils literal notranslate"><span class="pre">hutchname</span></code> with your hutch’s name:</p>
 <ol class="arabic simple">
@@ -163,7 +164,7 @@ for reporting issues to GitHub specified in <a class="reference internal" href="
 </ol>
 </section>
 <section id="adding-devices-to-the-database">
-<h2>Adding devices to the database<a class="headerlink" href="#adding-devices-to-the-database" title="Permalink to this headline">¶</a></h2>
+<h2>Adding devices to the database<a class="headerlink" href="#adding-devices-to-the-database" title="Permalink to this heading">¶</a></h2>
 <p>The default <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file created will point to the main <code class="docutils literal notranslate"><span class="pre">device_config</span></code>
 database located in <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/device_config</span></code>. If
 you would like to make large changes to the database it is best practice to to
@@ -183,7 +184,7 @@ modify the database beyond the short example below see
 </div>
 </section>
 <section id="updating-a-hutch-s-launch-scripts">
-<h2>Updating a Hutch’s Launch Scripts<a class="headerlink" href="#updating-a-hutch-s-launch-scripts" title="Permalink to this headline">¶</a></h2>
+<h2>Updating a Hutch’s Launch Scripts<a class="headerlink" href="#updating-a-hutch-s-launch-scripts" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Pick up the latest environment</p></li>
 <li><p>In some arbitrary directory, <code class="docutils literal notranslate"><span class="pre">hutch-python</span> <span class="pre">--create</span> <span class="pre">hutchname</span></code></p></li>

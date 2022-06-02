@@ -62,6 +62,7 @@ master/_sources/tutorial.ipynb.txt
 master/_sources/user_utils.rst.txt
 master/_sources/utils.rst.txt
 master/_sources/yaml_files.rst.txt
+master/_static/_sphinx_javascript_frameworks_compat.js
 master/_static/basic.css
 master/_static/css/badge_only.css
 master/_static/css/fonts/Roboto-Slab-Bold.woff
@@ -85,7 +86,7 @@ master/_static/css/theme.css
 master/_static/doctools.js
 master/_static/documentation_options.js
 master/_static/file.png
-master/_static/jquery-3.5.1.js
+master/_static/jquery-3.6.0.js
 master/_static/jquery.js
 master/_static/js/badge_only.js
 master/_static/js/html5shiv-printshiv.min.js
