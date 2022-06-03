@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.get\_current\_experiment
+============================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: get_current_experiment

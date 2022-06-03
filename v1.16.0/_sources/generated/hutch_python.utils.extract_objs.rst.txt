@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.extract\_objs
+=================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: extract_objs

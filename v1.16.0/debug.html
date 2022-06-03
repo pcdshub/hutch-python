@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debug &mdash; hutch-python 1.16.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release History" href="releases.html" />
+    <link rel="prev" title="Yaml Files" href="yaml_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.16.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Debug</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#live-session-logging">Live Session Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-log-filtering-rules">Default Log Filtering Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pcds-wide-logging">PCDS-wide Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debug-mode-and-logging-tools">Debug Mode and Logging Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automated-test-logging">Automated Test Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Debug</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/debug.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="debug">
+<h1>Debug<a class="headerlink" href="#debug" title="Permalink to this heading">¶</a></h1>
+<p>There are numerous debug features built in to <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.</p>
+<section id="live-session-logging">
+<h2>Live Session Logging<a class="headerlink" href="#live-session-logging" title="Permalink to this heading">¶</a></h2>
+<p>The first place to go when something has already gone wrong is to the log
+files. These are stored in a <code class="docutils literal notranslate"><span class="pre">logs</span></code> directory in the same location as the
+<code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file, and sorted by date and session start time.</p>
+<p>These contain every log message from the session in the order they were called.
+Each module can choose when to make calls to <code class="docutils literal notranslate"><span class="pre">logger.debug</span></code> to generate
+log messages, but we also log every single input line, output line, and
+exception that was raised in the interactive session. Note that the input and
+output lines are not available to the logger until the entire command has
+executed, so the log messages immediately preceding an input log are those
+that were created by calling that statement.</p>
+<p>The logging configuration is specified by the <code class="docutils literal notranslate"><span class="pre">logging.yaml</span></code> file and is
+set up by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">log_setup</span></code> module. If not in debug mode, only log levels
+<code class="docutils literal notranslate"><span class="pre">INFO</span></code> and above will make it to the terminal. The files are configured to
+rotate and roll over into a second file once they get too large.</p>
+</section>
+<section id="default-log-filtering-rules">
+<h2>Default Log Filtering Rules<a class="headerlink" href="#default-log-filtering-rules" title="Permalink to this heading">¶</a></h2>
+<p>The following filtering rules are applied to the console logs:</p>
+<ul class="simple">
+<li><p>Loggers and ophyd object logging adapters that send many messages in a short
+period of time will stop being logged. This can be configured using the
+<code class="docutils literal notranslate"><span class="pre">logs.filter</span></code> object.</p></li>
+<li><p>Calls to <code class="docutils literal notranslate"><span class="pre">warnings.warn</span></code> will be redirected to the <code class="docutils literal notranslate"><span class="pre">logging</span></code> module
+stream at “WARNING” level, and duplicate messages will be dropped to “DEBUG”
+level for the console. This is similar to how warnings behave normally
+outside of IPython sessions, but this way we also get a record of them in
+the normal log file.</p></li>
+<li><p>Subscription callback exceptions from ophyd objects will be demoted from
+“ERROR” level to “DEBUG” level to prevent spam while preserving error
+logs.</p></li>
+<li><p>All log messages from ophyd objects at “INFO” level will also be demoted to
+“DEBUG” level to prevent spam.</p></li>
+</ul>
+</section>
+<section id="pcds-wide-logging">
+<h2>PCDS-wide Logging<a class="headerlink" href="#pcds-wide-logging" title="Permalink to this heading">¶</a></h2>
+<p>A special Python logger for PCDS-wide logging is pre-configured within
+<code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>.  This special logger is named <code class="docutils literal notranslate"><span class="pre">'pcds-logging'</span></code>, and hooks
+in with our managed logstash, ElasticSearch and Grafana stack.</p>
+<p>To explore the data, access Grafana <a class="reference external" href="https://pswww.slac.stanford.edu/ctl/grafana/explore">here</a>.</p>
+<p>To record information, first get the logger itself:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">pcds_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;pcds-logging&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Log messages above the configured level (by default <code class="docutils literal notranslate"><span class="pre">logging.DEBUG</span></code>) will be
+transmitted to the centralized log server to be recorded and indexed.</p>
+<p>One example use case is when an important event that would be useful to see
+trended over time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcds_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;I dropped the sample&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or for exception statistics, perhaps. The following will include a full stack
+trace along with module and line information automatically:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>try:</dt><dd><p>1/0</p>
+</dd>
+<dt>except ZeroDivisionError:</dt><dd><p>pcds_logger.exception(‘This specific thing went wrong’)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>It is not necessary to include information about the host that is running
+Python, module versions, or thread/process names as these are automatically
+included.</p>
+</section>
+<section id="debug-mode-and-logging-tools">
+<h2>Debug Mode and Logging Tools<a class="headerlink" href="#debug-mode-and-logging-tools" title="Permalink to this heading">¶</a></h2>
+<p>You can start in debug mode by passing the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option to
+<code class="docutils literal notranslate"><span class="pre">hutch-python</span></code>. Debug mode changes the logging configuration to print
+log messages of level <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and above to the screen. If that’s a bit much,
+or if you change your mind during a session, we have a <code class="docutils literal notranslate"><span class="pre">logs</span></code> namespace
+with all of the relevant logging configuration tooling.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.log_objects.html#hutch_python.log_setup.log_objects" title="hutch_python.log_setup.log_objects"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.log_objects</span></code></a></dt><dd><p>Used to configure <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> level logging for specific devices.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.log_objects_off.html#hutch_python.log_setup.log_objects_off" title="hutch_python.log_setup.log_objects_off"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.log_objects_off</span></code></a></dt><dd><p>Used to reset previous calls to <code class="docutils literal notranslate"><span class="pre">log_objects</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.get_log_directory.html#hutch_python.log_setup.get_log_directory" title="hutch_python.log_setup.get_log_directory"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.get_log_directory</span></code></a></dt><dd><p>Returns the current configured log path.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.get_session_logfiles.html#hutch_python.log_setup.get_session_logfiles" title="hutch_python.log_setup.get_session_logfiles"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.get_session_logfiles</span></code></a></dt><dd><p>Returns a list of all the logfiles generated by this session.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.get_console_level_name.html#hutch_python.log_setup.get_console_level_name" title="hutch_python.log_setup.get_console_level_name"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.get_console_level_name</span></code></a></dt><dd><p>Returns the name of the console’s log level, e.g. “INFO”</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.set_console_level.html#hutch_python.log_setup.set_console_level" title="hutch_python.log_setup.set_console_level"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.set_console_level</span></code></a></dt><dd><p>Change the log level of the console logging handler.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.debug_mode.html#hutch_python.log_setup.debug_mode" title="hutch_python.log_setup.debug_mode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.debug_mode</span></code></a>:</dt><dd><p>A shortcut for setting the console level between “INFO” and “DEBUG”.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.debug_context.html#hutch_python.log_setup.debug_context" title="hutch_python.log_setup.debug_context"><code class="xref any py py-func docutils literal notranslate"><span class="pre">logs.debug_context</span></code></a>:</dt><dd><p>Context manager for enabling debug mode for a block of code.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.ObjectFilter.html#hutch_python.log_setup.ObjectFilter" title="hutch_python.log_setup.ObjectFilter"><code class="xref any py py-class docutils literal notranslate"><span class="pre">logs.filter</span></code></a>:</dt><dd><p>Get the ophyd object filter that’s on the console handler.
+This contains a whitelist for allowing spammy loggers and a blacklist
+for hiding non-spammy loggers.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="generated/hutch_python.log_setup.ObjectFilter.html#hutch_python.log_setup.ObjectFilter" title="hutch_python.log_setup.ObjectFilter"><code class="xref any py py-class docutils literal notranslate"><span class="pre">logs.file_filter</span></code></a>:</dt><dd><p>The same as above, but for the file handler.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logs</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>     <span class="c1"># Turn on debug mode</span>
+<span class="n">logs</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>    <span class="c1"># Turn off debug mode</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">())</span>  <span class="c1"># Check debug mode</span>
+
+<span class="c1"># Turn on debug mode for the duration of a code block</span>
+<span class="k">with</span> <span class="n">logs</span><span class="o">.</span><span class="n">debug_context</span><span class="p">():</span>
+    <span class="n">buggy_function</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="automated-test-logging">
+<h2>Automated Test Logging<a class="headerlink" href="#automated-test-logging" title="Permalink to this heading">¶</a></h2>
+<p>If you’re running the automated test suite, each test run is stored in a
+module-level <code class="docutils literal notranslate"><span class="pre">logs</span></code> folder. This can be useful for diagnosing why the tests
+are failing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="yaml_files.html" class="btn btn-neutral float-left" title="Yaml Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="releases.html" class="btn btn-neutral float-right" title="Release History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
