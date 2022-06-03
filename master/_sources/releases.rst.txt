@@ -1,6 +1,29 @@
 Release History
 ###############
 
+v1.16.0 (2022-06-03)
+====================
+
+Features
+--------
+- Add the ``obj_config`` key to the ``conf.yml`` configuration file.
+  This allows the user to pass in the path to a file that contains
+  object reconfiguration information.
+  Currently, tab completion whitelists/blacklists and ``ophyd``
+  component ``kind`` configuration are supported.
+- Switch the best effort callback instance ``bec`` to use the
+  ``BECOptionsPerRun`` callback from ``nabs`` instead of the previous
+  ``BestEffortCallback`` from ``bluesky``.
+  This new class is a subclass of ``BestEffortCallback`` that allows
+  us to configure its options on a per-scan basis by setting metadata keys.
+  This means we can do things like disabling plots on scans where it
+  makes no sense, and perhaps more features in the future.
+
+Contributors
+------------
+- tangkong
+
+
 v1.15.0 (2022-05-02)
 ====================
 
