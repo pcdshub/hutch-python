@@ -1,6 +1,16 @@
 Release History
 ###############
 
+v1.17.0 (2022-07-27)
+====================
+
+Features
+--------
+- In the facility logger, show the source of the exception in the facility
+  log message summary. This will make it easier to understand the cause of
+  uncaught exceptions that get sent to the facility logger.
+
+
 v1.16.0 (2022-06-03)
 ====================
 
