@@ -1,0 +1,6 @@
+﻿hutch\_python.bug.report\_bug
+=============================
+
+.. currentmodule:: hutch_python.bug
+
+.. autofunction:: report_bug
