@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.user_load.get_user_objs &mdash; hutch-python 1.17.0+7.gce078b7 documentation</title>
+  <title>hutch_python.user_load.get_user_objs &mdash; hutch-python 1.17.0+24.gab2ff8b documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -32,7 +33,7 @@
             <a href="../index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.17.0+7.gce078b7
+                1.17.0+24.gab2ff8b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -79,7 +80,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../load_parts.html">load submodules</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.happi.get_happi_objs.html">hutch_python.happi.get_happi_objs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.happi.get_lightpath.html">hutch_python.happi.get_lightpath</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.user_load.get_user_objs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.user_load.get_user_objs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hutch_python.user_load.get_user_objs"><code class="docutils literal notranslate"><span class="pre">get_user_objs()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.qs_load.get_qs_objs.html">hutch_python.qs_load.get_qs_objs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.exp_load.get_exp_objs.html">hutch_python.exp_load.get_exp_objs</a></li>
 </ul>
@@ -149,7 +153,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>load</strong> (<em>str</em><em>, </em><em>list of str</em>) – The module(s) to import.</p></li>
+<li><p><strong>load</strong> (<em>str</em><em>, </em><em>list</em><em> of </em><em>str</em>) – The module(s) to import.</p></li>
 <li><p><strong>ask_on_failure</strong> (<em>bool</em><em>, </em><em>optional</em>) – If a module fails to load, indicate what happened and ask the user if
 loading should continue.</p></li>
 </ul>

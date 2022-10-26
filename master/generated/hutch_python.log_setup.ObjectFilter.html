@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.log_setup.ObjectFilter &mdash; hutch-python 1.17.0+7.gce078b7 documentation</title>
+  <title>hutch_python.log_setup.ObjectFilter &mdash; hutch-python 1.17.0+24.gab2ff8b documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -32,7 +33,7 @@
             <a href="../index.html" class="icon icon-home"> hutch-python
           </a>
               <div class="version">
-                1.17.0+7.gce078b7
+                1.17.0+24.gab2ff8b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -89,7 +90,16 @@
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_mode.html">hutch_python.log_setup.debug_mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_context.html">hutch_python.log_setup.debug_context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.debug_wrapper.html">hutch_python.log_setup.debug_wrapper</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.log_setup.ObjectFilter</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.log_setup.ObjectFilter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter"><code class="docutils literal notranslate"><span class="pre">ObjectFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.blacklist"><code class="docutils literal notranslate"><span class="pre">ObjectFilter.blacklist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.whitelist"><code class="docutils literal notranslate"><span class="pre">ObjectFilter.whitelist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.noisy_loggers"><code class="docutils literal notranslate"><span class="pre">ObjectFilter.noisy_loggers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hutch_python.log_setup.ObjectFilter.__init__"><code class="docutils literal notranslate"><span class="pre">ObjectFilter.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.log_objects.html">hutch_python.log_setup.log_objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hutch_python.log_setup.log_objects_off.html">hutch_python.log_setup.log_objects_off</a></li>
 </ul>
@@ -160,7 +170,7 @@ seconds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>objs</strong> (<em>iterable of OphydObject</em>) – Ophyd objects to filter.</p></li>
+<li><p><strong>objs</strong> (<em>iterable</em><em> of </em><em>OphydObject</em>) – Ophyd objects to filter.</p></li>
 <li><p><strong>level</strong> (<em>str</em><em> or </em><em>int</em>) – Cut-off level for log messages.
 Default is ‘WARNING’. Python log level names or their corresponding
 integers are accepted.</p></li>
@@ -178,8 +188,8 @@ disabled by setting to 0.</p></li>
 <li><p><strong>noisy_threshold_60s</strong> (<em>int</em><em>, </em><em>optional</em>) – If a single ophyd object logs over <code class="docutils literal notranslate"><span class="pre">noisy_threshold_60s</span></code> log messages
 in 60 seconds, consider it a noisy logger and silence it.  May be
 disabled by setting to 0.</p></li>
-<li><p><strong>whitelist</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Logger or object names that are not subject to the thresholds above.</p></li>
-<li><p><strong>blacklist</strong> (<em>list of str</em><em>, </em><em>optional</em>) – Logger or object names that should always be filtered out.</p></li>
+<li><p><strong>whitelist</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – Logger or object names that are not subject to the thresholds above.</p></li>
+<li><p><strong>blacklist</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – Logger or object names that should always be filtered out.</p></li>
 </ul>
 </dd>
 </dl>

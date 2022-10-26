@@ -59,6 +59,9 @@ master/_sources/start.rst.txt
 master/_sources/startup.rst.txt
 master/_sources/tips.rst.txt
 master/_sources/tutorial.ipynb.txt
+master/_sources/upcoming_release_notes/350-mnt_new_lp_config.rst.txt
+master/_sources/upcoming_release_notes/template-full.rst.txt
+master/_sources/upcoming_release_notes/template-short.rst.txt
 master/_sources/user_utils.rst.txt
 master/_sources/utils.rst.txt
 master/_sources/yaml_files.rst.txt
@@ -97,6 +100,7 @@ master/_static/minus.png
 master/_static/plus.png
 master/_static/pygments.css
 master/_static/searchtools.js
+master/_static/sphinx_highlight.js
 master/_static/underscore-1.13.1.js
 master/_static/underscore.js
 master/beamline.html
@@ -166,6 +170,9 @@ master/startup.html
 master/tips.html
 master/tutorial.html
 master/tutorial.ipynb
+master/upcoming_release_notes/350-mnt_new_lp_config.html
+master/upcoming_release_notes/template-full.html
+master/upcoming_release_notes/template-short.html
 master/user_utils.html
 master/utils.html
 master/yaml_files.html
