@@ -1,0 +1,6 @@
+﻿hutch\_python.bug.get\_text\_from\_editor
+=========================================
+
+.. currentmodule:: hutch_python.bug
+
+.. autofunction:: get_text_from_editor

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaml Files &mdash; hutch-python 1.18.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Debug" href="debug.html" />
+    <link rel="prev" title="Hutch Setup" href="hutch_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> hutch-python
+          </a>
+              <div class="version">
+                1.18.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Yaml Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hutch">hutch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#db">db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#obj-conf">obj_conf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daq-type">daq_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daq-host">daq_host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daq-platform">daq_platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-file-example">Full File Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Yaml Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/yaml_files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="yaml-files">
+<h1>Yaml Files<a class="headerlink" href="#yaml-files" title="Permalink to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> uses a <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file for basic configuration. This is a
+standard yaml file with the following valid keys:
+<code class="docutils literal notranslate"><span class="pre">hutch</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>, <code class="docutils literal notranslate"><span class="pre">experiment</span></code>, <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>, <code class="docutils literal notranslate"><span class="pre">daq_type</span></code>,
+<code class="docutils literal notranslate"><span class="pre">daq_host</span></code>, and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code>.</p>
+<section id="hutch">
+<h2>hutch<a class="headerlink" href="#hutch" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key expects a single string, the hutch name.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This key is used to:</p>
+<ul class="simple">
+<li><p>pick objects to load from <code class="docutils literal notranslate"><span class="pre">happi</span></code></p></li>
+<li><p>automatically select the active experiment</p></li>
+<li><p>create the correct <code class="docutils literal notranslate"><span class="pre">daq</span></code> object</p></li>
+<li><p>create the <code class="docutils literal notranslate"><span class="pre">xxx.db</span></code> module</p></li>
+<li><p>display the hutch banner</p></li>
+</ul>
+</section>
+<section id="db">
+<h2>db<a class="headerlink" href="#db" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">db</span></code> key expects a single string, the file path.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The file path can be either relative to the <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file or absolute.
+In practice, you would only change this string for development purposes.</p>
+<p>This key is used to:</p>
+<ul class="simple">
+<li><p>load objects from <code class="docutils literal notranslate"><span class="pre">happi</span></code></p></li>
+<li><p>set up the <code class="docutils literal notranslate"><span class="pre">xxx_beampath</span></code> object</p></li>
+</ul>
+</section>
+<section id="load">
+<h2>load<a class="headerlink" href="#load" title="Permalink to this heading">¶</a></h2>
+<p>The load key expects a string or a list of strings, the modules to load.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.random_stuff</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Both of these formats are valid.</p>
+<p>This key is used to include hutch-specific code.
+<code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> will attempt to do a
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> for each of these modules.</p>
+</section>
+<section id="experiment">
+<h2>experiment<a class="headerlink" href="#experiment" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">experiment</span></code> key expects a dictionary with proposal and run, both
+strings. It is not needed to provide an experiment key unless you would like
+to load an experiment other than the active experiment; handy for debugging.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">experiment</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proposal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ls25</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This key is used to force the questionnaire and experiment file to be from a
+particular experiment.</p>
+</section>
+<section id="obj-conf">
+<span id="obj-conf-yaml"></span><h2>obj_conf<a class="headerlink" href="#obj-conf" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">obj_conf</span></code> key expects a single string, a file path.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The file path can be either relative to the <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file or absolute.
+This key is used to customize objects after they have been loaded.
+Currently, this supports modifying:</p>
+<ul class="simple">
+<li><p>attributes visible by tab-completion</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">kind</span></code> of an object</p></li>
+</ul>
+<p>on a class-wide or device-by-device basis.</p>
+<p>For more information, see <a class="reference internal" href="object_configuration.html#object-configuration"><span class="std std-ref">Object Configuration</span></a>.</p>
+</section>
+<section id="daq-type">
+<h2>daq_type<a class="headerlink" href="#daq-type" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">daq_type</span></code> key is optional. If omitted, the default value is ‘lcls1’
+for backwards compatibility with existing hutch python setups.
+This key expects a string with one of four valid values:
+‘lcls1’, ‘lcls1-sim’, ‘lcls2’, or ‘nodaq’, to pick between creating an
+LCLS1-style daq, a simulated LCLS1-style daq, an LCLS2-style daq,
+or no daq respectively.</p>
+</section>
+<section id="daq-host">
+<h2>daq_host<a class="headerlink" href="#daq-host" title="Permalink to this heading">¶</a></h2>
+<p>The daq collection host as a string. This is a required key
+when using the lcls2 daq_type, and is ignored with any other daq_type.
+It will be used in the creation of the lcls2 daq object.</p>
+</section>
+<section id="daq-platform">
+<h2>daq_platform<a class="headerlink" href="#daq-platform" title="Permalink to this heading">¶</a></h2>
+<p>A dictionary description of which daq platform to use. This is used to
+determine whether to use the primary or secondary elog in hutches with
+two daqs, and is used to set up the lcls2 daq_type. If omitted entirely,
+platform 0 and the primary elog will be used.
+This dictionary has a required key, “default” that points to an integer
+that is the normal platform to use, associated with the primary
+experiment. Additional keys are interpreted as hostnames to use
+alternate platforms for. Alternate platforms will post to the
+secondary elog.</p>
+</section>
+<section id="full-file-example">
+<h2>Full File Example<a class="headerlink" href="#full-file-example" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
+
+<span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>
+
+<span class="nt">load</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hutch_setup.html" class="btn btn-neutral float-left" title="Hutch Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="debug.html" class="btn btn-neutral float-right" title="Debug" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
