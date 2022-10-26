@@ -59,7 +59,6 @@ master/_sources/start.rst.txt
 master/_sources/startup.rst.txt
 master/_sources/tips.rst.txt
 master/_sources/tutorial.ipynb.txt
-master/_sources/upcoming_release_notes/350-mnt_new_lp_config.rst.txt
 master/_sources/upcoming_release_notes/template-full.rst.txt
 master/_sources/upcoming_release_notes/template-short.rst.txt
 master/_sources/user_utils.rst.txt
@@ -170,7 +169,6 @@ master/startup.html
 master/tips.html
 master/tutorial.html
 master/tutorial.ipynb
-master/upcoming_release_notes/350-mnt_new_lp_config.html
 master/upcoming_release_notes/template-full.html
 master/upcoming_release_notes/template-short.html
 master/user_utils.html

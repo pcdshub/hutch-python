@@ -1,6 +1,26 @@
 Release History
 ###############
 
+
+v1.18.0 (2022-10-25)
+====================
+
+Features
+--------
+- Updates database loading to utilize updated lightpath (v1.0.0)
+  for loading devices. This makes the newer, reworked version of
+  lightpath available in the session instead of the old version.
+
+Maintenance
+-----------
+- Fix issues with running tests offline on LCLS servers.
+
+Contributors
+------------
+- tangkong
+- zllentz
+
+
 v1.17.0 (2022-07-27)
 ====================
 
