@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presets &mdash; hutch-python 1.18.0 documentation</title>
+  <title>Presets &mdash; hutch-python 1.18.0+7.g14f3ee2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -30,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> hutch-python
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hutch-python
           </a>
               <div class="version">
-                1.18.0
+                1.18.0+7.g14f3ee2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -100,8 +101,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Presets</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Presets</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/presets.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -202,25 +203,25 @@ e.g. <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/py
 doing development. Inside this directory we have a <code class="docutils literal notranslate"><span class="pre">presets</span></code> directory.
 Inside that directory we have a <code class="docutils literal notranslate"><span class="pre">beamline</span></code> directory for the permanent
 presets, and a separate directory for each experiment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /reg/g/pcds/pyps/apps/hutch-python/mfx/presets
-$ ls
-<span class="m">05516</span>  beamline  ls4916
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/reg/g/pcds/pyps/apps/hutch-python/mfx/presets
+$<span class="w"> </span>ls
+<span class="m">05516</span><span class="w">  </span>beamline<span class="w">  </span>ls4916
 </pre></div>
 </div>
 <p>The files have the name of the particular motor e.g. <code class="docutils literal notranslate"><span class="pre">reflaser.yml</span></code>. They are
 structured in a readable yaml format, like so:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">refl</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">history</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">23 Apr 2018 11:00:00</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">20.0000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">reflaser</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span><span class="w"></span>
-<span class="nt">tt</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">history</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">23 Apr 2018 10:37:49</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">42.1000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">23 Apr 2018 10:38:00</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">41.2000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">pos&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">23 Apr 2018 10:39:00</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">40.0000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">again&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40.0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">refl</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">history</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 11:00:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">20.0000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">reflaser</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span>
+<span class="nt">tt</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">history</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:37:49</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">42.1000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:38:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">41.2000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:39:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">40.0000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">again&#39;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40.0</span>
 </pre></div>
 </div>
 <p>You are free to edit these by hand if you maintain the format.</p>

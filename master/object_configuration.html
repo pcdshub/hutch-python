@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Object Configuration &mdash; hutch-python 1.18.0 documentation</title>
+  <title>Object Configuration &mdash; hutch-python 1.18.0+7.g14f3ee2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -30,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> hutch-python
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hutch-python
           </a>
               <div class="version">
-                1.18.0
+                1.18.0+7.g14f3ee2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -109,8 +110,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Object Configuration</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Object Configuration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/object_configuration.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -158,13 +159,13 @@ or device class.  Note that you should not include the namespace in
 these names, as <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> will search for the device names.
 (<code class="docutils literal notranslate"><span class="pre">fast_motor1</span></code> is ok, not <code class="docutils literal notranslate"><span class="pre">sim.fast_motor1</span></code>)</p>
 <p>Under this, configuration directions should be listed.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">device_name</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">direction1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">device_name</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">direction1</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
 
-<span class="nt">DeviceClass</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">direction2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span><span class="w"></span>
+<span class="nt">DeviceClass</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">direction2</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
 </pre></div>
 </div>
 </section>
@@ -177,9 +178,9 @@ If you would like to add another, please leave an
 <section id="tab-whitelist">
 <h3><code class="docutils literal notranslate"><span class="pre">tab_whitelist</span></code><a class="headerlink" href="#tab-whitelist" title="Permalink to this heading">¶</a></h3>
 <p>A list of items to <strong>reveal</strong> in the tab-completion menu.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gon_sx</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gon_sx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
 </pre></div>
 </div>
 </section>
@@ -187,9 +188,9 @@ If you would like to add another, please leave an
 <h3><code class="docutils literal notranslate"><span class="pre">tab_blacklist</span></code><a class="headerlink" href="#tab-blacklist" title="Permalink to this heading">¶</a></h3>
 <p>A list of items to <strong>hide</strong> from the tab_completion menu.  These attributes
 still exist, and are simply hidden from the tab-completion menu.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span>
 </pre></div>
 </div>
 </section>
@@ -197,9 +198,9 @@ still exist, and are simply hidden from the tab-completion menu.</p>
 <h3><code class="docutils literal notranslate"><span class="pre">replace_tablist</span></code><a class="headerlink" href="#replace-tablist" title="Permalink to this heading">¶</a></h3>
 <p>A list of items to replace the tab completion list with.  This will
 functionally hide all items and reveal the ones specified.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">fast_motor1</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">position</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">fast_motor1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">position</span>
 </pre></div>
 </div>
 </section>
@@ -212,11 +213,11 @@ a device or not.</p>
 and the desired <code class="docutils literal notranslate"><span class="pre">kind</span></code> as a key-value pair.  To modify the kind of
 its components, list the component name and the desired <code class="docutils literal notranslate"><span class="pre">kind</span></code> as a
 key-value pair.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">at2l0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span><span class="w"></span>
-<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span><span class="w"></span>
-<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">at2l0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span>
 </pre></div>
 </div>
 </section>
@@ -245,39 +246,39 @@ directive will take priority over the <code class="docutils literal notranslate"
 <p>To use the configuration settings you’ve described, simply reference
 your configuration yaml file in your <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file with the
 key <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>.  See <a class="reference internal" href="yaml_files.html#obj-conf-yaml"><span class="std std-ref">obj_conf</span></a>.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span>
 </pre></div>
 </div>
 </section>
 <section id="example-obj-conf-yml">
 <h2>Example <code class="docutils literal notranslate"><span class="pre">obj_conf.yml</span></code><a class="headerlink" href="#example-obj-conf-yml" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration options can be applied to a single device by name</span><span class="w"></span>
-<span class="c1"># this hides at2l0.blade_01, shows at2l0.kind, and changes the</span><span class="w"></span>
-<span class="c1"># kind of at2l0.blade_01 and at2l0.blade_02.</span><span class="w"></span>
-<span class="nt">at2l0</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span><span class="w"></span>
-<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span><span class="w"></span>
-<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration options can be applied to a single device by name</span>
+<span class="c1"># this hides at2l0.blade_01, shows at2l0.kind, and changes the</span>
+<span class="c1"># kind of at2l0.blade_01 and at2l0.blade_02.</span>
+<span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
+<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span>
 
-<span class="c1"># or to all devices of a specific class</span><span class="w"></span>
-<span class="nt">pcdsdevices.epics_motor.IMS</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span><span class="w"></span>
+<span class="c1"># or to all devices of a specific class</span>
+<span class="nt">pcdsdevices.epics_motor.IMS</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
 
-<span class="c1"># This tries to limit the tab completion list to only `kind`</span><span class="w"></span>
-<span class="nt">FastMotor</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span><span class="w"></span>
+<span class="c1"># This tries to limit the tab completion list to only `kind`</span>
+<span class="nt">FastMotor</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
 
-<span class="c1"># This will allow `limits` to be seen in specifically `fast_motor1`</span><span class="w"></span>
-<span class="c1"># while other simulated fast motors will only see `kind`</span><span class="w"></span>
-<span class="nt">fast_motor1</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">limits</span><span class="w"></span>
+<span class="c1"># This will allow `limits` to be seen in specifically `fast_motor1`</span>
+<span class="c1"># while other simulated fast motors will only see `kind`</span>
+<span class="nt">fast_motor1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">limits</span>
 </pre></div>
 </div>
 </section>

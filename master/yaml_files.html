@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yaml Files &mdash; hutch-python 1.18.0 documentation</title>
+  <title>Yaml Files &mdash; hutch-python 1.18.0+7.g14f3ee2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -30,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> hutch-python
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hutch-python
           </a>
               <div class="version">
-                1.18.0
+                1.18.0+7.g14f3ee2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,8 +108,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Yaml Files</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Yaml Files</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/yaml_files.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -151,7 +152,7 @@ standard yaml file with the following valid keys:
 <section id="hutch">
 <h2>hutch<a class="headerlink" href="#hutch" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key expects a single string, the hutch name.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span>
 </pre></div>
 </div>
 <p>This key is used to:</p>
@@ -166,7 +167,7 @@ standard yaml file with the following valid keys:
 <section id="db">
 <h2>db<a class="headerlink" href="#db" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">db</span></code> key expects a single string, the file path.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span>
 </pre></div>
 </div>
 <p>The file path can be either relative to the <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file or absolute.
@@ -180,12 +181,12 @@ In practice, you would only change this string for development purposes.</p>
 <section id="load">
 <h2>load<a class="headerlink" href="#load" title="Permalink to this heading">¶</a></h2>
 <p>The load key expects a string or a list of strings, the modules to load.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span>
 </pre></div>
 </div>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.random_stuff</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.random_stuff</span>
 </pre></div>
 </div>
 <p>Both of these formats are valid.</p>
@@ -198,9 +199,9 @@ In practice, you would only change this string for development purposes.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">experiment</span></code> key expects a dictionary with proposal and run, both
 strings. It is not needed to provide an experiment key unless you would like
 to load an experiment other than the active experiment; handy for debugging.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">experiment</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proposal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ls25</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">experiment</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">proposal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ls25</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
 </pre></div>
 </div>
 <p>This key is used to force the questionnaire and experiment file to be from a
@@ -209,7 +210,7 @@ particular experiment.</p>
 <section id="obj-conf">
 <span id="obj-conf-yaml"></span><h2>obj_conf<a class="headerlink" href="#obj-conf" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">obj_conf</span></code> key expects a single string, a file path.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span>
 </pre></div>
 </div>
 <p>The file path can be either relative to the <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file or absolute.
@@ -251,12 +252,12 @@ secondary elog.</p>
 </section>
 <section id="full-file-example">
 <h2>Full File Example<a class="headerlink" href="#full-file-example" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">hutch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp</span>
 
-<span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span><span class="w"></span>
+<span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/reg/g/pcds/pyps/apps/hutch-python/device_config/db.json</span>
 
-<span class="nt">load</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span><span class="w"></span>
+<span class="nt">load</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xpp.beamline</span>
 </pre></div>
 </div>
 </section>

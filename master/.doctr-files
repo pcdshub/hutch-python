@@ -59,12 +59,12 @@ master/_sources/start.rst.txt
 master/_sources/startup.rst.txt
 master/_sources/tips.rst.txt
 master/_sources/tutorial.ipynb.txt
+master/_sources/upcoming_release_notes/356-ensure_endstation_devices.rst.txt
 master/_sources/upcoming_release_notes/template-full.rst.txt
 master/_sources/upcoming_release_notes/template-short.rst.txt
 master/_sources/user_utils.rst.txt
 master/_sources/utils.rst.txt
 master/_sources/yaml_files.rst.txt
-master/_static/_sphinx_javascript_frameworks_compat.js
 master/_static/basic.css
 master/_static/css/badge_only.css
 master/_static/css/fonts/Roboto-Slab-Bold.woff
@@ -88,8 +88,6 @@ master/_static/css/theme.css
 master/_static/doctools.js
 master/_static/documentation_options.js
 master/_static/file.png
-master/_static/jquery-3.6.0.js
-master/_static/jquery.js
 master/_static/js/badge_only.js
 master/_static/js/html5shiv-printshiv.min.js
 master/_static/js/html5shiv.min.js
@@ -100,8 +98,6 @@ master/_static/plus.png
 master/_static/pygments.css
 master/_static/searchtools.js
 master/_static/sphinx_highlight.js
-master/_static/underscore-1.13.1.js
-master/_static/underscore.js
 master/beamline.html
 master/bug.html
 master/cache.html
@@ -169,6 +165,7 @@ master/startup.html
 master/tips.html
 master/tutorial.html
 master/tutorial.ipynb
+master/upcoming_release_notes/356-ensure_endstation_devices.html
 master/upcoming_release_notes/template-full.html
 master/upcoming_release_notes/template-short.html
 master/user_utils.html

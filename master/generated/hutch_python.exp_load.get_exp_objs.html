@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.exp_load.get_exp_objs &mdash; hutch-python 1.18.0 documentation</title>
+  <title>hutch_python.exp_load.get_exp_objs &mdash; hutch-python 1.18.0+7.g14f3ee2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -30,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> hutch-python
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            hutch-python
           </a>
               <div class="version">
-                1.18.0
+                1.18.0+7.g14f3ee2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -106,9 +107,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../load_parts.html">load submodules</a> &raquo;</li>
-      <li>hutch_python.exp_load.get_exp_objs</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../load_parts.html">load submodules</a></li>
+      <li class="breadcrumb-item active">hutch_python.exp_load.get_exp_objs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/hutch_python.exp_load.get_exp_objs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -151,7 +152,7 @@
 <p>This will import User from <code class="docutils literal notranslate"><span class="pre">experiments.{exp_module}</span></code>
 and create <code class="docutils literal notranslate"><span class="pre">User()</span></code>, storing it as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>exp_module</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – The name of the experiment from the elog, without the hutch. This will
 be the name of the module loaded from the experiments folder.</p></li>
@@ -159,11 +160,11 @@ be the name of the module loaded from the experiments folder.</p></li>
 loading should continue.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>user</strong> – Either the user’s class instantiated or a blank namespace for other
 experiment-specific objects to be attached to.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">object</span></code> or <code class="docutils literal notranslate"><span class="pre">HelpfulNamespace</span></code></p>
 </dd>
 </dl>
