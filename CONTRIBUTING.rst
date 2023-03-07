@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/pcdshub/hutch_python/issues.
+Report bugs at https://github.com/pcdshub/hutch-python/issues.
 
 If you are reporting a bug, please include:
 
@@ -42,7 +42,7 @@ or even on the web in blog posts, articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/pcdshub/hutch_python/issues.
+The best way to send feedback is to file an issue at https://github.com/pcdshub/hutch-python/issues.
 
 If you are proposing a feature:
 
@@ -54,17 +54,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `hutch_python` for local development.
+Ready to contribute? Here's how to set up `hutch-python` for local development.
 
-1. Fork the `hutch_python` repo on GitHub.
+1. Fork the `hutch-python` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/hutch_python.git
+    $ git clone git@github.com:your_name_here/hutch-python.git
 
 3. Install your local copy into a new conda environment. Assuming you have conda installed, this is how you set up your fork for local development::
 
-    $ conda create -n hutch_python python=3.9 pip
-    $ cd hutch_python/
+    $ conda create -n hutch-python python=3.9 pip
+    $ cd hutch-python/
     $ pip install -e .
 
 4. Create a branch for local development::
