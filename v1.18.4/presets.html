@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presets &mdash; hutch-python 1.18.4 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/docs-versions-menu.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Object Configuration" href="object_configuration.html" />
+    <link rel="prev" title="Experiment File" href="experiment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hutch-python
+          </a>
+              <div class="version">
+                1.18.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Presets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-usage">Example Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preset-files">Preset Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="object_configuration.html">Object Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Presets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/presets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="presets">
+<h1>Presets<a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> provides a position presets system through the
+<code class="docutils literal notranslate"><span class="pre">pcdsdevices</span></code> module. See the
+<a class="reference external" href="https://pcdshub.github.io/pcdsdevices/presets.html">presets documentation</a>
+for a full description. On this page we will go through examples
+and show where the presets are stored.</p>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h2>
+<p>Creating a permenant preset named <code class="docutils literal notranslate"><span class="pre">tt</span></code> for a motor named <code class="docutils literal notranslate"><span class="pre">reflaser</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">add_hutch</span><span class="p">(</span><span class="s1">&#39;tt&#39;</span><span class="p">,</span> <span class="mf">42.1</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Add timetool in pos&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Move to a preset, and check that we got there:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Check where we are</span>
+<span class="gp">In [1]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">wm</span><span class="p">()</span>
+<span class="gh">Out[1]: </span><span class="go">10.0</span>
+
+<span class="gp">In [2]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">wm_tt</span><span class="p">()</span>
+<span class="gh">Out[2]: </span><span class="go">32.1</span>
+
+<span class="go"># Do the move and wait</span>
+<span class="gp">In [3]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">mv_tt</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="go"># Check where we ended up</span>
+<span class="gp">In [4]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">wm</span><span class="p">()</span>
+<span class="gh">Out[4]: </span><span class="go">42.1</span>
+
+<span class="gp">In [5]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">wm_tt</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go">0.0</span>
+</pre></div>
+</div>
+<p>Two ways to revise a position:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">add_hutch</span><span class="p">(</span><span class="s1">&#39;tt&#39;</span><span class="p">,</span> <span class="mf">41.2</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Fix timetool pos&#39;</span><span class="p">)</span>
+<span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">tt</span><span class="o">.</span><span class="n">update_pos</span><span class="p">(</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Fix it again&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create a single-experiment preset named <code class="docutils literal notranslate"><span class="pre">sample</span></code> for a motor <code class="docutils literal notranslate"><span class="pre">gon_x</span></code>
+at the current position:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gon_x</span><span class="o">.</span><span class="n">presets_add_exp_here</span><span class="p">(</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Sample pos shift 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Accidentally misspell a preset name, and then remove it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gon_y</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">add_exp_here</span><span class="p">(</span><span class="s1">&#39;smlp&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Sample pos shift 1&#39;</span><span class="p">)</span>
+<span class="n">gon_y</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">smlp</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Check all of the active presets:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">positions</span>
+<span class="gh">Out[6]: </span><span class="go">namespace(refl=20.0, tt=40.0)</span>
+</pre></div>
+</div>
+<p>Check the history of a single preset:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">reflaser</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">tt</span><span class="o">.</span><span class="n">history</span>
+<span class="gh">Out[7]: </span><span class="go">{&#39;23 Apr 2018 10:37:49&#39;: &#39;   42.1000 Add timetool in pos&#39;,</span>
+<span class="go">         &#39;23 Apr 2018 10:38:00&#39;: &#39;   41.2000 Fix timetool pos&#39;,</span>
+<span class="go">         &#39;23 Apr 2018 10:39:00&#39;: &#39;   40.0000 Fix it again&#39;}</span>
+</pre></div>
+</div>
+</section>
+<section id="preset-files">
+<h2>Preset Files<a class="headerlink" href="#preset-files" title="Permalink to this heading">¶</a></h2>
+<p>The presets are stored in yaml files inside of the hutch python app directory
+e.g. <code class="docutils literal notranslate"><span class="pre">/reg/g/pcds/pyps/apps/hutch-python/mfx</span></code>, or in your checkout if
+doing development. Inside this directory we have a <code class="docutils literal notranslate"><span class="pre">presets</span></code> directory.
+Inside that directory we have a <code class="docutils literal notranslate"><span class="pre">beamline</span></code> directory for the permanent
+presets, and a separate directory for each experiment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/reg/g/pcds/pyps/apps/hutch-python/mfx/presets
+$<span class="w"> </span>ls
+<span class="m">05516</span><span class="w">  </span>beamline<span class="w">  </span>ls4916
+</pre></div>
+</div>
+<p>The files have the name of the particular motor e.g. <code class="docutils literal notranslate"><span class="pre">reflaser.yml</span></code>. They are
+structured in a readable yaml format, like so:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">refl</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">history</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 11:00:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">20.0000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">reflaser</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span>
+<span class="nt">tt</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">history</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:37:49</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">42.1000</span><span class="nv"> </span><span class="s">Add</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:38:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">41.2000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">timetool</span><span class="nv"> </span><span class="s">pos&#39;</span>
+<span class="w">    </span><span class="nt">23 Apr 2018 10:39:00</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">   </span><span class="s">40.0000</span><span class="nv"> </span><span class="s">Fix</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">again&#39;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40.0</span>
+</pre></div>
+</div>
+<p>You are free to edit these by hand if you maintain the format.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="experiment.html" class="btn btn-neutral float-left" title="Experiment File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="object_configuration.html" class="btn btn-neutral float-right" title="Object Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
