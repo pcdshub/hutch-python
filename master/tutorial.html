@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What to Expect When You are Expecting a New Hutch Python &mdash; hutch-python 1.18.4.dev13+gfef6f96 documentation</title>
+  <title>What to Expect When You are Expecting a New Hutch Python &mdash; hutch-python 1.18.5.dev3+g4cfb794 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
@@ -12,12 +12,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/docs-versions-menu.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=78b6ebc4"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -40,7 +40,7 @@
             hutch-python
           </a>
               <div class="version">
-                1.18.4.dev13+gfef6f96
+                1.18.5.dev3+g4cfb794
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -133,10 +133,10 @@
            <div itemprop="articleBody">
              
   <section id="What-to-Expect-When-You-are-Expecting-a-New-Hutch-Python">
-<h1>What to Expect When You are Expecting a New Hutch Python<a class="headerlink" href="#What-to-Expect-When-You-are-Expecting-a-New-Hutch-Python" title="Permalink to this heading">¶</a></h1>
+<h1>What to Expect When You are Expecting a New Hutch Python<a class="headerlink" href="#What-to-Expect-When-You-are-Expecting-a-New-Hutch-Python" title="Link to this heading">¶</a></h1>
 <p>The purpose of this tutorial is to provide a general overview of the new <code class="docutils literal notranslate"><span class="pre">hutch_python</span></code> system. Underneath the code is built on top of <a class="reference external" href="http://nsls-ii.github.io/ophyd">ophyd</a> and <a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a> as well as many <strong>PCDS</strong> specific libraries. If you are looking for more in depth information on a specific part of the control system documentation is hosted on <a class="reference external" href="https://pcdshub.github.io">https://pcdshub.github.io</a>.</p>
 <section id="Table-of-Contents">
-<h2>Table of Contents<a class="headerlink" href="#Table-of-Contents" title="Permalink to this heading">¶</a></h2>
+<h2>Table of Contents<a class="headerlink" href="#Table-of-Contents" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#Navigation"><span class="std std-ref">Navigation</span></a></p></li>
 <li><p><a class="reference internal" href="#How-Devices-Are-Loaded"><span class="std std-ref">How Devices Are Loaded</span></a></p></li>
@@ -245,7 +245,7 @@
 </div>
 </section>
 <section id="Navigation">
-<h2>Navigation<a class="headerlink" href="#Navigation" title="Permalink to this heading">¶</a></h2>
+<h2>Navigation<a class="headerlink" href="#Navigation" title="Link to this heading">¶</a></h2>
 <p>At the beginning of your session, the entire beamline is loaded into the global namespace. That means that any device you see printed in the opening banner is accessible</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -334,7 +334,7 @@ mfx_mxt_valve OUT
 </pre></div></div>
 </div>
 <section id="Lightpath">
-<h3>Lightpath<a class="headerlink" href="#Lightpath" title="Permalink to this heading">¶</a></h3>
+<h3>Lightpath<a class="headerlink" href="#Lightpath" title="Link to this heading">¶</a></h3>
 <p>Included in each hutch python environment is a <code class="docutils literal notranslate"><span class="pre">BeamPath</span></code>, saved under the name <code class="docutils literal notranslate"><span class="pre">hutch_beampth</span></code>, that gives a somewhat more physical mapping of the beamline. You can also use this to access specific devices if you find it more intuitive. If you are curious about more of the lightpath feature set more documentation can be found at <a class="reference external" href="https://pcdshub.github.io/lightpath">https://pcdshub.github.io/lightpath</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -395,7 +395,7 @@ mfx_mxt_valve OUT
 </div>
 <p>Devices included in the lightpath should all share a common API for accessing and moving between states. This includes <code class="docutils literal notranslate"><span class="pre">.position</span></code>, <code class="docutils literal notranslate"><span class="pre">.inserted</span></code>, <code class="docutils literal notranslate"><span class="pre">.removed</span></code>, and methods <code class="docutils literal notranslate"><span class="pre">.insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove()</span></code></p>
 <section id="DAQ">
-<h4>DAQ<a class="headerlink" href="#DAQ" title="Permalink to this heading">¶</a></h4>
+<h4>DAQ<a class="headerlink" href="#DAQ" title="Link to this heading">¶</a></h4>
 <p>Last but not least is the DAQ object which is instantiated in each session but must be connected by the user. The DAQ can only be controlled externally by a single session and the Python session must be running on the same machine as the DAQ.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -420,7 +420,7 @@ mfx_mxt_valve OUT
 </section>
 </section>
 <section id="How-Devices-Are-Loaded">
-<h2>How Devices Are Loaded<a class="headerlink" href="#How-Devices-Are-Loaded" title="Permalink to this heading">¶</a></h2>
+<h2>How Devices Are Loaded<a class="headerlink" href="#How-Devices-Are-Loaded" title="Link to this heading">¶</a></h2>
 <p>Individual EPICS devices can come three different locations within the <code class="docutils literal notranslate"><span class="pre">hutch_python</span></code> ecosystem; the permenant <code class="docutils literal notranslate"><span class="pre">happi</span></code> device database, the LCLS User Questionnaire, and the <code class="docutils literal notranslate"><span class="pre">mfx</span></code> repository itself. By watching the loading banner itself you should be able to tell which device came from where. In general, static beamline instrumentation should be held within the <code class="docutils literal notranslate"><span class="pre">happi</span></code> database. This gives us a stable understanding of most of the beamline devices and will also be used to inform other user
 interfaces and applications in the future.</p>
 <p>Included is information on where the device is, what the prefix of the camera is e.t.c. Devices loaded this way will have an attribute <code class="docutils literal notranslate"><span class="pre">.md</span></code> that provides a helpful link to the database entry behind the device.</p>
@@ -505,7 +505,7 @@ interfaces and applications in the future.</p>
 <p>Now if devices aren’t loaded through either the Questionnaire or the device database itself, the old model of placing objects in an experiment specific file or the <code class="docutils literal notranslate"><span class="pre">hutch/beamline.py</span></code> file are still supported. These maybe device types that are still under development and have not been pushed upstream e.t.c</p>
 </section>
 <section id="An-Introduction-to-Scanning">
-<h2>An Introduction to Scanning<a class="headerlink" href="#An-Introduction-to-Scanning" title="Permalink to this heading">¶</a></h2>
+<h2>An Introduction to Scanning<a class="headerlink" href="#An-Introduction-to-Scanning" title="Link to this heading">¶</a></h2>
 <p>One of the major additions the <code class="docutils literal notranslate"><span class="pre">hutch_python</span></code> restructuring gives us is access to <code class="docutils literal notranslate"><span class="pre">bluesky</span></code> scanning capabilities. A full tutorial is available at <a class="reference external" href="http://nsls-ii.github.io/bluesky/tutorial">http://nsls-ii.github.io/bluesky/tutorial</a>. This very brief introduction assumes you know a little about how <code class="docutils literal notranslate"><span class="pre">bluesky</span></code> works in general. The major keys are:</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code> object is responsible for executing all scans.</p></li>
@@ -518,7 +518,7 @@ interfaces and applications in the future.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">bpp</span></code>: wrappers that add functionality to existing plans</p></li>
 </ul>
 <section id="Note">
-<h3>Note<a class="headerlink" href="#Note" title="Permalink to this heading">¶</a></h3>
+<h3>Note<a class="headerlink" href="#Note" title="Link to this heading">¶</a></h3>
 <p>In the examples below we run our scans with simulated hardware built-in to the <code class="docutils literal notranslate"><span class="pre">ophyd</span></code> library.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -2292,7 +2292,7 @@ generator adaptive_scan [&#39;4cde65ae&#39;] (scan num: 3)
 </pre></div></div>
 </div>
 <section id="Including-the-DAQ">
-<h4>Including the DAQ<a class="headerlink" href="#Including-the-DAQ" title="Permalink to this heading">¶</a></h4>
+<h4>Including the DAQ<a class="headerlink" href="#Including-the-DAQ" title="Link to this heading">¶</a></h4>
 <p>What has been ignored in these examples is the inclusion of the DAQ. There are a few simple helper functions that cover basic modes of operations. The simplest behavior is just running the DAQ throughout the whole scan and stopping at the end. This can be accomlished by passing any plan you want to run this way through the <code class="docutils literal notranslate"><span class="pre">daq_wrapper</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
