@@ -2,6 +2,18 @@ Release History
 ###############
 
 
+v1.18.5 (2023-09-14)
+====================
+
+Maintenance
+-----------
+- Strips whitespace from PVs gathered during cam_load routine.
+
+Contributors
+------------
+- tangkong
+
+
 v1.18.4 (2023-07-26)
 ====================
 
