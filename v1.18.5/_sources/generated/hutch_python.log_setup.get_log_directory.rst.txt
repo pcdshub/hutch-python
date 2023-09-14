@@ -1,0 +1,6 @@
+﻿hutch\_python.log\_setup.get\_log\_directory
+============================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autofunction:: get_log_directory
