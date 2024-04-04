@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yaml Files &mdash; hutch-python 1.18.5.dev5+g1a82985 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Yaml Files &mdash; hutch-python 1.18.6.dev32+g4e74846 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=066d7f4a"></script>
+        <script src="_static/documentation_options.js?v=f3b288c3"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
@@ -37,7 +39,7 @@
             hutch-python
           </a>
               <div class="version">
-                1.18.5.dev5+g1a82985
+                1.18.6.dev32+g4e74846
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -74,6 +76,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#hutch">hutch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#db">db</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-level">load_level</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#experiment">experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#obj-conf">obj_conf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#daq-type">daq_type</a></li>
@@ -126,8 +129,8 @@
 <h1>Yaml Files<a class="headerlink" href="#yaml-files" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> uses a <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file for basic configuration. This is a
 standard yaml file with the following valid keys:
-<code class="docutils literal notranslate"><span class="pre">hutch</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>, <code class="docutils literal notranslate"><span class="pre">experiment</span></code>, <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>, <code class="docutils literal notranslate"><span class="pre">daq_type</span></code>,
-<code class="docutils literal notranslate"><span class="pre">daq_host</span></code>, and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">hutch</span></code>, <code class="docutils literal notranslate"><span class="pre">db</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>, <code class="docutils literal notranslate"><span class="pre">load_level</span></code>, <code class="docutils literal notranslate"><span class="pre">experiment</span></code>, <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>,
+<code class="docutils literal notranslate"><span class="pre">daq_type</span></code>, <code class="docutils literal notranslate"><span class="pre">daq_host</span></code>, and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code>.</p>
 <section id="hutch">
 <h2>hutch<a class="headerlink" href="#hutch" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key expects a single string, the hutch name.</p>
@@ -172,6 +175,21 @@ In practice, you would only change this string for development purposes.</p>
 <p>This key is used to include hutch-specific code.
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> will attempt to do a
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> for each of these modules.</p>
+</section>
+<section id="load-level">
+<h2>load_level<a class="headerlink" href="#load-level" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">load_level</span></code> key expects one of the following strings, corresponding to the
+amount of ophyd devices to load:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UPSTREAM</span></code>: The hutch’s devices, and devices upstream from the requested hutch.</p></li>
+</ul>
+<p>If there are multiple paths to the requested hutch, all paths’ devices are loaded.
+- <code class="docutils literal notranslate"><span class="pre">STANDARD</span></code>: Devices gathered via <code class="docutils literal notranslate"><span class="pre">UPSTREAM</span></code>, plus devices that share the
+“beamline” field in happi with the <code class="docutils literal notranslate"><span class="pre">UPSTREAM</span></code> devices.  (The current standard)
+- <code class="docutils literal notranslate"><span class="pre">ALL</span></code>: All devices in the happi database.  Use this option at your own risk.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">load_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UPSTREAM</span>
+</pre></div>
+</div>
 </section>
 <section id="experiment">
 <h2>experiment<a class="headerlink" href="#experiment" title="Link to this heading">¶</a></h2>

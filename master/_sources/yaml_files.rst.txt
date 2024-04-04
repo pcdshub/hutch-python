@@ -3,8 +3,8 @@ Yaml Files
 
 ``hutch-python`` uses a ``conf.yml`` file for basic configuration. This is a
 standard yaml file with the following valid keys:
-``hutch``, ``db``, ``load``, ``experiment``, ``obj_config``, ``daq_type``,
-``daq_host``, and ``daq_platform``.
+``hutch``, ``db``, ``load``, ``load_level``, ``experiment``, ``obj_config``,
+``daq_type``, ``daq_host``, and ``daq_platform``.
 
 
 hutch
@@ -67,6 +67,22 @@ Both of these formats are valid.
 This key is used to include hutch-specific code.
 ``hutch-python`` will attempt to do a
 ``from module import *`` for each of these modules.
+
+
+load_level
+----------
+The ``load_level`` key expects one of the following strings, corresponding to the
+amount of ophyd devices to load:
+
+- ``UPSTREAM``: The hutch's devices, and devices upstream from the requested hutch.
+If there are multiple paths to the requested hutch, all paths' devices are loaded.
+- ``STANDARD``: Devices gathered via ``UPSTREAM``, plus devices that share the
+"beamline" field in happi with the ``UPSTREAM`` devices.  (The current standard)
+- ``ALL``: All devices in the happi database.  Use this option at your own risk.
+
+.. code-block:: YAML
+
+   load_level: UPSTREAM
 
 
 experiment
