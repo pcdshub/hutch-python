@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.count\_ns\_leaves
+=====================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: count_ns_leaves

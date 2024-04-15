@@ -1,0 +1,6 @@
+﻿hutch\_python.log\_setup.setup\_logging
+=======================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autofunction:: setup_logging
