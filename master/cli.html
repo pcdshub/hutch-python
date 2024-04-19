@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cli.py &mdash; hutch-python 1.18.6.dev32+g4e74846 documentation</title>
+  <title>cli.py &mdash; hutch-python 1.19.1.dev13+g7a4df63 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,8 +15,8 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f3b288c3"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/documentation_options.js?v=84cdec88"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,7 +39,7 @@
             hutch-python
           </a>
               <div class="version">
-                1.18.6.dev32+g4e74846
+                1.19.1.dev13+g7a4df63
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -118,22 +118,33 @@
 <p>This module defines the command-line interface arguments for the
 <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> script. It also provides utilities that are only used at
 startup.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">hutch</span><span class="o">-</span><span class="n">python</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cfg</span> <span class="n">CFG</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">exp</span> <span class="n">EXP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">debug</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">sim</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">create</span> <span class="n">CREATE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="n">script</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usage: hutch-python [-h] [--cfg CFG] [--exp EXP] [--debug] [--sim]
+                    [--create CREATE] [--hist-file [HIST_FILE]]
+                    [script]
 
-<span class="n">Launch</span> <span class="n">LCLS</span> <span class="n">Hutch</span> <span class="n">Python</span>
+Launch LCLS Hutch Python
 
-<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="n">script</span>           <span class="n">Run</span> <span class="n">a</span> <span class="n">script</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">running</span> <span class="n">interactively</span>
+positional arguments:
+  script                Run a script instead of running interactively
 
-<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>       <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
-  <span class="o">--</span><span class="n">cfg</span> <span class="n">CFG</span>        <span class="n">Configuration</span> <span class="n">yaml</span> <span class="n">file</span>
-  <span class="o">--</span><span class="n">exp</span> <span class="n">EXP</span>        <span class="n">Experiment</span> <span class="n">number</span> <span class="n">override</span>
-  <span class="o">--</span><span class="n">debug</span>          <span class="n">Start</span> <span class="ow">in</span> <span class="n">debug</span> <span class="n">mode</span>
-  <span class="o">--</span><span class="n">sim</span>            <span class="n">Run</span> <span class="k">with</span> <span class="n">simulated</span> <span class="n">DAQ</span> <span class="p">(</span><span class="n">lcls1</span> <span class="n">only</span><span class="p">)</span>
-  <span class="o">--</span><span class="n">create</span> <span class="n">CREATE</span>  <span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">hutch</span> <span class="n">deployment</span>
+optional arguments:
+  -h, --help            show this help message and exit
+  --cfg CFG             Configuration yaml file
+  --exp EXP             Experiment number override
+  --debug               Start in debug mode
+  --sim                 Run with simulated DAQ (lcls1 only)
+  --create CREATE       Create a new hutch deployment
+  --hist-file [HIST_FILE]
+                        File to store the sqlite session history in.
+                        ${VARIABLES} will be substituted for via shell
+                        environment variables, Though in some cases these may
+                        be expanded by the shell prior to reaching the python
+                        layer. If omitted, defaults to the ipython default
+                        location. If included but left blank, defaults to
+                        /u1/${USER}/hutch-python/history.sqlite if the folder
+                        exists, otherwise uses the ipython default location.
+                        This folder is a local hard-drive location for lcls
+                        operator consoles.
 </pre></div>
 </div>
 </section>
