@@ -1,0 +1,6 @@
+﻿hutch\_python.exp\_load.get\_exp\_objs
+======================================
+
+.. currentmodule:: hutch_python.exp_load
+
+.. autofunction:: get_exp_objs

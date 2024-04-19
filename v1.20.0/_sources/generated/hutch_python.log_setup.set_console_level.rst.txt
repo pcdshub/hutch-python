@@ -1,0 +1,6 @@
+﻿hutch\_python.log\_setup.set\_console\_level
+============================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autofunction:: set_console_level

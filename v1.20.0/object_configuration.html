@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Configuration &mdash; hutch-python 1.20.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2a6ef5f7"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reporting Issues" href="report.html" />
+    <link rel="prev" title="Presets" href="presets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hutch-python
+          </a>
+              <div class="version">
+                1.20.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-configuration-file">Creating a configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-configuration-directions">Available configuration directions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tab-whitelist"><code class="docutils literal notranslate"><span class="pre">tab_whitelist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tab-blacklist"><code class="docutils literal notranslate"><span class="pre">tab_blacklist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replace-tablist"><code class="docutils literal notranslate"><span class="pre">replace_tablist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kind"><code class="docutils literal notranslate"><span class="pre">kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#order-of-operations">Order of Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-the-configuration-file">Loading the configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-obj-conf-yml">Example <code class="docutils literal notranslate"><span class="pre">obj_conf.yml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Object Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/object_configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-configuration">
+<span id="id1"></span><h1>Object Configuration<a class="headerlink" href="#object-configuration" title="Link to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> allows users to customize certain aspects of objects
+after instantiation.  This page will go through examples of this and
+how to use these options in your own session.</p>
+<p>An example file is provided at the bottom of this page.</p>
+<section id="creating-a-configuration-file">
+<h2>Creating a configuration file<a class="headerlink" href="#creating-a-configuration-file" title="Link to this heading">¶</a></h2>
+<p>Object configuration files are formatted in a simple YAML format, similar
+to the conf.yml files.  The first level should be either a device name
+or device class.  Note that you should not include the namespace in
+these names, as <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> will search for the device names.
+(<code class="docutils literal notranslate"><span class="pre">fast_motor1</span></code> is ok, not <code class="docutils literal notranslate"><span class="pre">sim.fast_motor1</span></code>)</p>
+<p>Under this, configuration directions should be listed.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">device_name</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">direction1</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
+
+<span class="nt">DeviceClass</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">direction2</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
+</pre></div>
+</div>
+</section>
+<section id="available-configuration-directions">
+<h2>Available configuration directions<a class="headerlink" href="#available-configuration-directions" title="Link to this heading">¶</a></h2>
+<p>Currently, <code class="docutils literal notranslate"><span class="pre">hutch-python</span></code> supports the following configuration directives.
+If you would like to add another, please leave an
+<a class="reference external" href="https://github.com/pcdshub/hutch-python/issues">issue</a> or jira ticket.</p>
+<p>(please don’t take any of these as suggested modifications)</p>
+<section id="tab-whitelist">
+<h3><code class="docutils literal notranslate"><span class="pre">tab_whitelist</span></code><a class="headerlink" href="#tab-whitelist" title="Link to this heading">¶</a></h3>
+<p>A list of items to <strong>reveal</strong> in the tab-completion menu.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gon_sx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
+</pre></div>
+</div>
+</section>
+<section id="tab-blacklist">
+<h3><code class="docutils literal notranslate"><span class="pre">tab_blacklist</span></code><a class="headerlink" href="#tab-blacklist" title="Link to this heading">¶</a></h3>
+<p>A list of items to <strong>hide</strong> from the tab_completion menu.  These attributes
+still exist, and are simply hidden from the tab-completion menu.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span>
+</pre></div>
+</div>
+</section>
+<section id="replace-tablist">
+<h3><code class="docutils literal notranslate"><span class="pre">replace_tablist</span></code><a class="headerlink" href="#replace-tablist" title="Link to this heading">¶</a></h3>
+<p>A list of items to replace the tab completion list with.  This will
+functionally hide all items and reveal the ones specified.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">fast_motor1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">position</span>
+</pre></div>
+</div>
+</section>
+<section id="kind">
+<h3><code class="docutils literal notranslate"><span class="pre">kind</span></code><a class="headerlink" href="#kind" title="Link to this heading">¶</a></h3>
+<p>Modify the ophyd <code class="docutils literal notranslate"><span class="pre">kind</span></code> of a device and its subcomponents.  This is
+used in ophyd internals to signal if we need to “pay attention” to
+a device or not.</p>
+<p>To modify the <code class="docutils literal notranslate"><span class="pre">kind</span></code> of the top-level device, list the device name
+and the desired <code class="docutils literal notranslate"><span class="pre">kind</span></code> as a key-value pair.  To modify the kind of
+its components, list the component name and the desired <code class="docutils literal notranslate"><span class="pre">kind</span></code> as a
+key-value pair.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">at2l0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="order-of-operations">
+<h2>Order of Operations<a class="headerlink" href="#order-of-operations" title="Link to this heading">¶</a></h2>
+<p>The order of the object configuration file determines the order
+in which modifications are applied.  Devices/Classes are modified from
+top to bottom, and the modifications are applied in the following order:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>tab whitelist</p></li>
+<li><p>tab blacklist</p></li>
+<li><p>replace tablist</p></li>
+<li><p>kind</p></li>
+</ol>
+</div></blockquote>
+<p>Later modifications can override earlier modifications.  More explicitly,
+this means that if an item is added to both the <code class="docutils literal notranslate"><span class="pre">tab_whitelist</span></code> and
+<code class="docutils literal notranslate"><span class="pre">tab_blacklist</span></code>, it will not be shown.  Similarly the <code class="docutils literal notranslate"><span class="pre">replace_tablist</span></code>
+directive will take priority over the <code class="docutils literal notranslate"><span class="pre">tab_blacklist</span></code> and
+<code class="docutils literal notranslate"><span class="pre">tab_whitelist</span></code> directives.</p>
+</section>
+<section id="loading-the-configuration-file">
+<h2>Loading the configuration file<a class="headerlink" href="#loading-the-configuration-file" title="Link to this heading">¶</a></h2>
+<p>To use the configuration settings you’ve described, simply reference
+your configuration yaml file in your <code class="docutils literal notranslate"><span class="pre">conf.yml</span></code> file with the
+key <code class="docutils literal notranslate"><span class="pre">obj_config</span></code>.  See <a class="reference internal" href="yaml_files.html#obj-conf-yaml"><span class="std std-ref">obj_conf</span></a>.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">obj_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cds/group/pcds/pyps/apps/hutch-python/xxx/tabs.yml</span>
+</pre></div>
+</div>
+</section>
+<section id="example-obj-conf-yml">
+<h2>Example <code class="docutils literal notranslate"><span class="pre">obj_conf.yml</span></code><a class="headerlink" href="#example-obj-conf-yml" title="Link to this heading">¶</a></h2>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration options can be applied to a single device by name</span>
+<span class="c1"># this hides at2l0.blade_01, shows at2l0.kind, and changes the</span>
+<span class="c1"># kind of at2l0.blade_01 and at2l0.blade_02.</span>
+<span class="nt">at2l0</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
+<span class="w">  </span><span class="nt">tab_blacklist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blade_01</span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">blade_01</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hinted</span>
+<span class="w">    </span><span class="nt">blade_02</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config</span>
+
+<span class="c1"># or to all devices of a specific class</span>
+<span class="nt">pcdsdevices.epics_motor.IMS</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
+
+<span class="c1"># This tries to limit the tab completion list to only `kind`</span>
+<span class="nt">FastMotor</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replace_tablist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kind</span>
+
+<span class="c1"># This will allow `limits` to be seen in specifically `fast_motor1`</span>
+<span class="c1"># while other simulated fast motors will only see `kind`</span>
+<span class="nt">fast_motor1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tab_whitelist</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">limits</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="presets.html" class="btn btn-neutral float-left" title="Presets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="report.html" class="btn btn-neutral float-right" title="Reporting Issues" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
