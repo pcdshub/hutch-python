@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.utils.find_class &mdash; hutch-python 1.20.1.dev76+g5f39b19a documentation</title>
+  <title>377 doc_jupy_usage &mdash; hutch-python 1.20.1.dev76+g5f39b19a documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,9 +22,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hutch_python.utils.strip_prefix" href="hutch_python.utils.strip_prefix.html" />
-    <link rel="prev" title="hutch_python.utils.find_object" href="hutch_python.utils.find_object.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -77,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../bug.html">bug.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
@@ -86,22 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../log_setup.html">log_setup.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../utils.html">utils.py</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.safe_load.html">hutch_python.utils.safe_load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.get_current_experiment.html">hutch_python.utils.get_current_experiment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.IterableNamespace.html">hutch_python.utils.IterableNamespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.HelpfulNamespace.html">hutch_python.utils.HelpfulNamespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.count_ns_leaves.html">hutch_python.utils.count_ns_leaves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.extract_objs.html">hutch_python.utils.extract_objs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.find_object.html">hutch_python.utils.find_object</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.utils.find_class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hutch_python.utils.find_class"><code class="docutils literal notranslate"><span class="pre">find_class()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.strip_prefix.html">hutch_python.utils.strip_prefix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.hutch_banner.html">hutch_python.utils.hutch_banner</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
 </ul>
 
         </div>
@@ -118,10 +101,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../utils.html">utils.py</a></li>
-      <li class="breadcrumb-item active">hutch_python.utils.find_class</li>
+      <li class="breadcrumb-item active">377 doc_jupy_usage</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/hutch_python.utils.find_class.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/upcoming_release_notes/377-doc_jupy_usage.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -129,39 +111,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hutch-python-utils-find-class">
-<h1>hutch_python.utils.find_class<a class="headerlink" href="#hutch-python-utils-find-class" title="Link to this heading">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="hutch_python.utils.find_class">
-<span class="sig-prename descclassname"><span class="pre">hutch_python.utils.</span></span><span class="sig-name descname"><span class="pre">find_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.utils.find_class" title="Link to this definition">¶</a></dt>
-<dd><p>Find a <code class="docutils literal notranslate"><span class="pre">type</span></code> object given a <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
-<p>Given a string class name, either return the matching built-in type or
-import the correct module and return the type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>class_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Built-in type name or import path e.g. <code class="docutils literal notranslate"><span class="pre">ophyd.device.Device</span></code></p></li>
-<li><p><strong>check_defaults</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, try checking inside each module in <code class="docutils literal notranslate"><span class="pre">CLASS_SEARCH_PATH</span></code></p></li>
+  <section id="doc-jupy-usage">
+<h1>377 doc_jupy_usage<a class="headerlink" href="#doc-jupy-usage" title="Link to this heading">¶</a></h1>
+<section id="api-changes">
+<h2>API Changes<a class="headerlink" href="#api-changes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>cls</strong> – The class we found</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="bugfixes">
+<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="maintenance">
+<h2>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Document some first-pass efforts at running these tools in jupyter notebooks.</p></li>
+</ul>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>zllentz</p></li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hutch_python.utils.find_object.html" class="btn btn-neutral float-left" title="hutch_python.utils.find_object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hutch_python.utils.strip_prefix.html" class="btn btn-neutral float-right" title="hutch_python.utils.strip_prefix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
