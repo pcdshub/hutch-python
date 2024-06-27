@@ -2,6 +2,27 @@ Release History
 ###############
 
 
+v1.21.0 (2024-08-20)
+====================
+
+Features
+--------
+- Automatically timeout and closes hutch-python sessions after the user has been
+  idle for a certain number of hours. The number of hours can be set in conf.yml
+  for each hutch. If no value is set the default timeout duration is 48 hours.
+
+Maintenance
+-----------
+- Document some first-pass efforts at running hutch-python in jupyter notebooks.
+- Fix an issue where an upstream numpy 2 incompatibilty was breaking the pypi builds.
+
+Contributors
+------------
+- janeliu-slac
+- zllentz
+
+
+
 v1.20.0 (2024-04-19)
 ====================
 
