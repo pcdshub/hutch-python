@@ -38,6 +38,7 @@ VALID_KEYS = (
     'daq_type',
     'daq_host',
     'obj_config',
+    'session_timer',
 )
 NO_LOG_EXCEPTIONS = (KeyboardInterrupt, SystemExit)
 LOG_DOMAINS = {".pcdsn", ".slac.stanford.edu"}

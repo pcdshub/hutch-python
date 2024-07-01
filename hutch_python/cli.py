@@ -121,6 +121,7 @@ def configure_ipython_session(args: HutchPythonArgs):
     # Important Utilities
     ipy_config.InteractiveShellApp.extensions = [
         "hutch_python.ipython_log",
+        "hutch_python.ipython_session_timer",
         "hutch_python.bug",
         "hutch_python.pt_app_config"
     ]

@@ -21,6 +21,7 @@ from pcdsdaq.scan_vars import ScanVars
 from pcdsdaq.sim import set_sim_mode as set_daq_sim
 from pcdsdevices.interface import setup_preset_paths
 
+import hutch_python.ipython_session_timer
 
 from . import calc_defaults, plan_defaults, sim, log_setup
 from .cache import LoadCache
@@ -202,7 +203,8 @@ def load_conf(conf, hutch_dir=None, args=None):
             db = None
     except KeyError:
         db = None
-        logger.info('Missing db from conf. Will skip loading from shared database.')
+        logger.info(
+            'Missing db from conf. Will skip loading from shared database.')
 
     try:
         load_level_setting = conf['load_level']
@@ -295,6 +297,15 @@ def load_conf(conf, hutch_dir=None, args=None):
         daq_platform = 0
         logger.info('Selected default hutch-python daq platform: 0')
 
+    # Set the session timeout duration
+    try:
+        hutch_python.ipython_session_timer.configure_timeout(
+            conf['session_timer'])
+    except KeyError:
+        hutch_python.ipython_session_timer.configure_timeout(172800)
+        logger.info(
+            'Missing session_timer value from conf. Set default value to 172800 seconds (48 hours).')
+
     # Make cache namespace
     cache = LoadCache((hutch or 'hutch') + '.db', hutch_dir=hutch_dir)
 
@@ -366,8 +377,8 @@ def load_conf(conf, hutch_dir=None, args=None):
                 logger.warning('Sim mode not implemented for lcls2 DAQ!')
                 logger.warning('Instantiating live DAQ!')
             # Optional dependency
-            from psdaq.control.DaqControl import DaqControl # NOQA
-            from psdaq.control.BlueskyScan import BlueskyScan # NOQA
+            from psdaq.control.DaqControl import DaqControl  # NOQA
+            from psdaq.control.BlueskyScan import BlueskyScan  # NOQA
             daq_control = DaqControl(
                 host=daq_host,
                 platform=daq_platform,
