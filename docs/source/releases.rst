@@ -2,6 +2,47 @@ Release History
 ###############
 
 
+v1.22.0 (2024-12-19)
+====================
+
+Features
+--------
+- Add ``pcdscalc.xray`` to the calc namespace.
+- Add top-level shortcuts to some of the most used calcs,
+  ``E2lam``, ``lam2E``, ``bragg_angle``, ``darwin_width``,
+  and ``transmission``.
+  ``E2lam`` is an alias for ``energy_to_wavelength`` and
+  ``lam2E`` is an alias for ``wavelength_to_energy``
+  to match scientist expectations.
+- Added ability to ignore specific upstream devices when loading hutch-python.
+
+  - ``UPSTREAM``: The hutch's devices, and devices upstream from the requested hutch.
+    If there are multiple paths to the requested hutch, all paths devices are loaded.
+  - ``STANDARD``: Devices gathered via ``UPSTREAM``, plus devices that share the
+    "beamline" field in happi with the ``UPSTREAM`` devices.  (The current standard)
+  - ``ALL``: All devices in the happi database.  Use this option at your own risk.
+
+
+Bugfixes
+--------
+- Make test_create_arg agnostic to where pytest was invoked from
+- Fix an issue where the user could clobber their own ``elog``
+  object in a way that would allow the ``ElogPoster`` utility to
+  load and then fail at scan time.
+
+Maintenance
+-----------
+- Updates documentation formatting for device load_level, and adds an ascii beamline map to the test suite
+
+Contributors
+------------
+- janeliu-slac
+- tangkong
+- vespos
+- zllentz
+
+
+
 v1.21.0 (2024-08-20)
 ====================
 

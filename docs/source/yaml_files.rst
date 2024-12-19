@@ -75,10 +75,10 @@ The ``load_level`` key expects one of the following strings, corresponding to th
 amount of ophyd devices to load:
 
 - ``UPSTREAM``: The hutch's devices, and devices upstream from the requested hutch.
-If there are multiple paths to the requested hutch, all paths' devices are loaded.
+  If there are multiple paths to the requested hutch, all paths' devices are loaded.
 
 - ``STANDARD``: Devices gathered via ``UPSTREAM``, plus devices that share the
-"beamline" field in happi with the ``UPSTREAM`` devices.  (The current standard)
+  "beamline" field in happi with the ``UPSTREAM`` devices.  (The current standard)
 
 - ``ALL``: All devices in the happi database.  Use this option at your own risk.
 
