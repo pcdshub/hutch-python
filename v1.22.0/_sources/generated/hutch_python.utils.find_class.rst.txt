@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.find\_class
+===============================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: find_class

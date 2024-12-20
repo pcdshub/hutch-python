@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hutch_python.bug.report_bug &mdash; hutch-python 1.22.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c9c46145"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/docs-versions-menu.js?v=3d6a1aea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hutch_python.bug.post_to_github" href="hutch_python.bug.post_to_github.html" />
+    <link rel="prev" title="hutch_python.bug.get_text_from_editor" href="hutch_python.bug.get_text_from_editor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            hutch-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../object_configuration.html">Object Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../bug.html">bug.py</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.get_current_environment.html">hutch_python.bug.get_current_environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.get_last_n_commands.html">hutch_python.bug.get_last_n_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.get_text_from_editor.html">hutch_python.bug.get_text_from_editor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.bug.report_bug</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hutch_python.bug.report_bug"><code class="docutils literal notranslate"><span class="pre">report_bug()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.bug.post_to_github.html">hutch_python.bug.post_to_github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_conf.html">load_conf.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../bug.html">bug.py</a></li>
+      <li class="breadcrumb-item active">hutch_python.bug.report_bug</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/hutch_python.bug.report_bug.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hutch-python-bug-report-bug">
+<h1>hutch_python.bug.report_bug<a class="headerlink" href="#hutch-python-bug-report-bug" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hutch_python.bug.report_bug">
+<span class="sig-prename descclassname"><span class="pre">hutch_python.bug.</span></span><span class="sig-name descname"><span class="pre">report_bug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_commands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">captured_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.bug.report_bug" title="Link to this definition">¶</a></dt>
+<dd><p>Report a bug from the IPython session</p>
+<p>The purpose of this command is to collect the necessary information to
+later help diagnose and troubleshoot the issue. This is written as an
+interactive tool, but it can be used in a non-interactive way by entering
+the information on the call.</p>
+<p>By the end we should have gathered:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A brief description of the problem</p></li>
+<li><p>The relevant commands to the bug report</p></li>
+<li><p>Name of the current CONDA environment</p></li>
+<li><p>Any packages installed in “development” mode</p></li>
+<li><p>Relevant logfiles</p></li>
+<li><p>Name of bug report author</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – One sentence description of the issue</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – Written description of problem. If this is not provided, a text editor
+is launched that request the information from the user</p></li>
+<li><p><strong>author</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of bug report author. If not provided, this is requested from the
+user via command line</p></li>
+<li><p><strong>prior_commands</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of prior commands to capture. If this is not provided, this is
+requested from the user via command line.</p></li>
+<li><p><strong>captured_output</strong> (<em>str</em><em>, </em><em>optional</em>) – Captured output from the command</p></li>
+<li><p><strong>kwargs</strong> – Pass authentication information to <a class="reference internal" href="hutch_python.bug.post_to_github.html#hutch_python.bug.post_to_github" title="hutch_python.bug.post_to_github"><code class="xref py py-func docutils literal notranslate"><span class="pre">post_to_github()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hutch_python.bug.get_text_from_editor.html" class="btn btn-neutral float-left" title="hutch_python.bug.get_text_from_editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hutch_python.bug.post_to_github.html" class="btn btn-neutral float-right" title="hutch_python.bug.post_to_github" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

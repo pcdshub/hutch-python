@@ -1,0 +1,6 @@
+﻿hutch\_python.user\_load.get\_user\_objs
+========================================
+
+.. currentmodule:: hutch_python.user_load
+
+.. autofunction:: get_user_objs

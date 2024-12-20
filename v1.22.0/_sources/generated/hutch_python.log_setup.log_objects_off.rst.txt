@@ -1,0 +1,6 @@
+﻿hutch\_python.log\_setup.log\_objects\_off
+==========================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autofunction:: log_objects_off
