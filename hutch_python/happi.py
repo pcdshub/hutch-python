@@ -1,6 +1,7 @@
 import enum
 import inspect
 import logging
+from typing import List, Dict
 
 import happi
 import ophyd
@@ -30,7 +31,8 @@ def get_happi_objs(
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
-    exclude_devices: list[str] = None
+    exclude_devices: List[str] = None,
+    additional_devices: Dict[str, List[str]] = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
@@ -53,15 +55,28 @@ def get_happi_objs(
     endstation: ``str``
         Name of hutch
 
+    load_level: ``DeviceLoadLevel``
+        load all or standard devices
+
+    exclude_devices: ``List[str]``
+        list of devices that should be excluded when loading
+
+    additional_devices: ``Dict[str, List[str]]``
+        devices are loaded based on this dictionary of happi search terms
+
     Returns
     -------
     objs: ``dict``
         A mapping from item name to item
     """
 
-    # Explicitly set exclude_devices to empty list to avoid mutable default arguments issue.
+    # Explicitly set exclude_devices and additional_devices to empty lists to
+    # avoid mutable default arguments issue.
     if not exclude_devices:
         exclude_devices = []
+
+    if not additional_devices:
+        additional_devices = []
 
     # Load the happi Client
     if None not in (light_ctrl, lightpath):
@@ -117,6 +132,16 @@ def get_happi_objs(
     for device in containers.copy():
         if device.name in exclude_devices:
             containers.remove(device)
+
+    # Load additional devices
+    for key in additional_devices:
+        for value in key:
+            results = client.search_regex(key=value)
+            containers.extend(results)
+            results = []
+
+    # Remove duplicate devices before loading
+    containers = list(set(containers))
 
     return _load_devices(*containers)
 
