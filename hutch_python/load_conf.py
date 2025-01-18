@@ -6,6 +6,7 @@ import logging
 from copy import copy
 from pathlib import Path
 from socket import gethostname
+from typing import List, Dict
 
 from . import mpl_config  # noqa: F401
 
@@ -313,11 +314,12 @@ def load_conf(conf, hutch_dir=None, args=None):
             'Exclude_devices have not been set in conf. Will load all devices.')
 
     try:
-        # This is a dictionary of additional devices that will be loaded.
+        # This is list of dictionaries with happi search terms and values.
+        # Additional devices are loaded based on these search terms.
         additional_devices = conf['additional_devices']
-        if not isinstance(additional_devices, dict):
+        if not isinstance(additional_devices, List[Dict]):
             logger.error(
-                'Invalid additional_devices conf, must be a dictionary.')
+                'Invalid additional_devices conf, must be a list of dictionaries.')
     except KeyError:
         additional_devices = {}
         logger.info(
