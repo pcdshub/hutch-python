@@ -330,7 +330,7 @@ def load_conf(conf, hutch_dir=None, args=None):
     except KeyError:
         hutch_python.ipython_session_timer.configure_timeout(172800)
         logger.info(
-            'Missing session_timer value from conf. Setting default value to 172800 seconds (48 hours).')
+            'Missing session_timer value from conf. Session will time out in 48 hours.')
 
     # Make cache namespace
     cache = LoadCache((hutch or 'hutch') + '.db', hutch_dir=hutch_dir)
