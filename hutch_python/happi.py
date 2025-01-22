@@ -1,7 +1,6 @@
 import enum
 import inspect
 import logging
-from typing import List, Dict
 
 import happi
 import ophyd
@@ -31,8 +30,8 @@ def get_happi_objs(
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
-    exclude_devices: List[str] = None,
-    additional_devices: Dict[str, List[str]] = None
+    exclude_devices: list[str] = None,
+    additional_devices: list = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
@@ -58,11 +57,11 @@ def get_happi_objs(
     load_level: ``DeviceLoadLevel``
         load all or standard devices
 
-    exclude_devices: ``List[str]``
+    exclude_devices: ``list[str]``
         list of devices that should be excluded when loading
 
-    additional_devices: ``Dict[str, List[str]]``
-        devices are loaded based on this dictionary of happi search terms
+    additional_devices: ``list``
+        devices are loaded based a list containing dictionaries of happi search terms
 
     Returns
     -------
@@ -77,6 +76,14 @@ def get_happi_objs(
 
     if not additional_devices:
         additional_devices = []
+    else:
+        # additional_devices converts the value field of each key-value pair
+        # into a list of strings for easier handling
+        for device_dict in additional_devices.copy():
+            for key, val in device_dict.copy().items():
+                new_val = val.split(',')
+                new_val = [n.strip() for n in new_val]
+                device_dict[key] = new_val
 
     # Load the happi Client
     if None not in (light_ctrl, lightpath):
@@ -134,14 +141,15 @@ def get_happi_objs(
             containers.remove(device)
 
     # Load additional devices
-    for key in additional_devices:
-        for value in key:
-            results = client.search_regex(key=value)
-            containers.extend(results)
-            results = []
-
-    # Remove duplicate devices before loading
-    containers = list(set(containers))
+    for device_dict in additional_devices:
+        for key, value_list in device_dict.items():
+            for value in value_list:
+                reqs = {key: value}
+                results = client.search(**reqs)
+                add_devices = [
+                    res.item for res in results if res.item.name not in dev_names]
+                if add_devices:
+                    containers.extend(add_devices)
 
     return _load_devices(*containers)
 
