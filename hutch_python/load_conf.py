@@ -319,6 +319,14 @@ def load_conf(conf, hutch_dir=None, args=None):
         if not isinstance(additional_devices, list):
             logger.error(
                 'Invalid additional_devices conf, must be a list of dictionaries.')
+        else:
+            for device_dict in additional_devices.copy():
+                for key, val in device_dict.copy().items():
+                    if not isinstance(val, bool):
+                        new_val = val.split(',')
+                        new_val = [n.strip() for n in new_val]
+                        device_dict[key] = new_val
+
     except KeyError:
         additional_devices = []
         logger.info(
