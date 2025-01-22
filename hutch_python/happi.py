@@ -30,8 +30,8 @@ def get_happi_objs(
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
-    exclude_devices: list[str] = None,
-    additional_devices: list = None
+    exclude_devices: Optional[list[str]] = None,
+    additional_devices: Optional[list] = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
