@@ -313,22 +313,26 @@ def load_conf(conf, hutch_dir=None, args=None):
             'Exclude_devices have not been set in conf. Will load all devices.')
 
     try:
-        # This is list of dictionaries with happi search terms and values.
-        # Additional devices are loaded based on these search terms.
+        # This is a list of dictionaries with happi search terms. Results from
+        # these searches will be loaded.
         additional_devices = conf['additional_devices']
-        if not isinstance(additional_devices, list):
-            logger.error(
-                'Invalid additional_devices conf, must be a list of dictionaries.')
+        for item in additional_devices:
+            if not isinstance(item, dict):
+                logger.error(
+                    'Invalid additional_devices conf, each entry must be a key-value pair.')
         else:
-            for device_dict in additional_devices.copy():
-                for key, val in device_dict.copy().items():
-                    if not isinstance(val, bool):
+            temp_dict = {}
+            for device_dict in additional_devices:
+                for key, val in device_dict.items():
+                    if isinstance(val, bool):
+                        temp_dict[key] = val
+                    else:
                         new_val = val.split(',')
                         new_val = [n.strip() for n in new_val]
-                        device_dict[key] = new_val
-
+                        temp_dict[key] = new_val
+            additional_devices = temp_dict
     except KeyError:
-        additional_devices = []
+        additional_devices = {}
         logger.info(
             'Additional_devices have not been set in conf. No additional devices will be loaded')
 
