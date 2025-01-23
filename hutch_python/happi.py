@@ -1,7 +1,7 @@
 import enum
 import inspect
 import logging
-from typing import Optional
+from typing import Dict, List, Optional, Union
 
 import happi
 import ophyd
@@ -31,8 +31,8 @@ def get_happi_objs(
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
-    exclude_devices: Optional[list[str]] = None,
-    additional_devices: Optional[list] = None
+    exclude_devices: Optional[List[str]] = None,
+    additional_devices: Optional[Dict[str, Union[str, bool]]] = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
@@ -61,8 +61,9 @@ def get_happi_objs(
     exclude_devices: ``list[str]``
         list of devices that should be excluded when loading
 
-    additional_devices: ``list``
-        devices are loaded based a list containing dictionaries of happi search terms
+    additional_devices: ``Dict[str, Union[str, bool]]``
+        a dictionary containing happi search terms as well as a boolean
+        'combine_search_results' that indicates a union or intersection search
 
     Returns
     -------
@@ -70,21 +71,13 @@ def get_happi_objs(
         A mapping from item name to item
     """
 
-    # Explicitly set exclude_devices and additional_devices to empty lists to
-    # avoid mutable default arguments issue.
+    # Explicitly set exclude_devices and additional_devices to empty
+    # containers to avoid mutable default arguments issue.
     if not exclude_devices:
         exclude_devices = []
 
     if not additional_devices:
-        additional_devices = []
-    else:
-        # additional_devices converts the value field of each key-value pair
-        # into a list of strings for easier handling
-        for device_dict in additional_devices.copy():
-            for key, val in device_dict.copy().items():
-                new_val = val.split(',')
-                new_val = [n.strip() for n in new_val]
-                device_dict[key] = new_val
+        additional_devices = {}
 
     # Load the happi Client
     if None not in (light_ctrl, lightpath):
@@ -141,16 +134,8 @@ def get_happi_objs(
         if device.name in exclude_devices:
             containers.remove(device)
 
-    # Load additional devices
-    for device_dict in additional_devices:
-        for key, value_list in device_dict.items():
-            for value in value_list:
-                reqs = {key: value}
-                results = client.search(**reqs)
-                add_devices = [
-                    res.item for res in results if res.item.name not in dev_names]
-                if add_devices:
-                    containers.extend(add_devices)
+    # TO_DO: Create a function based on search_parser() in cli.py that accepts
+    # happi search criteria and outputs union or intersection search results.
 
     return _load_devices(*containers)
 
