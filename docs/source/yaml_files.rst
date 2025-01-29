@@ -180,6 +180,34 @@ on one line using the following formats:
    exclude_devices: ['crix_cryo_y', 'at2k2_calc']
 
 
+additional_devices
+------------
+The ``additional_devices`` key is optional. This key allows hutch-python to
+load devices that are on a different beamline or in a different hutch/area by
+using happi to search for devices that can be loaded. Each entry in
+``additional_devices`` starts with a search name, such as 'ip1_mods_search'
+followed by happi search parameters. Search names are arbitrarily determined
+by the user but should start with a letter or number. A search term can
+contain a wildcard symbol (*). In the example below hutch-python will load all
+devices from 'ip1_mods_search', 'las_search', and 'crix_search'. In
+'crix_search' all devices with a name that starts with 'crix_' will be loaded.
+
+.. code-block:: YAML
+
+   additional_devices:
+
+      ip1_mods_search:
+         beamline: IP1_MODS
+         name: lm1k4_inj_*
+         z: -1, 1
+
+      las_search:
+        name: LAS
+
+      crix_search:
+         name: crix_*
+
+
 Full File Example
 -----------------
 
