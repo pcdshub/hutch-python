@@ -1,13 +1,12 @@
 import enum
 import inspect
 import logging
-import fnmatch
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional
 
 import happi
 import ophyd
-from happi.loader import load_devices
 from happi.cli import search_parser
+from happi.loader import load_devices
 
 try:
     import lightpath
@@ -64,7 +63,7 @@ def get_happi_objs(
         an optional list of devices that should be excluded when loading
 
     additional_devices: ``Optional[Dict[str, Dict[str, str]]]``
-        an optional dictionary of dictionaries with happi search terms 
+        an optional dictionary of dictionaries with happi search terms
         whose results are loaded
 
     Returns
