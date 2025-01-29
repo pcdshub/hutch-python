@@ -310,31 +310,19 @@ def load_conf(conf, hutch_dir=None, args=None):
     except KeyError:
         exclude_devices = []
         logger.info(
-            'Exclude_devices have not been set in conf. Will load all devices.')
+            'Exclude_devices has not been set in conf. Will load all devices.')
 
     try:
-        # This is a list of dictionaries with happi search terms. Results from
-        # these searches will be loaded.
+        # These are the additional devices to load
         additional_devices = conf['additional_devices']
-        for item in additional_devices:
-            if not isinstance(item, dict):
+        for search_val in additional_devices.values():
+            if not isinstance(search_val, dict):
                 logger.error(
-                    'Invalid additional_devices conf, each entry must be a key-value pair.')
-        else:
-            temp_dict = {}
-            for device_dict in additional_devices:
-                for key, val in device_dict.items():
-                    if isinstance(val, bool):
-                        temp_dict[key] = val
-                    else:
-                        new_val = val.split(',')
-                        new_val = [n.strip() for n in new_val]
-                        temp_dict[key] = new_val
-            additional_devices = temp_dict
+                    'Invalid additional_devices conf, must be a dictionary of dictionaries.')
     except KeyError:
         additional_devices = {}
         logger.info(
-            'Additional_devices have not been set in conf. No additional devices will be loaded')
+            'Additional_devices has not been set in conf. No additional devices will be loaded.')
 
     # Set the session timeout duration
     try:
