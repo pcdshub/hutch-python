@@ -3,11 +3,11 @@ import inspect
 import logging
 import fnmatch
 from typing import Dict, List, Optional, Union
-from .utils import is_a_range, is_number
 
 import happi
 import ophyd
 from happi.loader import load_devices
+from happi.cli import search_parser
 
 try:
     import lightpath
@@ -28,121 +28,13 @@ class DeviceLoadLevel(enum.IntEnum):
     ALL = 3
 
 
-def search_parser(
-    client: happi.Client,
-    use_glob: bool,
-    search_criteria: list[str],
-) -> list[happi.SearchResult]:
-    """
-    Parse the user's search criteria and return the search results.
-
-    ``search_criteria`` must be a list of key=value strings.
-    If key is omitted, it will be assumed to be "name".
-
-    Parameters
-    ----------
-    client : Client
-        The happi client that we'll be doing searches in.
-    use_glob : bool
-        True if we're using glob matching, False if we're using
-        regex matching.
-    search_criteria : list of str
-        The user's search selection from the command line.
-    """
-    # Get search criteria into dictionary for use by client
-    client_args = {}
-    range_list = []
-    regex_list = []
-    range_found = False
-
-    for user_arg in search_criteria:
-        if '=' in user_arg:
-            criteria, value = user_arg.split('=', 1)
-        else:
-            criteria = 'name'
-            value = user_arg
-
-        # raise exception here
-        if criteria in client_args:
-            raise Exception(
-                f"Received duplicate search criteria {criteria}={value!r} "
-                f"(was {client_args[criteria]!r})"
-            )
-
-        if is_a_range(value):
-            start, stop = value.split(',')
-            start = float(start)
-            stop = float(stop)
-            if start < stop:
-                new_range_list = client.search_range(criteria, start, stop)
-            else:
-                # raise exception here
-                raise Exception('Invalid range, make sure start < stop')
-
-            if not range_found:
-                # if first range, just replace
-                range_found = True
-                range_list = new_range_list
-            else:
-                # subsequent ranges, only take intersection
-                range_list = set(new_range_list) & set(range_list)
-
-            if not range_list:
-                # we have searched via a range query.  At this point
-                # no matches, or intesection is empty. abort early
-                logger.error("No items found")
-                return []
-
-            continue
-
-        elif is_number(value):
-            if float(value) == int(float(value)):
-                # value is an int, allow the float version (optional .0)
-                logger.debug(f'looking for int value: {value}')
-                value = f'^{int(float(value))}(\\.0+$)?$'
-
-                # don't translate from glob
-                client_args[criteria] = value
-                continue
-            else:
-                value = str(float(value))
-        else:
-            logger.debug('Value %s interpreted as string', value)
-
-        if use_glob:
-            client_args[criteria] = fnmatch.translate(value)
-        else:  # already using regex
-            client_args[criteria] = value
-
-    regex_list = client.search_regex(**client_args)
-
-    # Gather final results
-    final_results = []
-    if regex_list and not range_list:
-        # only matched with one search_regex()
-        final_results = regex_list
-    elif range_list and not regex_list:
-        # only matched with search_range()
-        final_results = range_list
-    elif range_list and regex_list:
-        # find the intersection between regex_list and range_list
-        final_results = set(range_list) & set(regex_list)
-    else:
-        logger.debug('No regex or range items found')
-
-    if not final_results:
-        logger.error('No items found')
-
-    return final_results
-
-
 def get_happi_objs(
     db: str,
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
     exclude_devices: Optional[List[str]] = None,
-    additional_devices: Optional[Dict[str, Union[str, bool]]] = None
+    additional_devices: Optional[Dict[str, Dict[str, str]]] = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
@@ -168,12 +60,12 @@ def get_happi_objs(
     load_level: ``DeviceLoadLevel``
         load all or standard devices
 
-    exclude_devices: ``list[str]``
-        list of devices that should be excluded when loading
+    exclude_devices: ``Optional[List[str]]``
+        an optional list of devices that should be excluded when loading
 
-    additional_devices: ``Dict[str, Union[str, bool]]``
-        a dictionary containing happi search terms as well as a 'match_all' 
-        key that indicates a union or intersection search
+    additional_devices: ``Optional[Dict[str, Dict[str, str]]]``
+        an optional dictionary of dictionaries with happi search terms 
+        whose results are loaded
 
     Returns
     -------
@@ -244,23 +136,27 @@ def get_happi_objs(
         if device.name in exclude_devices:
             containers.remove(device)
 
-    # # Parse additional_devices
-    # # check match_all and delete
-    # match_all = additional_devices['match_all']     # False
-    # del additional_devices['match_all']
+    # Load additional devices
+    for search_val in additional_devices.values():
 
-    # # additional_devices is now {'beamline': ['IP1_MODS'], 'name': ['lm1k4_inj_*'], 'z': ['-1', '1']}
-    # if match_all:
-    #     # run everything in search_parser() then do do containers.extend()
-    #     pass
-    # else:
-    #     # run each element of the list in search_parser and do containers.extend() for each set of results
-    #     final_results = search_parser(
-    #         client=client,
-    #         use_glob=True,
-    #         search_criteria=search_criteria,
-    #     )
-    #     pass
+        search_list = []
+        final_results = []
+
+        for entry_key, entry_val in search_val.items():
+            search_string = entry_key + '=' + entry_val
+            search_list.append(search_string)
+
+        search_results = search_parser(
+            client=client,
+            use_glob=True,
+            search_criteria=search_list
+        )
+        search_results = list(search_results)
+        final_results += search_results
+        final_results = list(set(final_results))
+
+        containers.extend(
+            res.item for res in final_results if res.item not in containers)
 
     return _load_devices(*containers)
 
