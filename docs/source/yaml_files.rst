@@ -163,34 +163,40 @@ secondary elog.
 
 exclude_devices
 ------------
-The ``exclude_devices`` key is optional. ``exclude_devices`` expects a list
-of strings containing names of upstream devices that should not be loaded.
-It reduces the amount of unnecessary information shown in the console at
-load time. The list can be created as a multi-line array of strings or all
-on one line using the following formats:
+The ``exclude_devices`` key is optional. ``exclude_devices`` expects a string 
+that starts with a "-" symbol on each line. The string is the name of a device 
+that should not be loaded. 
+
+This feature reduces the amount of unnecessary information shown in the console 
+at load time. The list uses the following format:
 
 .. code-block:: YAML
 
    exclude_devices:
       - crix_cryo_y
       - at2k2_calc
-
-.. code-block:: YAML
-
-   exclude_devices: ['crix_cryo_y', 'at2k2_calc']
+      - tmo_lamp_sqr1
 
 
 additional_devices
 ------------
 The ``additional_devices`` key is optional. This key allows hutch-python to
-load devices that are on a different beamline or in a different hutch/area by
-using happi to search for devices that can be loaded. Each entry in
-``additional_devices`` starts with a search name, such as 'ip1_mods_search'
-followed by happi search parameters. Search names are arbitrarily determined
-by the user but should start with a letter or number. A search term can
-contain a wildcard symbol (*). In the example below hutch-python will load all
-devices from 'ip1_mods_search', 'las_search', and 'crix_search'. In
-'crix_search' all devices with a name that starts with 'crix_' will be loaded.
+load additional devices that are on a different beamline or in a different 
+hutch/area. The first entry below ``additional_devices`` is a search name, 
+such as 'ip1_mods_search'. Search names are arbitrarily determined by the user 
+but should start with a letter or number. Each search name is followed by a 
+happi search key, such as "beamline" and a value. For example, "beamline: TMO". 
+This will tell hutch-python to gather all devices on the TMO beamline and load 
+them. A second search criterion can be added below the first to constrain the 
+search so that only those devices that fit both search criteria will be loaded. 
+For example, adding "device_class: pcdsdevices.sqr1.SQR1" below "beamline: TMO" 
+tells hutch-python to load devices from the TMO beamline whose "device_class" 
+key has a value of "pcdsdevices.sqr1.SQR1".
+
+A search value can contain a wildcard symbol (*). For example, "name: tmo_*".
+
+In the example below hutch-python will load all devices from "ip1_mods_search", 
+"las_search", and "crix_search".
 
 .. code-block:: YAML
 
