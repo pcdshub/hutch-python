@@ -187,12 +187,12 @@ such as 'tmo_sqr1_search'. Search names are arbitrarily determined by the user
 but should start with a letter or number. Each search name is followed by a
 happi search key, such as "beamline" and a value. For example, "beamline: TMO".
 This tells hutch-python to gather all devices on the TMO beamline and load
-them. A second search criterion can be added below "beamline: TMO" to constrain 
-the search so that only those devices that fit both search criteria will be 
-loaded. For example, adding "device_class: pcdsdevices.sqr1.SQR1" below 
-"beamline: TMO" tells hutch-python to load devices from the TMO beamline whose 
-"device_class" key has a value of "pcdsdevices.sqr1.SQR1". More lines can be 
-added to constrain the search resultsfurther.
+them. A second search criterion can be added below "beamline: TMO" to constrain
+the search further, so that only those devices that fit both search criteria
+will be loaded. For example, adding "device_class: pcdsdevices.sqr1.SQR1" below
+"beamline: TMO" tells hutch-python to load devices from the TMO beamline whose
+"device_class" key has a value of "pcdsdevices.sqr1.SQR1". More lines can be
+added to obtain even more specific search results.
 
 A search value can contain a wildcard symbol (*). For example, "name: tmo_*".
 
