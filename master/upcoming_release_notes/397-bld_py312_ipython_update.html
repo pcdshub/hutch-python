@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hutch_python.utils.IterableNamespace &mdash; hutch-python 1.22.1.dev36+g2180da07 documentation</title>
+  <title>397 bld_py312_ipython_update &mdash; hutch-python 1.22.1.dev36+g2180da07 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -20,9 +20,7 @@
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hutch_python.utils.HelpfulNamespace" href="hutch_python.utils.HelpfulNamespace.html" />
-    <link rel="prev" title="hutch_python.utils.get_current_experiment" href="hutch_python.utils.get_current_experiment.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -72,7 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../bug.html">bug.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
@@ -81,22 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../log_setup.html">log_setup.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../utils.html">utils.py</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.safe_load.html">hutch_python.utils.safe_load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.get_current_experiment.html">hutch_python.utils.get_current_experiment</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.utils.IterableNamespace</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hutch_python.utils.IterableNamespace"><code class="docutils literal notranslate"><span class="pre">IterableNamespace</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.HelpfulNamespace.html">hutch_python.utils.HelpfulNamespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.count_ns_leaves.html">hutch_python.utils.count_ns_leaves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.extract_objs.html">hutch_python.utils.extract_objs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.find_object.html">hutch_python.utils.find_object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.find_class.html">hutch_python.utils.find_class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.strip_prefix.html">hutch_python.utils.strip_prefix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hutch_python.utils.hutch_banner.html">hutch_python.utils.hutch_banner</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
 </ul>
 
         </div>
@@ -113,10 +96,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../utils.html">utils.py</a></li>
-      <li class="breadcrumb-item active">hutch_python.utils.IterableNamespace</li>
+      <li class="breadcrumb-item active">397 bld_py312_ipython_update</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/hutch_python.utils.IterableNamespace.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/upcoming_release_notes/397-bld_py312_ipython_update.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -124,23 +106,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hutch-python-utils-iterablenamespace">
-<h1>hutch_python.utils.IterableNamespace<a class="headerlink" href="#hutch-python-utils-iterablenamespace" title="Link to this heading">¶</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="hutch_python.utils.IterableNamespace">
-<span class="sig-prename descclassname"><span class="pre">hutch_python.utils.</span></span><span class="sig-name descname"><span class="pre">IterableNamespace</span></span><a class="headerlink" href="#hutch_python.utils.IterableNamespace" title="Link to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="hutch_python.utils.HelpfulNamespace.html#hutch_python.utils.HelpfulNamespace" title="hutch_python.utils.HelpfulNamespace"><code class="xref py py-class docutils literal notranslate"><span class="pre">HelpfulNamespace</span></code></a></p>
-</dd></dl>
-
+  <section id="bld-py312-ipython-update">
+<h1>397 bld_py312_ipython_update<a class="headerlink" href="#bld-py312-ipython-update" title="Link to this heading">¶</a></h1>
+<section id="api-changes">
+<h2>API Changes<a class="headerlink" href="#api-changes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="bugfixes">
+<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>update functions anticipating py3.12 and IPython &gt; 8.26</p></li>
+</ul>
+</section>
+<section id="maintenance">
+<h2>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>N/A</p></li>
+</ul>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>tangkong</p></li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hutch_python.utils.get_current_experiment.html" class="btn btn-neutral float-left" title="hutch_python.utils.get_current_experiment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hutch_python.utils.HelpfulNamespace.html" class="btn btn-neutral float-right" title="hutch_python.utils.HelpfulNamespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
