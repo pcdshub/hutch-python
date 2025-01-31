@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tips and Tricks &mdash; hutch-python 1.21.1.dev49+g0828548e documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>Tips and Tricks &mdash; hutch-python 1.22.1.dev44+g5b4d6870 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=01f60068"></script>
+      <script src="_static/documentation_options.js?v=ac3a811a"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
@@ -120,9 +120,9 @@
 argument, or at a hutch you want a specially-named scan for a motor that is
 used every shift. You can write custom variants of any scan using a
 Python built-in, <code class="docutils literal notranslate"><span class="pre">functools.partial</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">scan</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-<span class="kn">from</span> <span class="nn">hutch.db</span> <span class="kn">import</span> <span class="n">my_motor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky.plans</span><span class="w"> </span><span class="kn">import</span> <span class="n">scan</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hutch.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">my_motor</span>
 
 <span class="c1"># Put arguments in early</span>
 <span class="n">my_scan</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">scan</span><span class="p">,</span> <span class="p">[],</span> <span class="n">my_motor</span><span class="p">)</span>
@@ -142,7 +142,7 @@ perhaps turn off the console logging entirely. All of these are possible
 using the <code class="docutils literal notranslate"><span class="pre">logs</span></code> namespace.</p>
 <p>Here are some example of this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In IPython, you can skip these imports</span>
-<span class="kn">from</span> <span class="nn">hutch.db</span> <span class="kn">import</span> <span class="n">logs</span><span class="p">,</span> <span class="n">noisy_device</span><span class="p">,</span> <span class="n">important_noisy_device</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hutch.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">logs</span><span class="p">,</span> <span class="n">noisy_device</span><span class="p">,</span> <span class="n">important_noisy_device</span>
 
 <span class="c1"># Silence a specific noisy device</span>
 <span class="n">logs</span><span class="o">.</span><span class="n">filter</span><span class="o">.</span><span class="n">blacklist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">noisy_device</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>

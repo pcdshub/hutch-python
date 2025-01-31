@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yaml Files &mdash; hutch-python 1.21.1.dev49+g0828548e documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>Yaml Files &mdash; hutch-python 1.22.1.dev44+g5b4d6870 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=01f60068"></script>
+      <script src="_static/documentation_options.js?v=ac3a811a"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
@@ -78,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#daq-host">daq_host</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#daq-platform">daq_platform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exclude-devices">exclude_devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-devices">additional_devices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#full-file-example">Full File Example</a></li>
 </ul>
 </li>
@@ -245,17 +246,45 @@ secondary elog.</p>
 </section>
 <section id="exclude-devices">
 <h2>exclude_devices<a class="headerlink" href="#exclude-devices" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">exclude_devices</span></code> key is optional. <code class="docutils literal notranslate"><span class="pre">exclude_devices</span></code> expects a list
-of strings containing names of upstream devices that should not be loaded.
-It reduces the amount of unnecessary information shown in the console at
-load time. The list can be created as a multi-line array of strings or all
-on one line using the following formats:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">exclude_devices</span></code> key is optional. <code class="docutils literal notranslate"><span class="pre">exclude_devices</span></code> expects a string
+that starts with a “-” symbol on each line. The string is the name of a device
+that should not be loaded.</p>
+<p>This feature reduces the amount of unnecessary information shown in the console
+at load time. The list uses the following format:</p>
 <div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">exclude_devices</span><span class="p">:</span>
 <span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crix_cryo_y</span>
 <span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">at2k2_calc</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmo_lamp_sqr1</span>
 </pre></div>
 </div>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">exclude_devices</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;crix_cryo_y&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;at2k2_calc&#39;</span><span class="p p-Indicator">]</span>
+</section>
+<section id="additional-devices">
+<h2>additional_devices<a class="headerlink" href="#additional-devices" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">additional_devices</span></code> key is optional. This key allows hutch-python to
+load additional devices that are on a different beamline or in a different
+hutch/area. The first entry below <code class="docutils literal notranslate"><span class="pre">additional_devices</span></code> is a search name,
+such as ‘tmo_sqr1_search’. Search names are arbitrarily determined by the user
+but should start with a letter or number. Each search name is followed by a
+happi search key, such as “beamline” and a value. For example, “beamline: TMO”.
+This tells hutch-python to gather all devices on the TMO beamline and load
+them. A second search criterion can be added below “beamline: TMO” to constrain
+the search further, so that only those devices that fit both search criteria
+will be loaded. For example, adding “device_class: pcdsdevices.sqr1.SQR1” below
+“beamline: TMO” tells hutch-python to load devices from the TMO beamline whose
+“device_class” key has a value of “pcdsdevices.sqr1.SQR1”. More lines can be
+added to obtain even more specific search results.</p>
+<p>A search value can contain a wildcard symbol (*). For example, “name: tmo_*”.</p>
+<p>In the example below hutch-python will load all devices from “tmo_sqr1_search”,
+“las_search”, and “crix_search”.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">additional_devices</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">tmo_sqr1_search</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">beamline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TMO</span>
+<span class="w">      </span><span class="nt">device_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pcdsdevices.sqr1.SQR1</span>
+<span class="w">      </span><span class="nt">z</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-1, 1</span>
+<span class="w">   </span><span class="nt">las_search</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LAS</span>
+<span class="w">   </span><span class="nt">crix_search</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crix_*</span>
 </pre></div>
 </div>
 </section>

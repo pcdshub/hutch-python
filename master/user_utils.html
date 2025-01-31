@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Useful Utilities &mdash; hutch-python 1.21.1.dev49+g0828548e documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>Useful Utilities &mdash; hutch-python 1.22.1.dev44+g5b4d6870 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=01f60068"></script>
+      <script src="_static/documentation_options.js?v=ac3a811a"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
@@ -118,7 +118,7 @@ that may or may not succeed to prevent a bad submodule from interrupting the
 bugging out, we’ll be warned that there is a problem and skip it, but you’ll
 still be able to manipulate the <code class="docutils literal notranslate"><span class="pre">Slits</span></code> objects.</p>
 <p>For example, this will complete successfully but show a warning:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">hutch_python.utils</span> <span class="kn">import</span> <span class="n">safe_load</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">hutch_python.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_load</span>
 
 <span class="gp">In [2]: </span><span class="k">with</span> <span class="n">safe_load</span><span class="p">(</span><span class="s1">&#39;divide by zero&#39;</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
@@ -132,7 +132,7 @@ groupings by type. This will find all objects loaded by hutch python plus all
 objects in your global environment, and accumulate them if they match a given
 type. You can explititly provide the type object or you can opt to provide a
 string.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hutch_python.namespace</span> <span class="kn">import</span> <span class="n">class_namespace</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hutch_python.namespace</span><span class="w"> </span><span class="kn">import</span> <span class="n">class_namespace</span>
 
 <span class="n">one</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span>
