@@ -130,11 +130,6 @@ def get_happi_objs(
         logger.warning(f'{len(containers)} active devices found for '
                        'this beampath')
 
-    # Do not load excluded devices
-    for device in containers.copy():
-        if device.name in exclude_devices:
-            containers.remove(device)
-
     # Load additional devices
     for search_val in additional_devices.values():
 
@@ -156,6 +151,11 @@ def get_happi_objs(
 
         containers.extend(
             res.item for res in final_results if res.item not in containers)
+
+    # Do not load excluded devices
+    for device in containers.copy():
+        if device.name in exclude_devices:
+            containers.remove(device)
 
     return _load_devices(*containers)
 
