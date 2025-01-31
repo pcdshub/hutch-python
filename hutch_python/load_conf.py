@@ -305,11 +305,24 @@ def load_conf(conf, hutch_dir=None, args=None):
                 'Invalid exclude_devices conf, must be a list.')
             exclude_devices = []
         else:
-            exclude_devices = [device_name.strip() for device_name in exclude_devices]
+            exclude_devices = [device_name.strip()
+                               for device_name in exclude_devices]
     except KeyError:
         exclude_devices = []
         logger.info(
-            'Missing exclude_devices in conf. Will load all devices.')
+            'Exclude_devices has not been set in conf. Will load all devices.')
+
+    try:
+        # These are the additional devices to load
+        additional_devices = conf['additional_devices']
+        for search_val in additional_devices.values():
+            if not isinstance(search_val, dict):
+                logger.error(
+                    'Invalid additional_devices conf, must be a dictionary of dictionaries.')
+    except KeyError:
+        additional_devices = {}
+        logger.info(
+            'Additional_devices has not been set in conf. No additional devices will be loaded.')
 
     # Set the session timeout duration
     try:
@@ -318,7 +331,7 @@ def load_conf(conf, hutch_dir=None, args=None):
     except KeyError:
         hutch_python.ipython_session_timer.configure_timeout(172800)
         logger.info(
-            'Missing session_timer value from conf. Set default value to 172800 seconds (48 hours).')
+            'Missing session_timer value from conf. Session will time out in 48 hours.')
 
     # Make cache namespace
     cache = LoadCache((hutch or 'hutch') + '.db', hutch_dir=hutch_dir)
@@ -475,7 +488,7 @@ def load_conf(conf, hutch_dir=None, args=None):
 
             # Gather relevant objects given the BeamPath
             happi_objs = get_happi_objs(
-                db, lc, hutch, load_level=load_level, exclude_devices=exclude_devices)
+                db, lc, hutch, load_level=load_level, exclude_devices=exclude_devices, additional_devices=additional_devices)
             cache(**happi_objs)
 
             # create and store beampath

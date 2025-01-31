@@ -1,9 +1,11 @@
 import enum
 import inspect
 import logging
+from typing import Dict, List, Optional
 
 import happi
 import ophyd
+from happi.cli import search_parser
 from happi.loader import load_devices
 
 try:
@@ -30,7 +32,8 @@ def get_happi_objs(
     light_ctrl: LightController,
     endstation: str,
     load_level: DeviceLoadLevel = DeviceLoadLevel.STANDARD,
-    exclude_devices: list[str] = None
+    exclude_devices: Optional[List[str]] = None,
+    additional_devices: Optional[Dict[str, Dict[str, str]]] = None
 ) -> dict[str, ophyd.Device]:
     """
     Get the relevant items for ``endstation`` from the happi database ``db``.
@@ -53,15 +56,29 @@ def get_happi_objs(
     endstation: ``str``
         Name of hutch
 
+    load_level: ``DeviceLoadLevel``
+        load all or standard devices
+
+    exclude_devices: ``Optional[List[str]]``
+        an optional list of devices that should be excluded when loading
+
+    additional_devices: ``Optional[Dict[str, Dict[str, str]]]``
+        an optional dictionary of dictionaries with happi search terms
+        whose results are loaded
+
     Returns
     -------
     objs: ``dict``
         A mapping from item name to item
     """
 
-    # Explicitly set exclude_devices to empty list to avoid mutable default arguments issue.
+    # Explicitly set exclude_devices and additional_devices to empty
+    # containers to avoid mutable default arguments issue.
     if not exclude_devices:
         exclude_devices = []
+
+    if not additional_devices:
+        additional_devices = {}
 
     # Load the happi Client
     if None not in (light_ctrl, lightpath):
@@ -112,6 +129,28 @@ def get_happi_objs(
     if len(containers) < 1:
         logger.warning(f'{len(containers)} active devices found for '
                        'this beampath')
+
+    # Load additional devices
+    for search_val in additional_devices.values():
+
+        search_list = []
+        final_results = []
+
+        for entry_key, entry_val in search_val.items():
+            search_string = entry_key + '=' + entry_val
+            search_list.append(search_string)
+
+        search_results = search_parser(
+            client=client,
+            use_glob=True,
+            search_criteria=search_list
+        )
+        search_results = list(search_results)
+        final_results += search_results
+        final_results = list(set(final_results))
+
+        containers.extend(
+            res.item for res in final_results if res.item not in containers)
 
     # Do not load excluded devices
     for device in containers.copy():
