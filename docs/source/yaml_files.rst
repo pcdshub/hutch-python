@@ -196,21 +196,18 @@ added to obtain even more specific search results.
 
 A search value can contain a wildcard symbol (*). For example, "name: tmo_*".
 
-In the example below hutch-python will load all devices from "ip1_mods_search",
+In the example below hutch-python will load all devices from "tmo_sqr1_search",
 "las_search", and "crix_search".
 
 .. code-block:: YAML
 
    additional_devices:
-
       tmo_sqr1_search:
          beamline: TMO
          device_class: pcdsdevices.sqr1.SQR1
          z: -1, 1
-
       las_search:
         name: LAS
-
       crix_search:
          name: crix_*
 
