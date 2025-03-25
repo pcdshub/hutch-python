@@ -10,7 +10,7 @@ matplotlib>=3.4.0
 nabs>=1.5.0
 pcdscalc>=0.6.0
 pcdsdaq>=2.3.0
-pcdsdevices>=7.0.0
+pcdsdevices>8.7.0
 pcdsutils>=0.5.0
 psdaq-control-minimal
 pyfiglet>=0.8.0

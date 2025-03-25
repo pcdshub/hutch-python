@@ -596,10 +596,12 @@ def load_conf(conf, hutch_dir=None, args=None):
                     path.mkdir()
                     path.chmod(0o777)
             if experiment is None:
-                setup_preset_paths(hutch=beamline_presets)
+                setup_preset_paths(hutch=beamline_presets,
+                                   defer_loading=True)
             else:
                 setup_preset_paths(hutch=beamline_presets,
-                                   exp=experiment_presets)
+                                   exp=experiment_presets,
+                                   defer_loading=True)
 
     # configure objects
     if obj_config is not None:
