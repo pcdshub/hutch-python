@@ -18,7 +18,7 @@ jobs:
       # Extras that will be installed for both conda/pip:
       testing-extras: ""
       # Extras to be installed only for conda-based testing:
-      conda-testing-extras: "ipython=8.4.0"
+      conda-testing-extras: ""
       # Extras to be installed only for pip-based testing:
       # Set numpy<2 for now, remove when xraylib updates
       pip-testing-extras: ""
