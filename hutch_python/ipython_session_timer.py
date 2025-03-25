@@ -58,11 +58,11 @@ class IPythonSessionTimer:
         ipython.events.register('pre_run_cell', self._set_user_active)
         ipython.events.register('post_run_cell', self._set_user_inactive)
 
-    def _set_user_active(self):
+    def _set_user_active(self, *args, **kwargs):
         self.user_active = True
         self.last_active_time = time.monotonic()
 
-    def _set_user_inactive(self):
+    def _set_user_inactive(self, *args, **kwargs):
         self.user_active = False
         self.last_active_time = time.monotonic()
 

@@ -160,7 +160,8 @@ def test_ipython_tab_completion():
     # us.
     hutch_python.cli.configure_ipython_session(HutchPythonArgs())
 
-    completer = IPython.core.completer.Completer(namespace=ns)
+    completer = IPython.core.completer.IPCompleter(namespace=ns)
     completer.limit_to__all__ = False
+    completer.line_buffer = "a."
     assert 'a.THIS_SHOULD_NOT_BE_THERE' not in completer.attr_matches('a.')
     assert completer.attr_matches('a.') == ['a.foobar']
