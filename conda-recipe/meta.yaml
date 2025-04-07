@@ -34,7 +34,7 @@ requirements:
   - nabs >=1.5.0
   - pcdscalc >=0.6.0
   - pcdsdaq >=2.3.0
-  - pcdsdevices >=7.0.0
+  - pcdsdevices >8.7.0
   - pcdsutils >=0.6.0
   - psdaq-control-minimal >=3.3.19
   - psdm_qs_cli >=0.3.1
