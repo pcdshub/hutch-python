@@ -2,6 +2,28 @@ Release History
 ###############
 
 
+v1.23.0 (2025-04-07)
+====================
+
+Features
+--------
+- Added ability to load additional devices not on the current beamline or hutch/area using happi search.
+
+Bugfixes
+--------
+- update functions anticipating py3.12 and IPython > 8.26
+
+Maintenance
+-----------
+- Enable the deferral of preset loading to avoid a pre-mature performance hit
+
+Contributors
+------------
+- janeliu-slac
+- tangkong
+
+
+
 v1.22.0 (2024-12-19)
 ====================
 
