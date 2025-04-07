@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hutch_python.load_conf.load_conf &mdash; hutch-python 1.23.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=b8112b1c"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/docs-versions-menu.js?v=3d6a1aea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hutch_python.load_conf.default_class_namespace" href="hutch_python.load_conf.default_class_namespace.html" />
+    <link rel="prev" title="hutch_python.load_conf.load" href="hutch_python.load_conf.load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            hutch-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Starting a Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">What to Expect When You are Expecting a New Hutch Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../startup.html">Startup Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../daq.html">DAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beamline.html">Beamline File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiment.html">Experiment File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../object_configuration.html">Object Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../report.html">Reporting Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips.html">Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_utils.html">Useful Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other_modules.html">Related Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../environment.html">Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hutch_setup.html">Hutch Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yaml_files.html">Yaml Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug.html">Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bug.html">bug.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">cache.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">cli.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ipython_log.html">ipython_log.py</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../load_conf.html">load_conf.py</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.load_conf.load.html">hutch_python.load_conf.load</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hutch_python.load_conf.load_conf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hutch_python.load_conf.load_conf"><code class="docutils literal notranslate"><span class="pre">load_conf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hutch_python.load_conf.default_class_namespace.html">hutch_python.load_conf.default_class_namespace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../load_parts.html">load submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log_setup.html">log_setup.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../namespace.html">namespace.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">utils.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hutch-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../load_conf.html">load_conf.py</a></li>
+      <li class="breadcrumb-item active">hutch_python.load_conf.load_conf</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/hutch_python.load_conf.load_conf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hutch-python-load-conf-load-conf">
+<h1>hutch_python.load_conf.load_conf<a class="headerlink" href="#hutch-python-load-conf-load-conf" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hutch_python.load_conf.load_conf">
+<span class="sig-prename descclassname"><span class="pre">hutch_python.load_conf.</span></span><span class="sig-name descname"><span class="pre">load_conf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hutch_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hutch_python.load_conf.load_conf" title="Link to this definition">¶</a></dt>
+<dd><p>Step through the object loading procedure, given a configuration.</p>
+<p>The procedure is:</p>
+<ul>
+<li><p>Check the configuration for errors</p></li>
+<li><p>Display the banner by calling <a class="reference internal" href="hutch_python.utils.hutch_banner.html#hutch_python.utils.hutch_banner" title="hutch_python.utils.hutch_banner"><code class="xref any py py-func docutils literal notranslate"><span class="pre">hutch_banner</span></code></a></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key to create <code class="docutils literal notranslate"><span class="pre">hutch.db</span></code> importable namespace to
+stash the objects. This will be literally <code class="docutils literal notranslate"><span class="pre">hutch.db</span></code> if hutch is
+not provided, or the hutch name e.g. <code class="docutils literal notranslate"><span class="pre">mfx.db</span></code>.</p></li>
+<li><p>Evaluate the settings to determine which kind of daq object to create
+later.</p></li>
+<li><p>Load debug tools</p></li>
+<li><p>Load options</p></li>
+<li><p>Set ophyd signal default timeouts</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">logs</span></code> namespace that allows the user to configure the
+logging settings.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code>, <code class="docutils literal notranslate"><span class="pre">RE</span></code></p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">daq</span></code> object with <code class="docutils literal notranslate"><span class="pre">RE</span></code> registered.</p></li>
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">plan_defaults</span></code> and include <code class="docutils literal notranslate"><span class="pre">bp</span></code>, <code class="docutils literal notranslate"><span class="pre">bps</span></code>, and <code class="docutils literal notranslate"><span class="pre">bpp</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">re</span></code> namespace of ready-to-run scan functions as a mirror of
+<code class="docutils literal notranslate"><span class="pre">bp</span></code>. Graft all daq-integrated scans onto the <code class="docutils literal notranslate"><span class="pre">daq</span></code> object.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">scan_pvs</span></code> object, and <code class="docutils literal notranslate"><span class="pre">enable</span></code> it.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">hutch</span></code> and <code class="docutils literal notranslate"><span class="pre">daq_platform</span></code> keys to create the <code class="docutils literal notranslate"><span class="pre">elog</span></code> object
+and configure it to match the correct experiment.</p></li>
+<li><p>Load the shared global devices for LCLS</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">db</span></code> key to load devices from the <code class="docutils literal notranslate"><span class="pre">happi</span></code> beamline database
+and create a <code class="docutils literal notranslate"><span class="pre">hutch_beampath</span></code> object from <code class="docutils literal notranslate"><span class="pre">lightpath</span></code></p></li>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">archive</span></code> object for interfacing with the
+Archiver Appliance</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">hutch</span></code> key to load detector objects from the <code class="docutils literal notranslate"><span class="pre">camviewer</span></code>
+configuration file.</p></li>
+<li><p>Load some simulated hardware and place it in the <code class="docutils literal notranslate"><span class="pre">sim</span></code> namespace.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">experiment</span></code> key to select the current experiment</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">experiment</span></code> was missing, autoselect experiment using
+<code class="docutils literal notranslate"><span class="pre">hutch</span></code> key</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use current experiment to load experiment objects from questionnaire</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">load</span></code> key to bring up the user’s <code class="docutils literal notranslate"><span class="pre">beamline</span></code> modules</p></li>
+<li><p>Use current experiment to load experiment file</p></li>
+<li><p>Create some default groups</p></li>
+<li><p>Configure and load the position presets</p></li>
+<li><p>Write the db.txt file to note what was loaded</p></li>
+</ul>
+<p>If a conf key is missing, we’ll note it in a <code class="docutils literal notranslate"><span class="pre">logger.info</span></code> message.
+If an extra conf entry is found, we’ll note it in a <code class="docutils literal notranslate"><span class="pre">logger.warning</span></code>
+message.
+If an automatically selected file is missing, we’ll note it in a
+<code class="docutils literal notranslate"><span class="pre">logger.info</span></code> message.
+All other errors will be noted in a logger.error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conf</strong> (<em>dict</em>) – <code class="docutils literal notranslate"><span class="pre">dict</span></code> interpretation of the original yaml file</p></li>
+<li><p><strong>hutch_dir</strong> (<code class="docutils literal notranslate"><span class="pre">Path</span></code> or <code class="docutils literal notranslate"><span class="pre">str</span></code>, optional) – <code class="docutils literal notranslate"><span class="pre">Path</span></code> object that points to the hutch’s launch directory. This is
+the directory that includes the <code class="docutils literal notranslate"><span class="pre">experiments</span></code> directory and a
+hutchname directory e.g. <code class="docutils literal notranslate"><span class="pre">mfx</span></code>
+If this is missing, we’ll be unable to write the <code class="docutils literal notranslate"><span class="pre">db.txt</span></code> file,
+do relative filepath database selection for <code class="docutils literal notranslate"><span class="pre">happi</span></code>,
+or establish a preset positions directory.</p></li>
+<li><p><strong>args</strong> (<em>argparse.Namespace</em><em>, </em><em>optional</em>) – The namespace returned from the cli argument parsing, or None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>objs</strong> – See the return value of <a class="reference internal" href="hutch_python.load_conf.load.html#hutch_python.load_conf.load" title="hutch_python.load_conf.load"><code class="xref any py py-func docutils literal notranslate"><span class="pre">load</span></code></a></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">dict{str:</span> <span class="pre">object}</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hutch_python.load_conf.load.html" class="btn btn-neutral float-left" title="hutch_python.load_conf.load" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hutch_python.load_conf.default_class_namespace.html" class="btn btn-neutral float-right" title="hutch_python.load_conf.default_class_namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
