@@ -310,7 +310,7 @@ def create_softlink(experiment, link_path):
     overwrites it with the new active experiment.
     """
     # Defaults new softlink in /cds/group/pcds/dist/pds/{}/misc/
-    if not os.path.exists(link_path):
+    if not os.path.exists(link_path.format(experiment[0:3])):
         raise OSError('Path does not exist path: %s' % link_path)
 
     subprocess.run(['ln', '-sf', link_path.format(experiment[0:3]) + 'epicsArch_'
