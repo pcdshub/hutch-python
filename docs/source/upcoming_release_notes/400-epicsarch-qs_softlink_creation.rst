@@ -19,4 +19,4 @@ Maintenance
 
 Contributors
 ------------
-- espov
+- vespos
