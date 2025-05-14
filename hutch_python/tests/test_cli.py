@@ -75,6 +75,7 @@ def test_create_arg():
     if test_dir.exists():
         shutil.rmtree(test_dir)
 
+    # Needs manual confirmation if we run with capture output on...
     with cli_args(['hutch_python', '--create', hutch]):
         with restore_logging():
             main()
@@ -96,11 +97,9 @@ def run_hpy_and_exit(*args: str) -> subprocess.CompletedProcess:
 
 
 @pytest.mark.timeout(30)
-def test_hist_file_arg(monkeypatch):
+def test_hist_file_arg():
     logger.debug("test_hist_file_arg")
     test_hist_file = (CFG_PATH.parent / "history.sqlite").resolve()
-    bad_hist_file = (CFG_PATH.parent / "aesefiudh" / "history.sqlite").resolve()
-    memory_hist_filename = ":memory:"
 
     # Test that the sqlite file gets made
     # First, need to remove the file if it already exists
@@ -113,17 +112,27 @@ def test_hist_file_arg(monkeypatch):
     assert test_hist_file.exists()
     # Remove the file for future tests
     test_hist_file.unlink()
-    # With the bad hist file we should still run ok with just a warning
-    run_hpy_and_exit("--hist-file", str(bad_hist_file))
-    assert not test_hist_file.exists()
-    # Same with the in-memory choice
-    run_hpy_and_exit("--hist-file", memory_hist_filename)
     assert not test_hist_file.exists()
 
+
+@pytest.mark.timeout(30)
+@pytest.mark.parametrize("filepath,", (
+    (CFG_PATH.parent / "aesefiudh" / "history.sqlite").resolve(),
+    ":memory:",
+))
+def test_no_hist_file(filepath):
+    # With the bad hist file or memory we should still run ok with just a warning
+    test_hist_file = (CFG_PATH.parent / "history.sqlite").resolve()
+    run_hpy_and_exit("--hist-file", str(filepath))
+    assert not test_hist_file.exists()
+
+
+@pytest.mark.timeout(30)
+def test_template_file(monkeypatch):
     # Exercise the template + check default usage
     # We can't actually write to the default default in a test context
     # But we can check what the config would be
-    new_default = str(test_hist_file.parent / "${USER}-history.sqlite")
+    new_default = str(CFG_PATH.parent / "${USER}-history.sqlite")
     new_default_filled = Template(new_default).substitute({"USER": os.environ["USER"]})
     monkeypatch.setattr(
         hutch_python.cli,
