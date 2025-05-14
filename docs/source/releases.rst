@@ -2,6 +2,24 @@ Release History
 ###############
 
 
+v1.23.1 (2025-05-14)
+====================
+
+Bugfixes
+--------
+- Fixed pathcheck in hutch_python/epics_arch.py:create_softlink
+
+Maintenance
+-----------
+- Separate test_hist_file_arg into three separate test cases to hopefully alleviate test suite timeout issues
+
+Contributors
+------------
+- tangkong
+- vespos
+
+
+
 v1.23.0 (2025-04-07)
 ====================
 
