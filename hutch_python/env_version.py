@@ -3,12 +3,11 @@ Utilities for getting relevant environment information.
 """
 from __future__ import annotations
 
+import importlib.metadata
 import logging
 import os
 import os.path
 import pkgutil
-
-import pkg_resources
 
 logger = logging.getLogger(__name__)
 
@@ -42,10 +41,10 @@ def log_env() -> None:
 def dump_env() -> list[str]:
     """
     Get all packages and versions from the current environment.
-    conda list is slow, use pkg_resources instead
+    conda list is slow, use importlib.metadata.distributions instead
     this might miss dev overrides
     """
-    return sorted(str(pkg) for pkg in pkg_resources.working_set)
+    return sorted(str(dist.name) for dist in importlib.metadata.distributions())
 
 
 def get_conda_env_name() -> str:
