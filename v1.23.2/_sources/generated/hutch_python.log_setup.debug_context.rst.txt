@@ -1,0 +1,6 @@
+﻿hutch\_python.log\_setup.debug\_context
+=======================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autofunction:: debug_context

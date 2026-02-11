@@ -1,0 +1,6 @@
+﻿hutch\_python.bug.get\_last\_n\_commands
+========================================
+
+.. currentmodule:: hutch_python.bug
+
+.. autofunction:: get_last_n_commands

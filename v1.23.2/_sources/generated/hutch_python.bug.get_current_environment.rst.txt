@@ -1,0 +1,6 @@
+﻿hutch\_python.bug.get\_current\_environment
+===========================================
+
+.. currentmodule:: hutch_python.bug
+
+.. autofunction:: get_current_environment

@@ -1,0 +1,46 @@
+﻿hutch\_python.log\_setup.ObjectFilter
+=====================================
+
+.. currentmodule:: hutch_python.log_setup
+
+.. autoclass:: ObjectFilter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ObjectFilter.__init__
+      ~ObjectFilter.disable
+      ~ObjectFilter.filter
+      ~ObjectFilter.stop
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ObjectFilter.description
+      ~ObjectFilter.level
+      ~ObjectFilter.levelno
+      ~ObjectFilter.object_names
+      ~ObjectFilter.objects
+      ~ObjectFilter.whitelist_all_level
+      ~ObjectFilter.allow_other_messages
+      ~ObjectFilter.name_to_log_count_1s
+      ~ObjectFilter.name_to_log_count_10s
+      ~ObjectFilter.name_to_log_count_60s
+      ~ObjectFilter.noisy_threshold_1s
+      ~ObjectFilter.noisy_threshold_10s
+      ~ObjectFilter.noisy_threshold_60s
+      ~ObjectFilter.whitelist
+      ~ObjectFilter.noisy_loggers
+      ~ObjectFilter.blacklist
+   
+   

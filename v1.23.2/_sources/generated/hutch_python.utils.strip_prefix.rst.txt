@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.strip\_prefix
+=================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: strip_prefix

@@ -1,0 +1,6 @@
+﻿hutch\_python.bug.post\_to\_github
+==================================
+
+.. currentmodule:: hutch_python.bug
+
+.. autofunction:: post_to_github

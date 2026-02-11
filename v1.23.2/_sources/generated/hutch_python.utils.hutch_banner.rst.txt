@@ -1,0 +1,6 @@
+﻿hutch\_python.utils.hutch\_banner
+=================================
+
+.. currentmodule:: hutch_python.utils
+
+.. autofunction:: hutch_banner
