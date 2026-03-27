@@ -144,9 +144,9 @@ def configure_ipython_session(args: HutchPythonArgs):
     # Disable reformatting input with black
     ipy_config.TerminalInteractiveShell.autoformatter = None
 
-    if IPython.version_info < (8, 5, 0):
+    if IPython.version_info[:3] <= (8, 4, 0):
         # Set up tab completion modifications
-        # The last version we deployed that needed this is 8.4.0
+        # The last IPython version we deployed that needed this is 8.4.0
         configure_tab_completion(ipy_config)
 
     # disable default banner
