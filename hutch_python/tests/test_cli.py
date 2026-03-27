@@ -156,6 +156,7 @@ def test_run_script():
             main()
 
 
+@pytest.mark.skipif(IPython.version_info[:3] > (8, 4, 0), reason="IPython completer API too unstable to test against")
 def test_ipython_tab_completion():
     class MyTest:
         THIS_SHOULD_NOT_BE_THERE = None
