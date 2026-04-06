@@ -85,6 +85,14 @@ def configure_tab_completion(ipy_config):
     """
     Disable Jedi and tweak IPython tab completion.
 
+    At some IPython version this became no longer needed due to fixed performance issues
+    stemming from no longer by default executing properties.
+
+    At some IPython version this became counterproductive because the non-jedi
+    completer no longer works properly for us.
+
+    This change happend somewhere between 8.4.0 and 8.36.0
+
     Parameters
     ----------
     ipy_config : traitlets.config.Config
@@ -135,8 +143,11 @@ def configure_ipython_session(args: HutchPythonArgs):
 
     # Disable reformatting input with black
     ipy_config.TerminalInteractiveShell.autoformatter = None
-    # Set up tab completion modifications
-    configure_tab_completion(ipy_config)
+
+    if IPython.version_info[:3] <= (8, 4, 0):
+        # Set up tab completion modifications
+        # The last IPython version we deployed that needed this is 8.4.0
+        configure_tab_completion(ipy_config)
 
     # disable default banner
     ipy_config.TerminalIPythonApp.display_banner = False
