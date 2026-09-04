@@ -4,7 +4,8 @@ Yaml Files
 ``hutch-python`` uses a ``conf.yml`` file for basic configuration. This is a
 standard yaml file with the following valid keys:
 ``hutch``, ``db``, ``load``, ``load_level``, ``experiment``, ``obj_config``,
-``daq_type``, ``daq_host``, and ``daq_platform``, ``exclude_devices``.
+``daq_type``, ``daq_host``, ``daq_platform``, ``exclude_devices``, 
+``additional_devices``, and ``load_experiment_presets``.
 
 
 hutch
@@ -179,7 +180,7 @@ at load time. The list uses the following format:
 
 
 additional_devices
-------------
+------------------
 The ``additional_devices`` key is optional. This key allows hutch-python to
 load additional devices that are on a different beamline or in a different
 hutch/area. The first entry below ``additional_devices`` is a search name,
@@ -210,6 +211,46 @@ In the example below hutch-python will load all devices from "tmo_sqr1_search",
         name: LAS
       crix_search:
          name: crix_*
+
+
+load_experiment_presets
+-----------------------
+The ``load_experiment_presets`` key is optional and expects a Boolean value.
+It controls whether hutch-python makes position presets from the active
+experiment available to motors and other positioners.
+
+Position presets are saved locations that can be called by commands such as
+``motor.mv_sample()``. Hutch-python supports two types of position presets.
+
+- Beamline presets are permanent positions shared across experiments.
+- Experiment presets are temporary positions associated with the active
+  experiment.
+
+.. code-block:: YAML
+
+   load_experiment_presets: false
+
+When set to ``false``, hutch-python still loads beamline presets. It does not
+configure or read the active experiment's preset directory. This can improve
+startup performance when the experiment directory contains many preset files.
+
+When set to ``true``, hutch-python makes both beamline and active experiment
+presets available.
+
+.. code-block:: YAML
+
+   load_experiment_presets: true
+
+The default is ``true``. Existing configurations that omit this key retain
+their current behavior.
+
+Use the unquoted YAML values ``true`` and ``false``. Quoted values such as
+``"false"`` are strings rather than Boolean values and are invalid for this
+setting.
+
+This setting affects only position presets. It does not disable loading the
+experiment Python file, questionnaire objects, or other experiment
+configuration.
 
 
 Full File Example
