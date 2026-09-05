@@ -31,7 +31,70 @@ def test_file_load():
     for elem in should_have:
         assert not isinstance(objs[elem], SimpleNamespace), err.format(elem)
     assert 'tst' not in objs  # Tree namespace should be disabled
-    assert len(Presets._paths) == 2
+    assert set(Presets._paths) == {'hutch', 'exp'}
+
+
+def test_experiment_presets_disabled(monkeypatch, tmp_path):
+    # verify that an active experiment does not cause experiment presets to
+    # be configured when the new setting is disabled.
+    setup_calls = []
+
+    def mock_setup_preset_paths(**kwargs):
+        setup_calls.append(kwargs)
+
+    monkeypatch.setattr(
+        'hutch_python.load_conf.setup_preset_paths',
+        mock_setup_preset_paths,
+    )
+    monkeypatch.setattr(
+        'hutch_python.load_conf.get_qs_objs',
+        lambda expname: {},
+    )
+    monkeypatch.setattr(
+        'hutch_python.load_conf.get_exp_objs',
+        lambda expname: SimpleNamespace(),
+    )
+
+    load_conf(
+        {
+            'hutch': 'tst',
+            'experiment': 'tstx010',
+            'load_experiment_presets': False,
+            'daq_type': 'nodaq',
+        },
+        hutch_dir=tmp_path,
+    )
+
+    beamline_path = tmp_path / 'presets' / 'beamline'
+    experiment_path = tmp_path / 'presets' / 'x010'
+
+    assert setup_calls == [{
+        'hutch': beamline_path,
+        'defer_loading': True,
+    }]
+    assert beamline_path.is_dir()
+    assert not experiment_path.exists()
+
+
+def test_presets_without_experiment(monkeypatch, tmp_path):
+    setup_calls = []
+    monkeypatch.setattr(
+        'hutch_python.load_conf.setup_preset_paths',
+        lambda **kwargs: setup_calls.append(kwargs),
+    )
+
+    load_conf(
+        {
+            'load_experiment_presets': True,
+            'daq_type': 'nodaq',
+        },
+        hutch_dir=tmp_path,
+    )
+
+    assert setup_calls == [{
+        'hutch': tmp_path / 'presets' / 'beamline',
+        'defer_loading': True,
+    }]
 
 
 def test_exp_override():

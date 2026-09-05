@@ -582,12 +582,18 @@ def load_conf(conf, hutch_dir=None, args=None):
             all_objects='Namespace of all loaded objects.',
         )
 
-    # Install presets
+    # Configure saved motor positions. Presets are stored as YAML files under
+    # the hutch launch directory.
     if hutch_dir is not None:
+        # Log preset setup failures without stopping the entire session.
         with safe_load('position presets'):
             presets_dir = Path(hutch_dir) / 'presets'
+
+            # Beamline presets are permanent and shared by all experiments.
             beamline_presets = presets_dir / 'beamline'
 
+            # Preserve existing behavior unless the YAML configuration file
+            # explicitly disables experiment presets.
             load_experiment_presets = conf.get('load_experiment_presets', True)
             if not isinstance(load_experiment_presets, bool):
                 logger.error(
@@ -598,16 +604,24 @@ def load_conf(conf, hutch_dir=None, args=None):
                 )
                 load_experiment_presets = True
 
+            # Preset root and permanent beamline directory are required.
             preset_paths = [presets_dir, beamline_presets]
+
+            # Experiment presets are motor positions associated with the active
+            # experiment. Configure them only when an experiment is available
+            # and experiment preset loading is enabled.
             if experiment is not None and load_experiment_presets:
                 experiment_presets = presets_dir / raw_expname
                 preset_paths.append(experiment_presets)
 
+            # Create any missing preset directories.
             for path in preset_paths:
                 if not path.exists():
                     path.mkdir()
                     path.chmod(0o777)
 
+            # Make both permanent beamline presets and active experiment
+            # presets available.
             if experiment is not None and load_experiment_presets:
                 setup_preset_paths(
                     hutch=beamline_presets,
@@ -615,6 +629,7 @@ def load_conf(conf, hutch_dir=None, args=None):
                     defer_loading=True,
                 )
             else:
+                # Make only permanent beamline presets available.
                 setup_preset_paths(
                     hutch=beamline_presets,
                     defer_loading=True,
