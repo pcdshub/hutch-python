@@ -582,26 +582,43 @@ def load_conf(conf, hutch_dir=None, args=None):
             all_objects='Namespace of all loaded objects.',
         )
 
-    # Install Presets
+    # Install presets
     if hutch_dir is not None:
         with safe_load('position presets'):
             presets_dir = Path(hutch_dir) / 'presets'
             beamline_presets = presets_dir / 'beamline'
+
+            load_experiment_presets = conf.get('load_experiment_presets', True)
+            if not isinstance(load_experiment_presets, bool):
+                logger.error(
+                    'Invalid load_experiment_presets value %r; expected a '
+                    'boolean. '
+                    'Experiment presets will be loaded.',
+                    load_experiment_presets,
+                )
+                load_experiment_presets = True
+
             preset_paths = [presets_dir, beamline_presets]
-            if experiment is not None:
+            if experiment is not None and load_experiment_presets:
                 experiment_presets = presets_dir / raw_expname
                 preset_paths.append(experiment_presets)
+
             for path in preset_paths:
                 if not path.exists():
                     path.mkdir()
                     path.chmod(0o777)
-            if experiment is None:
-                setup_preset_paths(hutch=beamline_presets,
-                                   defer_loading=True)
+
+            if experiment is not None and load_experiment_presets:
+                setup_preset_paths(
+                    hutch=beamline_presets,
+                    exp=experiment_presets,
+                    defer_loading=True,
+                )
             else:
-                setup_preset_paths(hutch=beamline_presets,
-                                   exp=experiment_presets,
-                                   defer_loading=True)
+                setup_preset_paths(
+                    hutch=beamline_presets,
+                    defer_loading=True,
+                )
 
     # configure objects
     if obj_config is not None:

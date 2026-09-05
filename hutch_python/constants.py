@@ -40,7 +40,8 @@ VALID_KEYS = (
     'obj_config',
     'session_timer',
     'exclude_devices',
-    'additional_devices'
+    'additional_devices',
+    'load_experiment_presets'
 )
 NO_LOG_EXCEPTIONS = (KeyboardInterrupt, SystemExit)
 LOG_DOMAINS = {".pcdsn", ".slac.stanford.edu"}
