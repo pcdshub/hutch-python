@@ -597,9 +597,8 @@ def load_conf(conf, hutch_dir=None, args=None):
             load_experiment_presets = conf.get('load_experiment_presets', True)
             if not isinstance(load_experiment_presets, bool):
                 logger.error(
-                    'Invalid load_experiment_presets value %r; expected a '
-                    'boolean. '
-                    'Experiment presets will be loaded.',
+                    'Invalid load_experiment_presets value %r; expected "true" '
+                    'or "false". Experiment presets will be loaded.',
                     load_experiment_presets,
                 )
                 load_experiment_presets = True
