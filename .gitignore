@@ -121,3 +121,6 @@ hutch_python/tests/tst/db.txt
 
 # unit test artifacts
 *.sqlite
+
+# ignore _version.py
+_version.py
