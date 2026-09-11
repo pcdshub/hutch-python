@@ -215,7 +215,7 @@ In the example below hutch-python will load all devices from "tmo_sqr1_search",
 
 load_experiment_presets
 -----------------------
-The ``load_experiment_presets`` key determines whether hutch-python loads 
+The ``load_experiment_presets`` key determines whether hutch-python loads
 position presets for the active experiment. It takes a boolean value.
 
 Position presets are saved locations that can be called by commands such as
