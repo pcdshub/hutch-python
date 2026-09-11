@@ -4,7 +4,7 @@ Yaml Files
 ``hutch-python`` uses a ``conf.yml`` file for basic configuration. This is a
 standard yaml file with the following valid keys:
 ``hutch``, ``db``, ``load``, ``load_level``, ``experiment``, ``obj_config``,
-``daq_type``, ``daq_host``, ``daq_platform``, ``exclude_devices``, 
+``daq_type``, ``daq_host``, ``daq_platform``, ``exclude_devices``,
 ``additional_devices``, and ``load_experiment_presets``.
 
 
