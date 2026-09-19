@@ -121,3 +121,6 @@ hutch_python/tests/tst/db.txt
 
 # unit test artifacts
 *.sqlite
+
+# setuptools-scm
+_version.py
