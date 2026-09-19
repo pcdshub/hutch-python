@@ -123,7 +123,11 @@ def load_cams(info):
     """
     # Any cam that needs the event loop has to have one set in the thread
     global main_thread_loop
-    main_thread_loop = asyncio.get_event_loop()
+    try:
+        main_thread_loop = asyncio.get_event_loop()
+    except RuntimeError:
+        # No loop, no worries
+        main_thread_loop = None
 
     objs = {}
     logger.debug(info)
@@ -150,7 +154,8 @@ def build_and_log(info_part):
         The loaded detector, or None.
     """
     # We sync with the main thread's loop so that they work as expected later
-    asyncio.set_event_loop(main_thread_loop)
+    if main_thread_loop is not None:
+        asyncio.set_event_loop(main_thread_loop)
     try:
         obj = build_cam(*info_part)
         logger.success('Loaded %s', obj.name)
