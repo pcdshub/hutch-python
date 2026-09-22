@@ -116,7 +116,7 @@ def test_hist_file_arg():
 
 
 @pytest.mark.timeout(30)
-@pytest.mark.parametrize("filepath,", (
+@pytest.mark.parametrize("filepath", (
     (CFG_PATH.parent / "aesefiudh" / "history.sqlite").resolve(),
     ":memory:",
 ))
