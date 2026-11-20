@@ -128,8 +128,9 @@ class IPythonLogger:
                     (exc_type, exc_value, exc_tb),
                     background=True
                 )
-        finally:
-            return self._orig_sys_excepthook(exc_type, exc_value, exc_tb)
+        except Exception:
+            ...
+        return self._orig_sys_excepthook(exc_type, exc_value, exc_tb)
 
     @_log_errors
     def _thread_excepthook(self, args):
@@ -140,8 +141,9 @@ class IPythonLogger:
                     (args.exc_type, args.exc_value, args.exc_traceback),
                     background=True, thread=args.thread
                 )
-        finally:
-            return self._orig_thread_excepthook(args)
+        except Exception:
+            ...
+        return self._orig_thread_excepthook(args)
 
     @_log_errors
     def log_user_input(self, info):
