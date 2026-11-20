@@ -370,7 +370,7 @@ def load_conf(conf, hutch_dir=None, args=None):
         RE.pause_msg = abort_msg
         initialize_qt_teleporter()
         bec = BECOptionsPerRun()
-        if matplotlib.get_backend() not in {"Qt5Agg", "QtAgg"}:
+        if matplotlib.get_backend().lower() not in {"qt5agg", "qtagg"}:
             logger.warning(
                 'Disabling bluesky scan plots. Matplotlib config must '
                 'be set up for qt5 for bluesky scans to work!'
